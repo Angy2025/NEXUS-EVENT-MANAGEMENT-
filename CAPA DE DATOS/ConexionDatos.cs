@@ -18,12 +18,12 @@ namespace CapaDatos
 
     public class Cultural : Eventos
     {
-        
+        public string Feria = "UCE - Recinto Punta Cana";
     }
 
     public class Deportivo : Eventos
     {
-        
+        public string Torneo = "Parque San Juan";
     }
 
     public class EventosDatos
@@ -79,9 +79,6 @@ namespace CapaDatos
             }
         }
 
-
-
     }
-
 
 }
