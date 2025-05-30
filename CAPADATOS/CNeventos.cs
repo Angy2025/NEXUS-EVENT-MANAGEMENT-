@@ -1,4 +1,6 @@
 ﻿using CapaDatos;
+using Microsoft.Data.SqlClient;
+using System.Diagnostics.Tracing;
 
 namespace CapaNegocios
 {
@@ -6,13 +8,13 @@ namespace CapaNegocios
     {
         //Creamos una instancia de la clase que accede a la base de datos
         private EventosDatos datos = new EventosDatos();
-
-        //Este metodo sirve para obtener una persona por su Id
-
-        public Eventos obtenerResumen(int id)
+     
+        public Eventos ObtenerEventosPorTipo(string tipo)
         {
-            return datos.ObtenerResumenEvento(id); //Llama a la capa de datos
+            if (tipo != "Cultural" && tipo != "Deportivo")
+                return null; 
 
+            return datos.ObtenerEventosPorTipo(tipo);
         }
     }
 }
