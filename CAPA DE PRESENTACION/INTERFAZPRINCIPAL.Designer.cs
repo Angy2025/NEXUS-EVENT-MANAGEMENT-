@@ -33,31 +33,34 @@
             btnC = new Button();
             btnD = new Button();
             txtInstruccion = new TextBox();
+            btnResumen = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvEventos).BeginInit();
             SuspendLayout();
             // 
             // dgvEventos
             // 
             dgvEventos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dgvEventos.BackgroundColor = Color.Black;
+            dgvEventos.BackgroundColor = Color.Gainsboro;
             dgvEventos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvEventos.GridColor = SystemColors.Desktop;
-            dgvEventos.Location = new Point(349, 145);
+            dgvEventos.GridColor = SystemColors.ActiveCaptionText;
+            dgvEventos.Location = new Point(459, 133);
             dgvEventos.Name = "dgvEventos";
             dgvEventos.ReadOnly = true;
             dgvEventos.RowHeadersWidth = 51;
-            dgvEventos.Size = new Size(481, 363);
+            dgvEventos.Size = new Size(457, 363);
             dgvEventos.TabIndex = 0;
             dgvEventos.CellContentClick += dataGridView1_CellContentClick;
+            dgvEventos.CellDoubleClick += dgvEventos_CellDoubleClick;
             // 
             // txtTitulo
             // 
             txtTitulo.BackColor = Color.Black;
-            txtTitulo.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold | FontStyle.Italic | FontStyle.Underline, GraphicsUnit.Point, 0);
+            txtTitulo.Font = new Font("Times New Roman", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtTitulo.ForeColor = SystemColors.ButtonHighlight;
-            txtTitulo.Location = new Point(233, 12);
+            txtTitulo.Location = new Point(163, 24);
             txtTitulo.Name = "txtTitulo";
-            txtTitulo.Size = new Size(401, 34);
+            txtTitulo.ReadOnly = true;
+            txtTitulo.Size = new Size(496, 42);
             txtTitulo.TabIndex = 2;
             txtTitulo.Text = "NEXUS EVENT MANAGMENT";
             txtTitulo.TextAlign = HorizontalAlignment.Center;
@@ -69,7 +72,7 @@
             btnC.BackColor = Color.Black;
             btnC.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnC.ForeColor = SystemColors.ButtonHighlight;
-            btnC.Location = new Point(389, 529);
+            btnC.Location = new Point(26, 214);
             btnC.Name = "btnC";
             btnC.Size = new Size(159, 30);
             btnC.TabIndex = 3;
@@ -82,7 +85,7 @@
             btnD.BackColor = Color.Black;
             btnD.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnD.ForeColor = SystemColors.ButtonHighlight;
-            btnD.Location = new Point(621, 529);
+            btnD.Location = new Point(230, 214);
             btnD.Name = "btnD";
             btnD.Size = new Size(159, 30);
             btnD.TabIndex = 4;
@@ -93,26 +96,43 @@
             // txtInstruccion
             // 
             txtInstruccion.BackColor = SystemColors.InactiveCaptionText;
-            txtInstruccion.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtInstruccion.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtInstruccion.ForeColor = SystemColors.ButtonHighlight;
-            txtInstruccion.Location = new Point(389, 98);
+            txtInstruccion.Location = new Point(12, 133);
             txtInstruccion.Name = "txtInstruccion";
-            txtInstruccion.Size = new Size(408, 30);
+            txtInstruccion.ReadOnly = true;
+            txtInstruccion.Size = new Size(408, 34);
             txtInstruccion.TabIndex = 5;
             txtInstruccion.Text = "Seleccione el tipo de evento al que desea asistir";
+            txtInstruccion.TextChanged += txtInstruccion_TextChanged;
             // 
-            // Form1
+            // btnResumen
+            // 
+            btnResumen.BackColor = Color.Black;
+            btnResumen.Enabled = false;
+            btnResumen.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnResumen.ForeColor = SystemColors.ControlLightLight;
+            btnResumen.Location = new Point(545, 515);
+            btnResumen.Name = "btnResumen";
+            btnResumen.Size = new Size(305, 29);
+            btnResumen.TabIndex = 6;
+            btnResumen.Text = "Ver resumen del evento";
+            btnResumen.UseVisualStyleBackColor = false;
+            btnResumen.Click += btnResumen_Click;
+            // 
+            // INTERFAZPRINCIPAL
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.IndianRed;
-            ClientSize = new Size(867, 602);
+            ClientSize = new Size(953, 602);
+            Controls.Add(btnResumen);
             Controls.Add(txtInstruccion);
             Controls.Add(btnD);
             Controls.Add(btnC);
             Controls.Add(txtTitulo);
             Controls.Add(dgvEventos);
-            Name = "Form1";
+            Name = "INTERFAZPRINCIPAL";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)dgvEventos).EndInit();
             ResumeLayout(false);
@@ -126,5 +146,6 @@
         private Button btnC;
         private Button btnD;
         private TextBox txtInstruccion;
+        private Button btnResumen;
     }
 }
