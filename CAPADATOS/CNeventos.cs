@@ -27,24 +27,30 @@ namespace CapaNegocios
          //Ahora cree una clase que maneje la logica de negocio e interpretacion con mi Base de Datos Eventos
         public class EventosManager
         {
-        private string cadenaConexion;
+        private string CadenaConexion;
 
           public EventosManager()
         {
             EventosDatos datosConexion = new EventosDatos(); //Instanciamos la clase EventosDatos para obtener la cadena de conexion
-            cadenaConexion = datosConexion.conexion;
+            CadenaConexion = datosConexion.CadenaConexion;
         }
+
+
+
+
+
+
+
         //Metodo usado para obtener un Eventos por su Id
         public Eventos ObtenerResumenEvento(int idBusqueda)
         {
             //Se abre la conexion
-            EventosDatos datos = new EventosDatos();
-            using (SqlConnection conn = new SqlConnection(cadenaConexion))
+            using (SqlConnection conn = new SqlConnection(CadenaConexion))
             {
                 conn.Open(); 
 
                 //Consulta SQL para buscar por ID
-                string query = "SELECT Id, Fecha, Nombre, Lugar, Tipo FROM Eventos WHERE Id = @Id";
+                string query = "SELECT Id, Fecha, Nombre, Lugar, Tipo FROM Evento WHERE Id = @Id";
 
                 //Comando SQL y agregacion del parametro de busqueda 
                 SqlCommand cmd = new SqlCommand(query, conn);
@@ -81,6 +87,7 @@ namespace CapaNegocios
                     eventos.Lugar = reader["Lugar"].ToString();
                     eventos.Tipo = tipoEvento;
 
+                    reader.Close();
                     return eventos;
                 }
             }
@@ -88,51 +95,38 @@ namespace CapaNegocios
             return null; 
         }
 
+
+
+
+
+
+
         public List<Eventos> ObtenerEventosPorTipo(string tipo)
         {
             List<Eventos> listaEventos = new List<Eventos>();
-
-                if (tipo != "Cultural" && tipo != "Deportivo")
-            {
-                return listaEventos; //Devuelve una lista vacia si el tipo no es valido
-            }
-
-            using (SqlConnection conn = new SqlConnection(cadenaConexion))
+            using (SqlConnection conn = new SqlConnection(CadenaConexion))
             {
                 conn.Open();
-                string query = "SELECT Id, Fecha, Nombre, Lugar, Tipo FROM Evento WHERE Tipo = @Tipo";
-                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Evento WHERE Tipo = @tipo", conn);
                 cmd.Parameters.AddWithValue("@Tipo", tipo); 
 
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read()) //Anadi un whilw para que lea todos los registros
                 {
-                    string tipoEvento = reader["Tipo"].ToString();
-                    Eventos eventos; 
-
-                    if (tipoEvento == "Cultural")
+                    Eventos eventos = new Eventos
                     {
-                        eventos = new Cultural();
-                    }
-                    else if (tipoEvento == "Deportivo")
-                    {
-                        eventos = new Deportivo(); 
-                    }
-                    else
-                    {
-                        eventos = new Eventos();
-                    }
-
-                    eventos.Id = (int)reader["Id"];
-                    eventos.Fecha = reader["Fecha"].ToString();
-                    eventos.Nombre = reader["Nombre"].ToString();
-                    eventos.Lugar = reader["Lugar"].ToString();
-                    eventos.Tipo = tipoEvento; 
+                        Id = Convert.ToInt32(reader["Id"]),
+                        Fecha = reader["Fecha"].ToString(),
+                        Nombre = reader["Titulo"].ToString(),
+                        Lugar = reader["Lugar"].ToString(),
+                        Tipo = reader["Tipo"].ToString()
+                    };
 
                     listaEventos.Add(eventos);
                 }
+                reader.Close();
             }
-                return listaEventos;
+            return listaEventos;
         }
         }
   

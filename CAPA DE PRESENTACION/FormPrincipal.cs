@@ -7,29 +7,41 @@ using System.Collections.Generic; //List
 
 namespace CAPA_DE_PRESENTACION
 {
-    public partial class INTERFAZPRINCIPAL : Form
+    public partial class FormPrincipal : Form
     {
         private EventosManager eventosManager;
-        public INTERFAZPRINCIPAL()
+        public FormPrincipal()
         {
             InitializeComponent();
             eventosManager = new EventosManager();
-
-
-            //Config de mi DataGridView
-            dgvEventos.AllowUserToAddRows = false; //No permito que el usuario añada filas
-            dgvEventos.AllowUserToDeleteRows = false; //No permito que el usuario eliminar filas
-            dgvEventos.MultiSelect = false; //No permito al usuario seleccionarr mas de 1 fila
-            dgvEventos.AutoGenerateColumns = true; //Permito que se generen columnas desde la clase Eventos
-            dgvEventos.SelectionMode = DataGridViewSelectionMode.FullRowSelect; // Seleccionar toda la fila al hacer clic
-
-            btnResumen.Enabled = false;
 
             this.btnC.Click += new System.EventHandler(this.btnC_Click);
             this.btnD.Click += new System.EventHandler(this.btnD_Click);
             this.btnResumen.Click += new System.EventHandler(this.btnResumen_Click);
             this.dgvEventos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEventos_CellDoubleClick);
         }
+
+
+
+
+
+        // MÉTODO PRIVADO REUTILIZABLE
+        private void CargarEventosPorTipo(string tipo)
+        {
+            EventosManager gestorEventos = new EventosManager(); // Crear instancia de la clase de negocios
+            List<Eventos> lista = gestorEventos.ObtenerEventosPorTipo(tipo); // Obtener datos desde la BD
+
+            dgvEventos.DataSource = null; // Limpia el DataGridView
+            dgvEventos.DataSource = lista; // Asigna la lista de eventos
+
+            // Opcional: cambiar encabezados y ocultar columnas
+            dgvEventos.Columns["Id"].Visible = false;
+            dgvEventos.Columns["Fecha"].HeaderText = "Fecha del Evento";
+            dgvEventos.Columns["Nombre"].HeaderText = "Nombre del Evento";
+            dgvEventos.Columns["Lugar"].HeaderText = "Lugar";
+            dgvEventos.Columns["Tipo"].HeaderText = "Tipo de Evento";
+        }
+
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -53,58 +65,13 @@ namespace CAPA_DE_PRESENTACION
 
         private void btnD_Click(object sender, EventArgs e)
         {
-            
-           try 
-            {
-                //Obtener la lista de eventos deportivos desde la CN
-                List<Eventos> eventosDeportivos = eventosManager.ObtenerEventosPorTipo("Deportivo");
 
-                //Limpiar el DataSource actual y asignar la nueva lista al DataGridView
-                dgvEventos.DataSource = null;
-                dgvEventos.DataSource = eventosDeportivos;
-
-                //Habilitar el boton "Ver Resumen..." si hay eventos en la lista, deshabilitarlo si no
-                btnResumen.Enabled = eventosDeportivos.Count > 0;
-
-                //Mostrar mensaje si no se encontraron eventos
-                if (eventosDeportivos.Count == 0)
-                {
-                    MessageBox.Show("No se encontraron eventos Deportivos, intente nuevamente.", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            catch (Exception ex)
-            {
-                // Manejo de errores en caso de problemas al cargar los eventos
-                MessageBox.Show("Error al cargar eventos Deportivos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
-            }
+            CargarEventosPorTipo("Deportivo");
         }
 
         private void btnC_Click(object sender, EventArgs e)
         {
-            try
-            {
-                //Obtener la lista de eventos culturales desde la CN
-                List<Eventos> eventosCulturales = eventosManager.ObtenerEventosPorTipo("Cultural");
-
-                //Limpiar el DataSource actual y asignar la nueva lista al DataGridView
-                dgvEventos.DataSource = null;
-                dgvEventos.DataSource = eventosCulturales;
-
-                //Habilitar el boton "Ver Resumen..." si hay eventos en la lista, deshabilitarlo si no
-                btnResumen.Enabled = eventosCulturales.Count > 0;
-
-                //Mostrar mensaje si no se encontraron eventos
-                if (eventosCulturales.Count == 0)
-                {
-                    MessageBox.Show("No se encontraron eventos culturales, intente nuevamente.", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            catch (Exception ex)
-            {
-                // Manejo de errores en caso de problemas al cargar los eventos
-                MessageBox.Show("Error al cargar eventos Culturales: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
+            CargarEventosPorTipo("Cultural");
         }
 
         private void btnResumen_Click(object sender, EventArgs e)
@@ -138,6 +105,8 @@ namespace CAPA_DE_PRESENTACION
                 //Informar al usuario que debe seleccionar un evento
                 MessageBox.Show("Por favor, seleccione un evento de la lista para ver su resumen.", "Selección requerida", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+
+            btnResumen.Enabled = dgvEventos.SelectedRows.Count > 0;
         }
 
         private void txtInstruccion_TextChanged(object sender, EventArgs e)
@@ -153,6 +122,18 @@ namespace CAPA_DE_PRESENTACION
                 // Llamar directamente al método Click del botón "Ver Resumen". Esto evita duplicar la lógica de mostrar el resumen.
                 btnResumen_Click(btnResumen, EventArgs.Empty);
             }
+        }
+
+        private void FormPrincipal_Load(object sender, EventArgs e)
+        {
+            //Config de mi DataGridView
+            dgvEventos.AllowUserToAddRows = false; //No permito que el usuario añada filas
+            dgvEventos.AllowUserToDeleteRows = false; //No permito que el usuario elimine filas
+            dgvEventos.MultiSelect = false; //No permito al usuario seleccione mas de 1 fila
+            dgvEventos.AutoGenerateColumns = true; //Permito que se generen columnas desde la clase Eventos
+            dgvEventos.SelectionMode = DataGridViewSelectionMode.FullRowSelect; // Seleccionar toda la fila al hacer clic
+
+            btnResumen.Enabled = false;
         }
     }
 }

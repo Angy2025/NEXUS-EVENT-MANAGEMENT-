@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            lblTitulo = new Label();
             lblname = new Label();
             lbldate = new Label();
             label4 = new Label();
@@ -40,21 +40,22 @@
             txtTipoEvento = new TextBox();
             SuspendLayout();
             // 
-            // label1
+            // lblTitulo
             // 
-            label1.AutoSize = true;
-            label1.BackColor = SystemColors.ActiveCaptionText;
-            label1.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = SystemColors.ControlLightLight;
-            label1.Location = new Point(83, 34);
-            label1.Name = "label1";
-            label1.Size = new Size(285, 25);
-            label1.TabIndex = 0;
-            label1.Text = "DETALLES DEL EVENTO";
+            lblTitulo.AutoSize = true;
+            lblTitulo.BackColor = Color.White;
+            lblTitulo.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitulo.ForeColor = Color.Black;
+            lblTitulo.Location = new Point(83, 34);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(285, 25);
+            lblTitulo.TabIndex = 0;
+            lblTitulo.Text = "DETALLES DEL EVENTO";
             // 
             // lblname
             // 
             lblname.AutoSize = true;
+            lblname.BackColor = Color.White;
             lblname.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblname.Location = new Point(28, 103);
             lblname.Name = "lblname";
@@ -65,6 +66,7 @@
             // lbldate
             // 
             lbldate.AutoSize = true;
+            lbldate.BackColor = Color.White;
             lbldate.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbldate.Location = new Point(28, 209);
             lbldate.Name = "lbldate";
@@ -75,6 +77,7 @@
             // label4
             // 
             label4.AutoSize = true;
+            label4.BackColor = Color.White;
             label4.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.Location = new Point(28, 261);
             label4.Name = "label4";
@@ -85,6 +88,7 @@
             // lblplace
             // 
             lblplace.AutoSize = true;
+            lblplace.BackColor = Color.White;
             lblplace.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblplace.Location = new Point(28, 152);
             lblplace.Name = "lblplace";
@@ -94,9 +98,9 @@
             // 
             // btnclose
             // 
-            btnclose.BackColor = SystemColors.ActiveCaptionText;
+            btnclose.BackColor = SystemColors.ButtonHighlight;
             btnclose.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnclose.ForeColor = SystemColors.ControlLightLight;
+            btnclose.ForeColor = Color.Black;
             btnclose.Location = new Point(153, 322);
             btnclose.Name = "btnclose";
             btnclose.Size = new Size(94, 29);
@@ -143,6 +147,9 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Black;
+            BackgroundImage = Properties.Resources.The_Diplomat_of_the_Year_Award1;
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(463, 390);
             Controls.Add(txtTipoEvento);
             Controls.Add(txtFechaEvento);
@@ -153,7 +160,7 @@
             Controls.Add(label4);
             Controls.Add(lbldate);
             Controls.Add(lblname);
-            Controls.Add(label1);
+            Controls.Add(lblTitulo);
             Name = "FormDetallesEvento";
             Text = "Form1";
             Load += FormDetallesEvento_Load;
@@ -163,7 +170,7 @@
 
         #endregion
 
-        private Label label1;
+        private Label lblTitulo;
         private Label lblname;
         private Label lbldate;
         private Label label4;
