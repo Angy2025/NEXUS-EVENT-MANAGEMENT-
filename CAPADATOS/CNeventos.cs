@@ -97,38 +97,40 @@ namespace CapaNegocios
 
 
 
-
-
-
-
+        //Metodo para obtener todos los eventos segun su tipo (Cultural o Deportivo)
         public List<Eventos> ObtenerEventosPorTipo(string tipo)
         {
             List<Eventos> listaEventos = new List<Eventos>();
+
             using (SqlConnection conn = new SqlConnection(CadenaConexion))
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM Evento WHERE Tipo = @tipo", conn);
-                cmd.Parameters.AddWithValue("@Tipo", tipo); 
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Evento WHERE Tipo = @Tipo", conn);
+                cmd.Parameters.AddWithValue("@Tipo", tipo);
 
                 SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read()) //Anadi un whilw para que lea todos los registros
+
+                while (reader.Read()) //Anadi un while para que lea todos los registros
                 {
                     Eventos eventos = new Eventos
                     {
                         Id = Convert.ToInt32(reader["Id"]),
                         Fecha = reader["Fecha"].ToString(),
-                        Nombre = reader["Titulo"].ToString(),
+                        Nombre = reader["Nombre"].ToString(),
                         Lugar = reader["Lugar"].ToString(),
                         Tipo = reader["Tipo"].ToString()
                     };
 
-                    listaEventos.Add(eventos);
+                    listaEventos.Add(eventos); //Agregamos cada objeto a la lista
                 }
-                reader.Close();
+
+                reader.Close(); //Cerramos el lector
             }
-            return listaEventos;
+
+            return listaEventos; //Retornamos la lista final de eventos
         }
-        }
-  
+
+    }
+
 }
 

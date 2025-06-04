@@ -1,15 +1,18 @@
 using System;
+using System.Drawing.Text;
+using System.Windows.Forms;
+using System.Collections.Generic;
 using CapaNegocios;//EventosManager y Eventos (mis clases en esa capa)
 using CapaDatos;
-using System.Drawing.Text;
-using System.Windows.Forms; 
-using System.Collections.Generic; //List
+using Microsoft.Data.SqlClient;
+using System.Data; //List
 
 namespace CAPA_DE_PRESENTACION
 {
     public partial class FormPrincipal : Form
     {
         private EventosManager eventosManager;
+
         public FormPrincipal()
         {
             InitializeComponent();
@@ -21,27 +24,37 @@ namespace CAPA_DE_PRESENTACION
             this.dgvEventos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEventos_CellDoubleClick);
         }
 
+        private void FormPrincipal_Load(object sender, EventArgs e)
+        {
 
-
-
+        }
 
         // MÉTODO PRIVADO REUTILIZABLE
         private void CargarEventosPorTipo(string tipo)
         {
-            EventosManager gestorEventos = new EventosManager(); // Crear instancia de la clase de negocios
-            List<Eventos> lista = gestorEventos.ObtenerEventosPorTipo(tipo); // Obtener datos desde la BD
+            try
+            {
+                EventosDatos data = new EventosDatos();
+                using (SqlConnection conn = new SqlConnection(data.CadenaConexion))
+                {
+                    SqlDataAdapter adapt;
+                    conn.Open();
 
-            dgvEventos.DataSource = null; // Limpia el DataGridView
-            dgvEventos.DataSource = lista; // Asigna la lista de eventos
+                    DataTable dt = new DataTable();
+                    adapt = new SqlDataAdapter("SELECT Id, Nombre FROM Evento WHERE Tipo = @Tipo", conn);
+                    adapt.SelectCommand.Parameters.AddWithValue("@Tipo", tipo);
+                    adapt.Fill(dt);
 
-            // Opcional: cambiar encabezados y ocultar columnas
-            dgvEventos.Columns["Id"].Visible = false;
-            dgvEventos.Columns["Fecha"].HeaderText = "Fecha del Evento";
-            dgvEventos.Columns["Nombre"].HeaderText = "Nombre del Evento";
-            dgvEventos.Columns["Lugar"].HeaderText = "Lugar";
-            dgvEventos.Columns["Tipo"].HeaderText = "Tipo de Evento";
+                    dgvEventos.DataSource = dt;
+                    conn.Close();
+                }
+                btnResumen.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar eventos de tipo " + tipo + ": " + ex.Message);
+            }
         }
-
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -76,37 +89,36 @@ namespace CAPA_DE_PRESENTACION
 
         private void btnResumen_Click(object sender, EventArgs e)
         {
-            //Primero verificamos que haya alguna fila seleccionada en el DataGridView
-            if (dgvEventos.SelectedRows.Count > 0)
+            MostrarResumenEvento();
+        }
+
+        private void MostrarResumenEvento()
+        {
+            if (dgvEventos.SelectedCells.Count > 0)
             {
-                try
-                {
-                    // Obtener el objeto 'Eventos' de la fila actualmente seleccionada y el 'DataBoundItem' devuelve el objeto original al que la fila está enlazada
-                    Eventos eventoSeleccionado = dgvEventos.SelectedRows[0].DataBoundItem as Eventos;
+                int idEvento = Convert.ToInt32(dgvEventos.SelectedRows[0].Cells["Id"].Value);
 
-                    //Si se pudo obtener un objeto Eventos Valido
-                    if (eventoSeleccionado != null)
-                    {
-                        // Crear una nueva instancia del formulario de detalles (FormDetallesEvento) y pasarle el objeto Eventos seleccionado como parámetro en el constructor
-                        FormDetallesEvento formDetalles = new FormDetallesEvento(eventoSeleccionado);
+                EventosManager manager = new EventosManager();
+                Eventos evento = manager.ObtenerResumenEvento(idEvento);
 
-                        //Mostrar mi segundo formulario de dettales (Lo muestro y paso el form1 a segundo plano)
-                        formDetalles.ShowDialog();
-                    }
-                }
-                catch (Exception ex)
+                if (evento != null)
                 {
-                    //Manejamos errores por si hay uno del tipo 404
-                    MessageBox.Show("Error al intentar ver resumen del evento: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtIdEvento.Text = evento.Id.ToString();
+                    txtNombreEvento.Text = evento.Nombre;
+                    txtFechaEvento.Text = evento.Fecha;
+                    txtLugarEvento.Text = evento.Lugar;
+                    txtTipoEvento.Text = evento.Tipo;
                 }
+                else
+                {
+                    MessageBox.Show("No se encontró el evento.");
+                }
+
             }
             else
             {
-                //Informar al usuario que debe seleccionar un evento
-                MessageBox.Show("Por favor, seleccione un evento de la lista para ver su resumen.", "Selección requerida", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Por favor, seleccione un evento.");
             }
-
-            btnResumen.Enabled = dgvEventos.SelectedRows.Count > 0;
         }
 
         private void txtInstruccion_TextChanged(object sender, EventArgs e)
@@ -116,24 +128,17 @@ namespace CAPA_DE_PRESENTACION
 
         private void dgvEventos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Verificar que el doble clic no fue en el encabezado de las columnas (e.RowIndex >= 0) y que la fila existe (e.RowIndex < dgvEventos.Rows.Count)
-            if (e.RowIndex >= 0 && e.RowIndex < dgvEventos.Rows.Count)
-            {
-                // Llamar directamente al método Click del botón "Ver Resumen". Esto evita duplicar la lógica de mostrar el resumen.
-                btnResumen_Click(btnResumen, EventArgs.Empty);
-            }
+
         }
 
-        private void FormPrincipal_Load(object sender, EventArgs e)
+        private void dgvEventos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //Config de mi DataGridView
-            dgvEventos.AllowUserToAddRows = false; //No permito que el usuario añada filas
-            dgvEventos.AllowUserToDeleteRows = false; //No permito que el usuario elimine filas
-            dgvEventos.MultiSelect = false; //No permito al usuario seleccione mas de 1 fila
-            dgvEventos.AutoGenerateColumns = true; //Permito que se generen columnas desde la clase Eventos
-            dgvEventos.SelectionMode = DataGridViewSelectionMode.FullRowSelect; // Seleccionar toda la fila al hacer clic
 
-            btnResumen.Enabled = false;
+        }
+
+        private void btnclose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
