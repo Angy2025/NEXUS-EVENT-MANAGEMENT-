@@ -121,14 +121,20 @@
   <data name="descargar (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\descargar (2).jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="descargar (6)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\descargar (6).jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="The Diplomat of the Year Award1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\The Diplomat of the Year Award1.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Gemini_Generated_Image_6y0fnb6y0fnb6y0f1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Gemini_Generated_Image_6y0fnb6y0fnb6y0f1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="descargar (3)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\descargar (3).jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="descargar (7)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\descargar (7).jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="descargar (5)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\descargar (5).jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="descargar (6)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\descargar (6)1.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="descargar (8)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\descargar (8).jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -136,16 +142,28 @@
   <data name="The Diplomat of the Year Award" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\The Diplomat of the Year Award.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="descargar (5)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\descargar (5).jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="descargar (11)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\descargar (11).jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="descargar (4)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\descargar (4).jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="descargar (6)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\descargar (6)1.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="descargar (6)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\descargar (6).jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="The Diplomat of the Year Award1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\The Diplomat of the Year Award1.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Gemini_Generated_Image_6y0fnb6y0fnb6y0f" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Gemini_Generated_Image_6y0fnb6y0fnb6y0f.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Magical Moments at the Annual School Festival" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Magical Moments at the Annual School Festival.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="descargar (12)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\descargar (12).jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="descargar (7)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\descargar (7).jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Gemini_Generated_Image_6y0fnb6y0fnb6y0f (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Gemini_Generated_Image_6y0fnb6y0fnb6y0f (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

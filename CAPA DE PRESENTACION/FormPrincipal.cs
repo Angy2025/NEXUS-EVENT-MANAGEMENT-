@@ -5,7 +5,8 @@ using System.Collections.Generic;
 using CapaNegocios;//EventosManager y Eventos (mis clases en esa capa)
 using CapaDatos;
 using Microsoft.Data.SqlClient;
-using System.Data; //List
+using System.Data;
+using static CapaNegocios.Cultural; //List
 
 namespace CAPA_DE_PRESENTACION
 {
@@ -63,7 +64,7 @@ namespace CAPA_DE_PRESENTACION
 
         private void txtTitulo_TextChanged(object sender, EventArgs e)
         {
-
+            Color.FromArgb(47, 60, 71); 
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -139,6 +140,11 @@ namespace CAPA_DE_PRESENTACION
         private void btnclose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -63,6 +63,26 @@ namespace CAPA_DE_PRESENTACION.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap descargar__11_ {
+            get {
+                object obj = ResourceManager.GetObject("descargar (11)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap descargar__12_ {
+            get {
+                object obj = ResourceManager.GetObject("descargar (12)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap descargar__2_ {
             get {
                 object obj = ResourceManager.GetObject("descargar (2)", resourceCulture);
@@ -136,6 +156,46 @@ namespace CAPA_DE_PRESENTACION.Properties {
         internal static System.Drawing.Bitmap descargar__8_ {
             get {
                 object obj = ResourceManager.GetObject("descargar (8)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Gemini_Generated_Image_6y0fnb6y0fnb6y0f {
+            get {
+                object obj = ResourceManager.GetObject("Gemini_Generated_Image_6y0fnb6y0fnb6y0f", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Gemini_Generated_Image_6y0fnb6y0fnb6y0f__1_ {
+            get {
+                object obj = ResourceManager.GetObject("Gemini_Generated_Image_6y0fnb6y0fnb6y0f (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Gemini_Generated_Image_6y0fnb6y0fnb6y0f1 {
+            get {
+                object obj = ResourceManager.GetObject("Gemini_Generated_Image_6y0fnb6y0fnb6y0f1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Magical_Moments_at_the_Annual_School_Festival {
+            get {
+                object obj = ResourceManager.GetObject("Magical Moments at the Annual School Festival", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
