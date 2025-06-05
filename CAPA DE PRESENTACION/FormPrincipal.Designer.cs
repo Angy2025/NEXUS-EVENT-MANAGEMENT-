@@ -65,6 +65,7 @@
             dgvEventos.Name = "dgvEventos";
             dgvEventos.ReadOnly = true;
             dgvEventos.RowHeadersWidth = 51;
+            dgvEventos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvEventos.Size = new Size(245, 236);
             dgvEventos.TabIndex = 0;
             dgvEventos.CellClick += dgvEventos_CellClick;
@@ -74,6 +75,7 @@
             // txtTitulo
             // 
             txtTitulo.BackColor = Color.White;
+            txtTitulo.Enabled = false;
             txtTitulo.Font = new Font("Cambria", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             txtTitulo.ForeColor = SystemColors.ActiveCaptionText;
             txtTitulo.Location = new Point(275, 64);
@@ -81,6 +83,7 @@
             txtTitulo.ReadOnly = true;
             txtTitulo.Size = new Size(403, 43);
             txtTitulo.TabIndex = 2;
+            txtTitulo.TabStop = false;
             txtTitulo.Text = "Nexus Event Managment\r\n";
             txtTitulo.TextAlign = HorizontalAlignment.Center;
             txtTitulo.WordWrap = false;
@@ -179,9 +182,11 @@
             // 
             // txtIdEvento
             // 
+            txtIdEvento.AllowDrop = true;
             txtIdEvento.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtIdEvento.Location = new Point(158, 137);
             txtIdEvento.Name = "txtIdEvento";
+            txtIdEvento.ReadOnly = true;
             txtIdEvento.Size = new Size(197, 30);
             txtIdEvento.TabIndex = 25;
             // 
@@ -306,7 +311,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkBlue;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(895, 770);
+            ClientSize = new Size(895, 793);
             Controls.Add(groupBox3);
             Controls.Add(txtTitulo);
             Controls.Add(groupBox1);

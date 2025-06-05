@@ -67,11 +67,6 @@ namespace CAPA_DE_PRESENTACION
             Color.FromArgb(47, 60, 71); 
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -95,31 +90,39 @@ namespace CAPA_DE_PRESENTACION
 
         private void MostrarResumenEvento()
         {
-            if (dgvEventos.SelectedCells.Count > 0)
+            // Primera validación: Asegurarse de que al menos una fila esté seleccionada.
+
+            if (dgvEventos.SelectedRows.Count == 0)
             {
-                int idEvento = Convert.ToInt32(dgvEventos.SelectedRows[0].Cells["Id"].Value);
+                MessageBox.Show("Por favor, seleccione un evento.", "Error de Seleccion", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+                return; 
+            }
 
-                EventosManager manager = new EventosManager();
-                Eventos evento = manager.ObtenerResumenEvento(idEvento);
+            // Si llegamos aquí, sabemos que hay al menos una fila seleccionada e intentamos obtener el ID del evento de la fila seleccionada. Siempre tomamos la primera fila seleccionada (índice 0)
 
-                if (evento != null)
-                {
-                    txtIdEvento.Text = evento.Id.ToString();
-                    txtNombreEvento.Text = evento.Nombre;
-                    txtFechaEvento.Text = evento.Fecha;
-                    txtLugarEvento.Text = evento.Lugar;
-                    txtTipoEvento.Text = evento.Tipo;
-                }
-                else
-                {
-                    MessageBox.Show("No se encontró el evento.");
-                }
+            int idEvento = Convert.ToInt32(dgvEventos.SelectedRows[0].Cells["Id"].Value);
+            EventosManager manager = new EventosManager();
+            Eventos evento = manager.ObtenerResumenEvento(idEvento);
 
+            // Segunda validación: Verificar si el manager encontró el evento en la base de datos
+
+            if (evento != null)
+            {
+                //Si el evento fue encontrado, mostramos sus detalles
+                txtIdEvento.Text = evento.Id.ToString();
+                txtNombreEvento.Text = evento.Nombre;
+                txtFechaEvento.Text = evento.Fecha;
+                txtLugarEvento.Text = evento.Lugar;
+                txtTipoEvento.Text = evento.Tipo;
             }
             else
             {
-                MessageBox.Show("Por favor, seleccione un evento.");
+                // Si el manager NO encontró el evento (ej. ID no existe en la BD)
+
+                MessageBox.Show("No se encontró el evento asociado al ID seleccionado.", "Error del Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
+
         }
 
         private void txtInstruccion_TextChanged(object sender, EventArgs e)
