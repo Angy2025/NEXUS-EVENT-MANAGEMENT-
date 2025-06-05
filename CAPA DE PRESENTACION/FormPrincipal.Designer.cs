@@ -84,7 +84,7 @@
             txtTitulo.Size = new Size(403, 43);
             txtTitulo.TabIndex = 2;
             txtTitulo.TabStop = false;
-            txtTitulo.Text = "Nexus Event Managment\r\n";
+            txtTitulo.Text = "Nexus Event Management\r\n";
             txtTitulo.TextAlign = HorizontalAlignment.Center;
             txtTitulo.WordWrap = false;
             txtTitulo.TextChanged += txtTitulo_TextChanged;
