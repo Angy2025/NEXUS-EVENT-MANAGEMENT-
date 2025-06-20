@@ -129,6 +129,7 @@
             groupBox1.Size = new Size(775, 611);
             groupBox1.TabIndex = 27;
             groupBox1.TabStop = false;
+            groupBox1.Enter += groupBox1_Enter;
             // 
             // btnD
             // 
@@ -304,6 +305,7 @@
             groupBox3.TabIndex = 28;
             groupBox3.TabStop = false;
             groupBox3.Text = "¡Welcome to...!";
+            groupBox3.Enter += groupBox3_Enter;
             // 
             // FormPrincipal
             // 

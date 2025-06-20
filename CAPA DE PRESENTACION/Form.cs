@@ -64,7 +64,7 @@ namespace CAPA_DE_PRESENTACION
 
         private void txtTitulo_TextChanged(object sender, EventArgs e)
         {
-            Color.FromArgb(47, 60, 71); 
+            Color.FromArgb(47, 60, 71);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -95,7 +95,7 @@ namespace CAPA_DE_PRESENTACION
             if (dgvEventos.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Por favor, seleccione un evento.", "Error de Seleccion", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
-                return; 
+                return;
             }
 
             // Si llegamos aquí, sabemos que hay al menos una fila seleccionada e intentamos obtener el ID del evento de la fila seleccionada. Siempre tomamos la primera fila seleccionada (índice 0)
@@ -146,6 +146,16 @@ namespace CAPA_DE_PRESENTACION
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }
