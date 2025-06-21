@@ -10,14 +10,24 @@ using System.Windows.Forms;
 
 namespace CAPA_DE_PRESENTACION
 {
-    public partial class FormularioPrincpal : Form
+    public partial class FormConfirmacion : Form
     {
-        public FormularioPrincpal()
+        public FormConfirmacion()
         {
             InitializeComponent();
         }
 
-        private void FormularioPrincpal_Load(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormConfirmacion_Load(object sender, EventArgs e)
         {
 
         }
