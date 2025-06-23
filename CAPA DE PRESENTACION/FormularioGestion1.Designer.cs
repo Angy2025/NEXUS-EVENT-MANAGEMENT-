@@ -165,6 +165,7 @@
             dgv2.RowHeadersWidth = 51;
             dgv2.Size = new Size(767, 320);
             dgv2.TabIndex = 5;
+            dgv2.CellContentClick += dgv2_CellContentClick;
             // 
             // button1
             // 
@@ -202,6 +203,7 @@
             comBox.AllowDrop = true;
             comBox.Font = new Font("Times New Roman", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             comBox.FormattingEnabled = true;
+            comBox.Items.AddRange(new object[] { "Eventos Culturales", "Eventos Deportivos", "Eventos Tecnologicos ", "Eventos Cinematograficos ", "Eventos De Networinkg ", "Todos Los Eventos" });
             comBox.Location = new Point(298, 75);
             comBox.Name = "comBox";
             comBox.Size = new Size(151, 28);

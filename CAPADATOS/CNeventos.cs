@@ -80,7 +80,6 @@ namespace CapaNegocios
                         {
                             eventos = new Eventos();
                         }
-
                         //Se asignan valores desde la base de datos a los atributos de la clase
                         eventos.Id = (int)reader["Id"];
                         eventos.Fecha = reader["Fecha"].ToString();

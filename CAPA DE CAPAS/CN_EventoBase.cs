@@ -1,11 +1,12 @@
-﻿using Microsoft.Identity.Client;
+﻿// Propósito: Definir la ESTRUCTURA y las PROPIEDADES comunes a todos los eventos
+// Esta clase es abstracta y servirá como base para otros tipos de eventos, como Cultural y Deportivo
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CAPA_DE_NEGOCIOS
+namespace CAPA_DE_CAPAS
 {
     public abstract class EventoBase
     {
@@ -17,18 +18,5 @@ namespace CAPA_DE_NEGOCIOS
         public string Tipo { get; set; }
         public int Capacidad { get; set; } //Capacidad del evento
 
-
-        public virtual string ObtenerResumenEvento()
-        {
-            return $"El evento '{Nombre}' se realizara en {Lugar}.";
-        }
-
-        public abstract string ObtenerDetalles();
-
-
-        public string ObtenerFechaBien()
-        {
-            return Fecha.ToString("d 'de' MMM 'del' yyyy 'a las' hh:mm tt");
-        }
     }
 }

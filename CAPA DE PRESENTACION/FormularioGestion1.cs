@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CAPA_DE_NEGOCIOS; // Importamos la capa de negocios para manejar los eventos
+
 
 namespace CAPA_DE_PRESENTACION
 {
@@ -19,7 +21,17 @@ namespace CAPA_DE_PRESENTACION
 
         private void FormularioPrincpal_Load(object sender, EventArgs e)
         {
-            // Llamamos a los métodos que configuran nuestro formulario.
+            
+        }
+
+        private void MostrarEvent()
+        {
+            
+        }
+
+        private void dgv2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
