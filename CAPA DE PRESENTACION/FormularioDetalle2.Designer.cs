@@ -32,6 +32,7 @@
             lbllugar = new Label();
             lbldate = new Label();
             groupBox1 = new GroupBox();
+            txtTitulo = new TextBox();
             lbldetalle = new Label();
             btnCancelar = new Button();
             btnGuardar = new Button();
@@ -84,6 +85,7 @@
             // groupBox1
             // 
             groupBox1.BackColor = Color.Silver;
+            groupBox1.Controls.Add(txtTitulo);
             groupBox1.Controls.Add(lbldetalle);
             groupBox1.Controls.Add(btnCancelar);
             groupBox1.Controls.Add(btnGuardar);
@@ -104,6 +106,22 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "groupBox1";
             groupBox1.Enter += groupBox1_Enter;
+            // 
+            // txtTitulo
+            // 
+            txtTitulo.BackColor = Color.White;
+            txtTitulo.Enabled = false;
+            txtTitulo.Font = new Font("Cambria", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            txtTitulo.ForeColor = SystemColors.ActiveCaptionText;
+            txtTitulo.Location = new Point(63, 214);
+            txtTitulo.Name = "txtTitulo";
+            txtTitulo.ReadOnly = true;
+            txtTitulo.Size = new Size(403, 43);
+            txtTitulo.TabIndex = 13;
+            txtTitulo.TabStop = false;
+            txtTitulo.Text = "Nexus Event Management\r\n";
+            txtTitulo.TextAlign = HorizontalAlignment.Center;
+            txtTitulo.WordWrap = false;
             // 
             // lbldetalle
             // 
@@ -129,6 +147,7 @@
             btnCancelar.Text = "Cancelar";
             btnCancelar.TextImageRelation = TextImageRelation.TextBeforeImage;
             btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // btnGuardar
             // 
@@ -143,6 +162,7 @@
             btnGuardar.Text = "Guardar";
             btnGuardar.TextImageRelation = TextImageRelation.TextBeforeImage;
             btnGuardar.UseVisualStyleBackColor = false;
+            btnGuardar.Click += btnGuardar_Click;
             // 
             // numericUpDown1
             // 
@@ -236,5 +256,6 @@
         private Button btnCancelar;
         private Button btnGuardar;
         private Label lbldetalle;
+        private TextBox txtTitulo;
     }
 }

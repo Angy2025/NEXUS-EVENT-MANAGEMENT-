@@ -137,6 +137,7 @@
             btnagregar.Text = "Agregar Nuevo";
             btnagregar.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnagregar.UseVisualStyleBackColor = true;
+            btnagregar.Click += btnagregar_Click;
             // 
             // button3
             // 
@@ -208,6 +209,7 @@
             comBox.Name = "comBox";
             comBox.Size = new Size(151, 28);
             comBox.TabIndex = 1;
+            comBox.SelectedIndexChanged += comBox_SelectedIndexChanged;
             // 
             // label1
             // 
@@ -241,8 +243,8 @@
             Controls.Add(groupBox2);
             ForeColor = Color.DarkBlue;
             Name = "frmGestionEventos";
-            Text = "FormularioPrincpal";
-            Load += FormularioPrincpal_Load;
+            Text = "FormularioPrincipal";
+            Load += frmGestionEventos_Load;
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgv2).EndInit();

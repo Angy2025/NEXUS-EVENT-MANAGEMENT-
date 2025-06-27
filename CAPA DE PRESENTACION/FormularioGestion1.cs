@@ -21,17 +21,40 @@ namespace CAPA_DE_PRESENTACION
 
         private void FormularioPrincpal_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void MostrarEvent()
         {
-            
+
         }
 
         private void dgv2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void frmGestionEventos_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnagregar_Click(object sender, EventArgs e)
+        {
+            FormularioDetalle frmDetalle = new FormularioDetalle();
+            frmDetalle.ShowDialog();
+
+            if (frmDetalle.ShowDialog() == DialogResult.OK)
+            {
+                // El usuario hizo clic en "Guardar",
+                // así que refrescamos la tabla para ver el nuevo evento.
+                CargarEventos();
+            }
         }
     }
 }

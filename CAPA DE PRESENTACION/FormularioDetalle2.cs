@@ -46,5 +46,15 @@ namespace CAPA_DE_PRESENTACION
         {
 
         }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+        }
     }
 }

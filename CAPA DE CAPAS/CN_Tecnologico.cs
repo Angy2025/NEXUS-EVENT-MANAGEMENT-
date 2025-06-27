@@ -13,5 +13,9 @@ namespace CAPA_DE_CAPAS
         {
             Tipo = "Tecnologico";
         }
+        public override string MiPatrocinadorFav()
+        {
+            return "Fundación Carlos Slim";
+        }
     }
 }

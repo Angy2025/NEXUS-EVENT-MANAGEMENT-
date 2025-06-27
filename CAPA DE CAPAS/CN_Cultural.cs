@@ -13,5 +13,10 @@ namespace CAPA_DE_CAPAS
         {
             Tipo = "Cultural";
         }
+
+        public override string MiPatrocinadorFav()
+        {
+            return "Fundación Carlos Slim";
+        }
     }
 }

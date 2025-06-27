@@ -12,5 +12,10 @@ namespace CAPA_DE_CAPAS
         {
             Tipo = "Profesional";
         }
+
+        public override string MiPatrocinadorFav()
+        {
+            return "Fundación Carlos Slim";
+        }
     }
 }
