@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CAPA_DE_CAPAS
+namespace CAPA_DE_NEGOCIOS
 {
-    public class Profesional : EventoBase
+    public class Cinematografico : EventoBase
     {
-        public Profesional()
+        public Cinematografico()
         {
-            Tipo = "Profesional";
+            Tipo = "Cinematografico";
         }
 
         public override string MiPatrocinadorFav()

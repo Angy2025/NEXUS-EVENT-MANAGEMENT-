@@ -108,6 +108,7 @@
             btneliminar.Text = "Eliminar Evento";
             btneliminar.TextImageRelation = TextImageRelation.ImageBeforeText;
             btneliminar.UseVisualStyleBackColor = false;
+            btneliminar.Click += btneliminar_Click;
             // 
             // btnmod
             // 
@@ -123,6 +124,7 @@
             btnmod.Text = "Modificar Evento";
             btnmod.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnmod.UseVisualStyleBackColor = false;
+            btnmod.Click += btnmod_Click;
             // 
             // btnagregar
             // 

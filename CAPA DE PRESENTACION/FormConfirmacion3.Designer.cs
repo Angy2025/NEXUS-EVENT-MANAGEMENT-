@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
-            label1 = new Label();
+            lblMensaje = new Label();
             btnIcon = new Button();
             btneliminar2 = new Button();
             btnCancelar2 = new Button();
@@ -42,16 +42,16 @@
             sqlCommand1.CommandTimeout = 30;
             sqlCommand1.EnableOptimizedParameterBinding = false;
             // 
-            // label1
+            // lblMensaje
             // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.White;
-            label1.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(136, 79);
-            label1.Name = "label1";
-            label1.Size = new Size(491, 25);
-            label1.TabIndex = 0;
-            label1.Text = "¿Esta seguro de que desea eliminar este evento?";
+            lblMensaje.AutoSize = true;
+            lblMensaje.BackColor = Color.White;
+            lblMensaje.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblMensaje.Location = new Point(136, 79);
+            lblMensaje.Name = "lblMensaje";
+            lblMensaje.Size = new Size(491, 25);
+            lblMensaje.TabIndex = 0;
+            lblMensaje.Text = "¿Esta seguro de que desea eliminar este evento?";
             // 
             // btnIcon
             // 
@@ -89,6 +89,7 @@
             btnCancelar2.Text = "No, cancelar.";
             btnCancelar2.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnCancelar2.UseVisualStyleBackColor = true;
+            btnCancelar2.Click += btnCancelar2_Click;
             // 
             // lbladver
             // 
@@ -122,10 +123,11 @@
             Controls.Add(btnCancelar2);
             Controls.Add(btneliminar2);
             Controls.Add(btnIcon);
-            Controls.Add(label1);
+            Controls.Add(lblMensaje);
             Controls.Add(groupBox1);
             Name = "FormConfirmacion";
             Text = "FormConfirmacion";
+            Load += FormConfirmacion_Load_1;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -133,7 +135,7 @@
         #endregion
 
         private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
-        private Label label1;
+        private Label lblMensaje;
         private Button btnIcon;
         private Button btneliminar2;
         private Button btnCancelar2;

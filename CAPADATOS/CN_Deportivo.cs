@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CAPA_DE_CAPAS
+namespace CAPA_DE_NEGOCIOS
 {
     public class Deportivo : EventoBase
     {

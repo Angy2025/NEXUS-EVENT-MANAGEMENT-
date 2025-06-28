@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CAPA DE CAPAS\CAPA DE CAPAS.csproj" />
     <ProjectReference Include="..\CAPA DE DATOS\CAPA DE DATOS.csproj" />
   </ItemGroup>
 

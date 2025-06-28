@@ -6,8 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CAPA_DE_CAPAS
+namespace CAPA_DE_NEGOCIOS
 {
+    //TODO Requisito: creación de una clase abstracta
     public abstract class EventoBase
     {
         //Atributos de la clase eventos para ser heredados en otras clases
@@ -19,13 +20,13 @@ namespace CAPA_DE_CAPAS
         public int Capacidad { get; set; } //Capacidad del evento
 
 
-        // Método virtual que las clases hijas PUEDEN sobrescribir si quieren
+        //TODO Requisito: Método virtual que las clases hijas PUEDEN sobrescribir si quieren
         public virtual string ObtenerLema()
         {
             return "¡Un evento para todos!";
         }
 
-        // Método abstracto que las clases hijas DEBEN implementar
+        //TODO Requisito: Método abstracto que las clases hijas DEBEN implementar
         public abstract string MiPatrocinadorFav();
     }
 }

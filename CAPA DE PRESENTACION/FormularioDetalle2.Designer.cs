@@ -85,7 +85,6 @@
             // groupBox1
             // 
             groupBox1.BackColor = Color.Silver;
-            groupBox1.Controls.Add(txtTitulo);
             groupBox1.Controls.Add(lbldetalle);
             groupBox1.Controls.Add(btnCancelar);
             groupBox1.Controls.Add(btnGuardar);
@@ -113,7 +112,7 @@
             txtTitulo.Enabled = false;
             txtTitulo.Font = new Font("Cambria", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             txtTitulo.ForeColor = SystemColors.ActiveCaptionText;
-            txtTitulo.Location = new Point(63, 214);
+            txtTitulo.Location = new Point(131, 552);
             txtTitulo.Name = "txtTitulo";
             txtTitulo.ReadOnly = true;
             txtTitulo.Size = new Size(403, 43);
@@ -230,6 +229,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkBlue;
             ClientSize = new Size(724, 625);
+            Controls.Add(txtTitulo);
             Controls.Add(groupBox1);
             Name = "FormularioDetalle";
             Text = "FormularioDetalle";
@@ -238,6 +238,7 @@
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

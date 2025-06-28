@@ -1,120 +1,73 @@
-﻿// Propósito: Esta clase es la ÚNICA responsable de todas las operaciones de la base de datos (CRUD)
-using CAPA_DE_CAPAS; // Importamos la capa de capas para usar EventoBase y sus derivados
+﻿using System;
 using Microsoft.Data.SqlClient;
-using System;
-using System.Collections.Generic;
-
+using System.Data;
 
 namespace CapaDatos
 {
     public class CRUD
     {
-        private readonly string CadenaConexion;
+        private EventosDatos conexion = new EventosDatos();
 
-        public CRUD()
+        // CREATE: Recibe los datos simples y los inserta en la base de datos
+        public void Agregar(string nombre, string lugar, DateTime fecha, string tipo, int capacidad)
         {
-            EventosDatos datosDeConexion = new EventosDatos();  // Instancia de la clase EventosDatos para obtener la cadena de conexión del otro archivo
-            CadenaConexion = datosDeConexion.ObtenerConexion();
-        }
-
-        // CREATE: Añade un nuevo evento a la base de datos.
-        public void Agregar(EventoBase evento)
-        {
-            using (SqlConnection conn = new SqlConnection(CadenaConexion))
+            using (SqlConnection conn = new SqlConnection(conexion.ObtenerConexion()))
             {
                 conn.Open();
                 string query = "INSERT INTO Evento (Nombre, Lugar, Fecha, Tipo, Capacidad) VALUES (@Nombre, @Lugar, @Fecha, @Tipo, @Capacidad);";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                using (SqlCommand comando = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@Nombre", evento.Nombre);
-                    cmd.Parameters.AddWithValue("@Lugar", evento.Lugar);
-                    cmd.Parameters.AddWithValue("@Fecha", evento.Fecha);
-                    cmd.Parameters.AddWithValue("@Tipo", evento.Tipo);
-                    cmd.Parameters.AddWithValue("@Capacidad", evento.Capacidad);
-                    cmd.ExecuteNonQuery();
+                    comando.Parameters.AddWithValue("@Nombre", nombre);
+                    comando.Parameters.AddWithValue("@Lugar", lugar);
+                    comando.Parameters.AddWithValue("@Fecha", fecha);
+                    comando.Parameters.AddWithValue("@Tipo", tipo);
+                    comando.Parameters.AddWithValue("@Capacidad", capacidad);
+                    comando.ExecuteNonQuery();
                 }
             }
         }
 
-        //READ: Lee todos los eventos y los devuelve como una lista de objetos.
-        //REQUISITO CUMPLIDO: "Uso de listas para almacenamiento temporal".
-        //La información de la BD se almacena temporalmente en esta lista de objetos antes de pasarla a otra capa.
-        public List<EventoBase> ListarTodos()
+        // READ: Devuelve un DataTable, no una lista de objetos
+        public DataTable ListarTodos()
         {
-            List<EventoBase> listaEventos = new List<EventoBase>();
-
-            using (SqlConnection conn = new SqlConnection(CadenaConexion))
+            DataTable tabla = new DataTable();
+            using (SqlConnection conn = new SqlConnection(conexion.ObtenerConexion()))
             {
                 conn.Open();
-                string query = "SELECT Id, Nombre, Lugar, Fecha, Tipo, Capacidad FROM Evento ORDER BY Fecha;";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                using (SqlDataReader reader = cmd.ExecuteReader())
+                string query = "SELECT * FROM Evento;";
+                using (SqlCommand comand = new SqlCommand(query, conn))
                 {
-                    while (reader.Read())
-                    {
-                        // Aquí llamamos al método que traduce la fila de la BD a un objeto.
-                        listaEventos.Add(MapearEventoDesdeReader(reader));
-                    }
+                    SqlDataAdapter adapter = new SqlDataAdapter(comand);
+                    adapter.Fill(tabla); // Llenamos el DataTable con los resultados
                 }
             }
-            return listaEventos;
+            return tabla;
         }
 
-         // --- AQUÍ ESTÁ EL MÉTODO QUE FALTABA Y CAUSABA EL ERROR ---
-        // Este método privado convierte una fila de SQL en un objeto de C#.
-        private EventoBase MapearEventoDesdeReader(SqlDataReader reader)
+        // UPDATE: Recibe todos los datos, incluyendo el ID, para modificar un registro que ya existia
+        public void Modificar(int id, string nombre, string lugar, DateTime fecha, string tipo, int capacidad)
         {
-            string tipoEvento = reader["Tipo"].ToString();
-            EventoBase evento;
-
-            // REQUISITO CUMPLIDO: "Creación y uso de herencias de forma correcta" y "Creación y uso de constructores".
-            // Usamos un 'switch' para decidir qué clase hija instanciar.
-            // Al hacer "new Deportivo()", estamos usando el constructor de esa clase hija.
-            switch (tipoEvento)
-            {
-                case "Deportivo": evento = new Deportivo(); break;
-                case "Cultural": evento = new Cultural(); break;
-                case "Tecnológico": evento = new Tecnologico(); break;
-                case "Cinematográfico": evento = new Cinematografico(); break;
-                case "Profesional": evento = new Profesional(); break;
-                default:
-                    throw new Exception($"Tipo de evento '{tipoEvento}' no reconocido.");
-            }
-
-            // Llenamos las propiedades del objeto creado.
-            evento.Id = (int)reader["Id"];
-            evento.Nombre = reader["Nombre"].ToString();
-            evento.Lugar = reader["Lugar"].ToString();
-            evento.Fecha = (DateTime)reader["Fecha"];
-            evento.Capacidad = (int)reader["Capacidad"];
-
-            return evento;
-        }
-
-        // UPDATE: Modifica un registro existente.
-        public void Modificar(EventoBase evento)
-        {
-            using (SqlConnection conn = new SqlConnection(CadenaConexion))
+            using (SqlConnection conn = new SqlConnection(conexion.ObtenerConexion()))
             {
                 conn.Open();
                 string query = "UPDATE Evento SET Nombre = @Nombre, Lugar = @Lugar, Fecha = @Fecha, Tipo = @Tipo, Capacidad = @Capacidad WHERE Id = @Id;";
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@Id", evento.Id);
-                    cmd.Parameters.AddWithValue("@Nombre", evento.Nombre);
-                    cmd.Parameters.AddWithValue("@Lugar", evento.Lugar);
-                    cmd.Parameters.AddWithValue("@Fecha", evento.Fecha);
-                    cmd.Parameters.AddWithValue("@Tipo", evento.Tipo);
-                    cmd.Parameters.AddWithValue("@Capacidad", evento.Capacidad);
+                    // Es crucial pasar el ID en la cláusula WHERE para saber qué fila modificar.
+                    cmd.Parameters.AddWithValue("@Id", id);
+                    cmd.Parameters.AddWithValue("@Nombre", nombre);
+                    cmd.Parameters.AddWithValue("@Lugar", lugar);
+                    cmd.Parameters.AddWithValue("@Fecha", fecha);
+                    cmd.Parameters.AddWithValue("@Tipo", tipo);
+                    cmd.Parameters.AddWithValue("@Capacidad", capacidad);
                     cmd.ExecuteNonQuery();
                 }
             }
         }
-
-        // DELETE: Elimina un registro por su ID.
+        // DELETE: Recibe un ID y elimina el registro correspondiente.
         public void Eliminar(int id)
         {
-            using (SqlConnection conn = new SqlConnection(CadenaConexion))
+            using (SqlConnection conn = new SqlConnection(conexion.ObtenerConexion()))
             {
                 conn.Open();
                 string query = "DELETE FROM Evento WHERE Id = @Id;";

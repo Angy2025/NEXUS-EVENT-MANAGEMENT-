@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CAPA_DE_CAPAS
-{
-    public class Cinematografico : EventoBase
-    {
-        public Cinematografico()
-        {
-            Tipo = "Cinematografico";
-        }
 
+namespace CAPA_DE_NEGOCIOS
+{
+    public class Tecnologico : EventoBase
+    {
+        public Tecnologico()
+        {
+            Tipo = "Tecnologico";
+        }
         public override string MiPatrocinadorFav()
         {
             return "Fundación Carlos Slim";
