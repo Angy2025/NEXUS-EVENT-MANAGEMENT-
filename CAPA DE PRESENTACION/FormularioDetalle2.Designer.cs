@@ -32,17 +32,17 @@
             lbllugar = new Label();
             lbldate = new Label();
             groupBox1 = new GroupBox();
-            txtTitulo = new TextBox();
             lbldetalle = new Label();
             btnCancelar = new Button();
             btnGuardar = new Button();
             numericUpDown1 = new NumericUpDown();
-            comboBox1 = new ComboBox();
-            dateTimePicker1 = new DateTimePicker();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            CBType = new ComboBox();
+            dateTimePicker = new DateTimePicker();
+            textPlace = new TextBox();
+            textName = new TextBox();
             lblCapacidad = new Label();
             lbltipo = new Label();
+            txtTitulo = new TextBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
@@ -89,10 +89,10 @@
             groupBox1.Controls.Add(btnCancelar);
             groupBox1.Controls.Add(btnGuardar);
             groupBox1.Controls.Add(numericUpDown1);
-            groupBox1.Controls.Add(comboBox1);
-            groupBox1.Controls.Add(dateTimePicker1);
-            groupBox1.Controls.Add(textBox2);
-            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(CBType);
+            groupBox1.Controls.Add(dateTimePicker);
+            groupBox1.Controls.Add(textPlace);
+            groupBox1.Controls.Add(textName);
             groupBox1.Controls.Add(lblCapacidad);
             groupBox1.Controls.Add(lbltipo);
             groupBox1.Controls.Add(lblnombre);
@@ -105,22 +105,6 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "groupBox1";
             groupBox1.Enter += groupBox1_Enter;
-            // 
-            // txtTitulo
-            // 
-            txtTitulo.BackColor = Color.White;
-            txtTitulo.Enabled = false;
-            txtTitulo.Font = new Font("Cambria", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            txtTitulo.ForeColor = SystemColors.ActiveCaptionText;
-            txtTitulo.Location = new Point(131, 552);
-            txtTitulo.Name = "txtTitulo";
-            txtTitulo.ReadOnly = true;
-            txtTitulo.Size = new Size(403, 43);
-            txtTitulo.TabIndex = 13;
-            txtTitulo.TabStop = false;
-            txtTitulo.Text = "Nexus Event Management\r\n";
-            txtTitulo.TextAlign = HorizontalAlignment.Center;
-            txtTitulo.WordWrap = false;
             // 
             // lbldetalle
             // 
@@ -170,36 +154,36 @@
             numericUpDown1.Size = new Size(150, 27);
             numericUpDown1.TabIndex = 9;
             // 
-            // comboBox1
+            // CBType
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(182, 236);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(151, 28);
-            comboBox1.TabIndex = 8;
+            CBType.FormattingEnabled = true;
+            CBType.Location = new Point(182, 236);
+            CBType.Name = "CBType";
+            CBType.Size = new Size(151, 28);
+            CBType.TabIndex = 8;
             // 
-            // dateTimePicker1
+            // dateTimePicker
             // 
-            dateTimePicker1.Location = new Point(182, 184);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(250, 27);
-            dateTimePicker1.TabIndex = 7;
-            dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
+            dateTimePicker.Location = new Point(182, 184);
+            dateTimePicker.Name = "dateTimePicker";
+            dateTimePicker.Size = new Size(250, 27);
+            dateTimePicker.TabIndex = 7;
+            dateTimePicker.ValueChanged += dateTimePicker1_ValueChanged;
             // 
-            // textBox2
+            // textPlace
             // 
-            textBox2.Location = new Point(182, 127);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(125, 27);
-            textBox2.TabIndex = 6;
+            textPlace.Location = new Point(182, 127);
+            textPlace.Name = "textPlace";
+            textPlace.Size = new Size(125, 27);
+            textPlace.TabIndex = 6;
             // 
-            // textBox1
+            // textName
             // 
-            textBox1.Location = new Point(182, 67);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
-            textBox1.TabIndex = 5;
-            textBox1.TextChanged += textBox1_TextChanged;
+            textName.Location = new Point(182, 67);
+            textName.Name = "textName";
+            textName.Size = new Size(125, 27);
+            textName.TabIndex = 5;
+            textName.TextChanged += textBox1_TextChanged;
             // 
             // lblCapacidad
             // 
@@ -222,6 +206,22 @@
             lbltipo.Size = new Size(132, 20);
             lbltipo.TabIndex = 3;
             lbltipo.Text = "Tipo de Evento:";
+            // 
+            // txtTitulo
+            // 
+            txtTitulo.BackColor = Color.White;
+            txtTitulo.Enabled = false;
+            txtTitulo.Font = new Font("Cambria", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            txtTitulo.ForeColor = SystemColors.ActiveCaptionText;
+            txtTitulo.Location = new Point(131, 552);
+            txtTitulo.Name = "txtTitulo";
+            txtTitulo.ReadOnly = true;
+            txtTitulo.Size = new Size(403, 43);
+            txtTitulo.TabIndex = 13;
+            txtTitulo.TabStop = false;
+            txtTitulo.Text = "Nexus Event Management\r\n";
+            txtTitulo.TextAlign = HorizontalAlignment.Center;
+            txtTitulo.WordWrap = false;
             // 
             // FormularioDetalle
             // 
@@ -249,10 +249,10 @@
         private GroupBox groupBox1;
         private Label lblCapacidad;
         private Label lbltipo;
-        private ComboBox comboBox1;
-        private DateTimePicker dateTimePicker1;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private ComboBox CBType;
+        private DateTimePicker dateTimePicker;
+        private TextBox textPlace;
+        private TextBox textName;
         private NumericUpDown numericUpDown1;
         private Button btnCancelar;
         private Button btnGuardar;

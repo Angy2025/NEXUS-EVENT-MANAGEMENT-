@@ -1,49 +1,37 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using CapaDatos;
 using CAPA_DE_NEGOCIOS;
-using System.Runtime.CompilerServices;
 
 namespace CAPA_DE_PRESENTACION
 {
     public partial class FormularioDetalle : Form
     {
-        private EventoBase _eventoAEditar = null;
-        private CRUD _crud = new CRUD();
-        private CN_EventosManager _eventosManager;
+        private readonly CN_EventosManager _eventosManager = new CN_EventosManager();
 
-        //Constructor para agregar nuevo evento
+        private EventoBase _eventoAEditar = null; // Evento que se va a editar, si es que existe
+
         public FormularioDetalle()
         {
             InitializeComponent();
-            this.Text = "Agregar Evento";
-            _crud = new CRUD();
-            _eventosManager = new CN_EventosManager(_crud);
+            this.Text = "Agregar Nuevo Evento"; // Título del formulario para crear un nuevo evento
         }
 
-        //Constructor para modificar un evento existente
+        // Este constructor se llama cuando se le pasa un evento existente desde la tabla principal
         public FormularioDetalle(EventoBase eventoParaEditar) : this()
         {
             this.Text = "Modificar Evento";
-            _eventoAEditar = eventoParaEditar;
-            CargarDatos();
+            _eventoAEditar = eventoParaEditar; // Guardamos la referencia al evento que vamos a editar
+            CargarDatos(); // Llamamos al método para llenar los campos del formulario
         }
-
         private void CargarDatos()
         {
             if (_eventoAEditar != null)
             {
-                textBox1.Text = _eventoAEditar.Nombre;
-                textBox2.Text = _eventoAEditar.Lugar;
-                dateTimePicker1.Value = _eventoAEditar.Fecha;
-                comboBox1.SelectedItem = _eventoAEditar.Tipo;
+                // Asignamos los datos del objeto a los controles del formulario
+                textName.Text = _eventoAEditar.Nombre;
+                textPlace.Text = _eventoAEditar.Lugar;
+                dateTimePicker.Value = _eventoAEditar.Fecha;
+                CBType.SelectedItem = _eventoAEditar.Tipo;
                 numericUpDown1.Value = _eventoAEditar.Capacidad;
             }
         }
@@ -89,16 +77,16 @@ namespace CAPA_DE_PRESENTACION
                 }
 
                 //Recolectar los datos del formulario y ponerlos en el objeto
-                _eventoAEditar.Nombre = textBox1.Text;
-                _eventoAEditar.Lugar = textBox2.Text;
-                _eventoAEditar.Fecha = dateTimePicker1.Value;
-                _eventoAEditar.Tipo = comboBox1.SelectedItem.ToString();
+                _eventoAEditar.Nombre = textName.Text;
+                _eventoAEditar.Lugar = textPlace.Text;
+                _eventoAEditar.Fecha = dateTimePicker.Value;
+                _eventoAEditar.Tipo = CBType.SelectedItem.ToString();
                 _eventoAEditar.Capacidad = (int)numericUpDown1.Value;
 
                 //Le pasamos el objeto al manager de negocios para que aplique
                 // las reglas y lo guarde (ya sea como nuevo o como modificación)
 
-                _eventosManager.GuardarEvento(_eventoAEditar);
+                _eventosManager.AddEvent(_eventoAEditar);
 
                 //Le indicamos al formulario que se guardó correctamente
                 this.DialogResult = DialogResult.OK;

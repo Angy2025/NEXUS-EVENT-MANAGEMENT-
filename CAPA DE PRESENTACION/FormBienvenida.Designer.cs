@@ -30,8 +30,8 @@
         {
             components = new System.ComponentModel.Container();
             groupBox3 = new GroupBox();
-            progressBar1 = new ProgressBar();
             label1 = new Label();
+            progressBar1 = new ProgressBar();
             timerunic = new System.Windows.Forms.Timer(components);
             groupBox3.SuspendLayout();
             SuspendLayout();
@@ -51,15 +51,6 @@
             groupBox3.Text = "¡Welcome to...!";
             groupBox3.Enter += groupBox3_Enter;
             // 
-            // progressBar1
-            // 
-            progressBar1.Dock = DockStyle.Bottom;
-            progressBar1.Location = new Point(0, 418);
-            progressBar1.Name = "progressBar1";
-            progressBar1.Size = new Size(645, 29);
-            progressBar1.Style = ProgressBarStyle.Marquee;
-            progressBar1.TabIndex = 29;
-            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -72,6 +63,15 @@
             label1.TabIndex = 0;
             label1.Text = "Cargando, por favor espere...";
             label1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // progressBar1
+            // 
+            progressBar1.Dock = DockStyle.Bottom;
+            progressBar1.Location = new Point(0, 418);
+            progressBar1.Name = "progressBar1";
+            progressBar1.Size = new Size(645, 29);
+            progressBar1.Style = ProgressBarStyle.Marquee;
+            progressBar1.TabIndex = 29;
             // 
             // timerunic
             // 

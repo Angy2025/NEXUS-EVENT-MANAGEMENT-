@@ -31,6 +31,7 @@ namespace CapaDatos
         public DataTable ListarTodos()
         {
             DataTable tabla = new DataTable();
+            //Usamos SqlConnection para conectarnos a la base de datos
             using (SqlConnection conn = new SqlConnection(conexion.ObtenerConexion()))
             {
                 conn.Open();

@@ -1,6 +1,6 @@
 ﻿namespace CAPA_DE_PRESENTACION
 {
-    partial class frmGestionEventos
+    partial class FormularioGestion
     {
         /// <summary>
         /// Required designer variable.
@@ -37,7 +37,7 @@
             button3 = new Button();
             button2 = new Button();
             dgv2 = new DataGridView();
-            button1 = new Button();
+            btnbuscar = new Button();
             textBox1 = new TextBox();
             lblbuscar = new Label();
             comBox = new ComboBox();
@@ -69,7 +69,7 @@
             groupBox2.Controls.Add(button3);
             groupBox2.Controls.Add(button2);
             groupBox2.Controls.Add(dgv2);
-            groupBox2.Controls.Add(button1);
+            groupBox2.Controls.Add(btnbuscar);
             groupBox2.Controls.Add(textBox1);
             groupBox2.Controls.Add(lblbuscar);
             groupBox2.Controls.Add(comBox);
@@ -168,19 +168,19 @@
             dgv2.RowHeadersWidth = 51;
             dgv2.Size = new Size(767, 320);
             dgv2.TabIndex = 5;
-            dgv2.CellContentClick += dgv2_CellContentClick;
             // 
-            // button1
+            // btnbuscar
             // 
-            button1.BackColor = Color.White;
-            button1.Font = new Font("Times New Roman", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.Black;
-            button1.Image = Properties.Resources.BUSCAR;
-            button1.Location = new Point(785, 76);
-            button1.Name = "button1";
-            button1.Size = new Size(102, 29);
-            button1.TabIndex = 4;
-            button1.UseVisualStyleBackColor = false;
+            btnbuscar.BackColor = Color.White;
+            btnbuscar.Font = new Font("Times New Roman", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnbuscar.ForeColor = Color.Black;
+            btnbuscar.Image = Properties.Resources.BUSCAR;
+            btnbuscar.Location = new Point(785, 76);
+            btnbuscar.Name = "btnbuscar";
+            btnbuscar.Size = new Size(102, 29);
+            btnbuscar.TabIndex = 4;
+            btnbuscar.UseVisualStyleBackColor = false;
+            btnbuscar.Click += button1_Click;
             // 
             // textBox1
             // 
@@ -206,10 +206,10 @@
             comBox.AllowDrop = true;
             comBox.Font = new Font("Times New Roman", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             comBox.FormattingEnabled = true;
-            comBox.Items.AddRange(new object[] { "Eventos Culturales", "Eventos Deportivos", "Eventos Tecnologicos ", "Eventos Cinematograficos ", "Eventos De Networinkg ", "Todos Los Eventos" });
-            comBox.Location = new Point(298, 75);
+            comBox.Items.AddRange(new object[] { "Culturales", "Deportivos", "Tecnologicos ", "Cinematograficos ", "Networinkg ", "Todos Los Eventos" });
+            comBox.Location = new Point(273, 75);
             comBox.Name = "comBox";
-            comBox.Size = new Size(151, 28);
+            comBox.Size = new Size(176, 28);
             comBox.TabIndex = 1;
             comBox.SelectedIndexChanged += comBox_SelectedIndexChanged;
             // 
@@ -219,7 +219,7 @@
             label1.BackColor = Color.White;
             label1.Font = new Font("Times New Roman", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(140, 78);
+            label1.Location = new Point(128, 78);
             label1.Name = "label1";
             label1.Size = new Size(139, 20);
             label1.TabIndex = 0;
@@ -234,7 +234,7 @@
             txtTitulo2.TabIndex = 2;
             txtTitulo2.Text = "    NEXUS EVENT MANAGEMENT";
             // 
-            // frmGestionEventos
+            // FormularioGestion
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -244,8 +244,8 @@
             Controls.Add(groupBox1);
             Controls.Add(groupBox2);
             ForeColor = Color.DarkBlue;
-            Name = "frmGestionEventos";
-            Text = "FormularioPrincipal";
+            Name = "FormularioGestion";
+            Text = "GESTION";
             Load += frmGestionEventos_Load;
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
@@ -264,7 +264,7 @@
         private TextBox textBox1;
         private Label lblbuscar;
         private DataGridView dgv2;
-        private Button button1;
+        private Button btnbuscar;
         private Button btnclose2;
         private Button btneliminar;
         private Button btnmod;
