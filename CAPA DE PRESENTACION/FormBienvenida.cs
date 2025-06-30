@@ -8,7 +8,6 @@ namespace CAPA_DE_PRESENTACION
     {
         public FormPrincipal()
         {
-            // Este método es obligatorio y carga todos los controles que diseñaste (logo, labels, progressbar, etc.).
             InitializeComponent();
         }
         private void FormPrincipal_Load(object sender, EventArgs e)

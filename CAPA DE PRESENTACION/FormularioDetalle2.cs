@@ -1,6 +1,9 @@
-﻿using System;
+﻿using CAPA_DE_NEGOCIOS;
+using CapaDatos;
+using System;
 using System.Windows.Forms;
-using CAPA_DE_NEGOCIOS;
+using static Azure.Core.HttpHeader;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CAPA_DE_PRESENTACION
 {
@@ -13,7 +16,6 @@ namespace CAPA_DE_PRESENTACION
         public FormularioDetalle()
         {
             InitializeComponent();
-            this.Text = "Agregar Nuevo Evento"; // Título del formulario para crear un nuevo evento
         }
 
         // Este constructor se llama cuando se le pasa un evento existente desde la tabla principal
@@ -62,7 +64,15 @@ namespace CAPA_DE_PRESENTACION
 
         private void FormularioDetalle_Load(object sender, EventArgs e)
         {
-
+            try
+            {
+                ConfigurarComboBox();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al iniciar la aplicación: {ex.Message}", "Error de Arranque", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -98,12 +108,27 @@ namespace CAPA_DE_PRESENTACION
                 MessageBox.Show($"Error al guardar el evento: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             //Si el usuario cancela, simplemente cerramos el formulario sin guardar nada
             this.DialogResult = DialogResult.Cancel;
             this.Close();
+        }
+
+        private void CBType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ConfigurarComboBox()
+        {
+            CBType.Items.Clear();
+            CBType.Items.Add("Deportivo");
+            CBType.Items.Add("Cultural");
+            CBType.Items.Add("Tecnológico");
+            CBType.Items.Add("Cinematográfico");
+            CBType.Items.Add("Profesional");
         }
     }
 }

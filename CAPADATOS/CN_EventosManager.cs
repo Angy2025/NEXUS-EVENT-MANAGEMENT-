@@ -89,6 +89,9 @@ namespace CAPA_DE_NEGOCIOS
             _crud.Eliminar(id);
         }
 
+                 
+        
+
     }
 }
 

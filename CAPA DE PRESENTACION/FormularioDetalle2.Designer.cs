@@ -123,7 +123,7 @@
             btnCancelar.Font = new Font("Times New Roman", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCancelar.Image = Properties.Resources.CERRAR;
             btnCancelar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCancelar.Location = new Point(255, 357);
+            btnCancelar.Location = new Point(305, 357);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(118, 42);
             btnCancelar.TabIndex = 11;
@@ -138,7 +138,7 @@
             btnGuardar.Font = new Font("Times New Roman", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnGuardar.Image = Properties.Resources.GUARDAR;
             btnGuardar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnGuardar.Location = new Point(80, 356);
+            btnGuardar.Location = new Point(106, 356);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(119, 43);
             btnGuardar.TabIndex = 10;
@@ -151,22 +151,24 @@
             // 
             numericUpDown1.Location = new Point(182, 291);
             numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(150, 27);
+            numericUpDown1.Size = new Size(288, 27);
             numericUpDown1.TabIndex = 9;
             // 
             // CBType
             // 
             CBType.FormattingEnabled = true;
+            CBType.Items.AddRange(new object[] { "Culturales", "Deportivos", "Tecnologicos ", "Cinematograficos ", "Networinkg " });
             CBType.Location = new Point(182, 236);
             CBType.Name = "CBType";
-            CBType.Size = new Size(151, 28);
+            CBType.Size = new Size(288, 28);
             CBType.TabIndex = 8;
+            CBType.SelectedIndexChanged += CBType_SelectedIndexChanged;
             // 
             // dateTimePicker
             // 
             dateTimePicker.Location = new Point(182, 184);
             dateTimePicker.Name = "dateTimePicker";
-            dateTimePicker.Size = new Size(250, 27);
+            dateTimePicker.Size = new Size(288, 27);
             dateTimePicker.TabIndex = 7;
             dateTimePicker.ValueChanged += dateTimePicker1_ValueChanged;
             // 
@@ -174,14 +176,14 @@
             // 
             textPlace.Location = new Point(182, 127);
             textPlace.Name = "textPlace";
-            textPlace.Size = new Size(125, 27);
+            textPlace.Size = new Size(288, 27);
             textPlace.TabIndex = 6;
             // 
             // textName
             // 
             textName.Location = new Point(182, 67);
             textName.Name = "textName";
-            textName.Size = new Size(125, 27);
+            textName.Size = new Size(288, 27);
             textName.TabIndex = 5;
             textName.TextChanged += textBox1_TextChanged;
             // 
@@ -213,7 +215,7 @@
             txtTitulo.Enabled = false;
             txtTitulo.Font = new Font("Cambria", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             txtTitulo.ForeColor = SystemColors.ActiveCaptionText;
-            txtTitulo.Location = new Point(131, 552);
+            txtTitulo.Location = new Point(159, 28);
             txtTitulo.Name = "txtTitulo";
             txtTitulo.ReadOnly = true;
             txtTitulo.Size = new Size(403, 43);

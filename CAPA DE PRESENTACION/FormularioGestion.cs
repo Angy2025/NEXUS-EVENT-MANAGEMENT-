@@ -1,7 +1,10 @@
 ﻿using CAPA_DE_NEGOCIOS;
 using CapaDatos;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Linq;
 using System.Windows.Forms;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -10,10 +13,13 @@ namespace CAPA_DE_PRESENTACION
 {
     public partial class FormularioGestion : Form
     {
+        SqlConnection connection = new SqlConnection("Server=.;Database=Nexus;Integrated Security=true" + " ;TrustServerCertificate=True;"); //
+        SqlDataAdapter adapt;
         //Creamos un puente con la capa de negocios que todo el formulario utilizara
+
         private readonly CN_EventosManager _eventosManager = new CN_EventosManager();
 
-        private List<EventoBase> _listaCompletaDeEventos;
+        //  public List<EventoBase> _listaCompletaDeEventos;
 
         public FormularioGestion()
         {
@@ -31,15 +37,14 @@ namespace CAPA_DE_PRESENTACION
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error CRÍTICO al iniciar la aplicación: {ex.Message}", "Error de Arranque", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al iniciar la aplicación: {ex.Message}", "Error de Arranque", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application.Exit();
             }
         }
 
-
+        // Método para configurar el ComboBox con los tipos de eventos
         private void ConfigurarComboBox()
         {
-            // Asumo que tu control se llama 'comBox'.
             comBox.Items.Clear();
             comBox.Items.Add("Todos");
             comBox.Items.Add("Deportivo");
@@ -47,7 +52,7 @@ namespace CAPA_DE_PRESENTACION
             comBox.Items.Add("Tecnológico");
             comBox.Items.Add("Cinematográfico");
             comBox.Items.Add("Profesional");
-            comBox.SelectedIndex = 0;
+            comBox.SelectedIndex = 0; //Seleccionamos "Todos" por defecto, inicalizandose en 0 
         }
 
 
@@ -55,7 +60,7 @@ namespace CAPA_DE_PRESENTACION
         //Metodo para cargar y refrescar la tabla de eventos
         private void CargarEventos()
         {
-            // Obtenemos la lista completa de la base de datos y la guardamos en nuestra variable de clase.
+            // Obtenemos la lista completa de la base de datos y la guardamos en nuestra variable de clase
             _listaCompletaDeEventos = _eventosManager.ObtainAllEvents();
 
             // Limpiamos los filtros y mostramos todos los eventos en la tabla
@@ -81,42 +86,9 @@ namespace CAPA_DE_PRESENTACION
         }
 
 
-        private void AplicarFiltros()
-        {
-            if (_listaCompletaDeEventos == null || comBox.SelectedItem == null)
-            {
-                return;
-            }
 
 
-            List<EventoBase> listaFiltrada = _listaCompletaDeEventos;
 
-            //FILTRO POR TIPO (ComboBox)
-            string tipoSeleccionado = comBox.SelectedItem.ToString();
-            if (tipoSeleccionado != "Todos")
-            {
-                listaFiltrada = listaFiltrada.Where(evento => evento.Tipo == tipoSeleccionado).ToList();
-
-            }
-
-
-            //FILTRO POR NOMBRE (TextBox de Búsqueda)
-            string textoBusqueda = textBox1.Text.Trim(); // .Trim() quita espacios en blanco al inicio y al final.
-            if (!string.IsNullOrWhiteSpace(textoBusqueda))
-            {
-                // Si el usuario ha escrito algo en el cuadro de búsqueda, filtramos la lista que ya podría estar filtrada por tipo
-                listaFiltrada = listaFiltrada
-                    .Where(evento => evento.Nombre.ToLower().Contains(textoBusqueda.ToLower())) // ToLower() hace que la búsqueda no distinga mayúsculas/minúsculas.
-                    .ToList();
-            }
-
-
-            // Finalmente actualizamos, asignamos la lista (ya sea completa, filtrada por tipo, o filtrada por tipo y nombre) al dgv2
-            dgv2.DataSource = null;
-            dgv2.DataSource = listaFiltrada;
-        }
-
-       
         private void btnagregar_Click(object sender, EventArgs e)
         {
             FormularioDetalle frmDetalle = new FormularioDetalle();
@@ -128,7 +100,6 @@ namespace CAPA_DE_PRESENTACION
 
         private void btnmod_Click(object sender, EventArgs e)
         {
-            //validamos que haya una fila seleccionada
             if (dgv2.SelectedRows.Count > 0)
             {
                 //Obtenemos el eventoBase seleccionado
@@ -146,6 +117,7 @@ namespace CAPA_DE_PRESENTACION
                 MessageBox.Show("Por favor, seleccione un evento para modificar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
 
 
         private void btneliminar_Click(object sender, EventArgs e)
@@ -182,7 +154,83 @@ namespace CAPA_DE_PRESENTACION
 
         private void frmGestionEventos_Load(object sender, EventArgs e)
         {
+            connection.Open();
+            DataTable dt = new DataTable();
+            adapt = new SqlDataAdapter("SELECT * FROM Evento", connection);
+            adapt.Fill(dt);
+            dgv2.DataSource = dt;
+            connection.Close();
+        }
 
+
+        private void dgv2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+
+
+
+
+
+        private readonly string CadenaConexion = "Server=.;Database=Nexus;Integrated Security=true;TrustServerCertificate=True;";
+        private List<EventoBase> _listaCompletaDeEventos; // Asegúrate que esta lista se carga correctamente
+
+        private void AplicarFiltros()
+        {
+            // 1. Verificación inicial: Si la lista base no está cargada, no hacer nada.
+            if (_listaCompletaDeEventos == null)
+            {
+                return;
+            }
+
+            // 2. Empezar siempre con la lista completa.
+            IEnumerable<EventoBase> consultaFiltrada = _listaCompletaDeEventos;
+
+            // 3. FILTRO POR TIPO (ComboBox)
+            // Se comprueba que haya un item seleccionado y no sea la opción "Todos"
+            if (comBox.SelectedItem != null)
+            {
+                string tipoSeleccionado = comBox.SelectedItem.ToString();
+
+                // Si no es "Todos" (o como llames a tu opción para ver todo), aplicamos el filtro.
+                // Usamos .Equals con StringComparison.OrdinalIgnoreCase para evitar problemas de mayúsculas/minúsculas.
+                if (!tipoSeleccionado.Equals("Todos", StringComparison.OrdinalIgnoreCase))
+                {
+                    consultaFiltrada = consultaFiltrada.Where(evento =>
+                        evento.Tipo != null &&
+                        evento.Tipo.Equals(tipoSeleccionado, StringComparison.OrdinalIgnoreCase));
+                }
+            }
+
+            // 4. FILTRO POR NOMBRE (TextBox de Búsqueda)
+            // Se encadena el filtro sobre el resultado anterior.
+            string textoBusqueda = textBox1.Text.Trim();
+            if (!string.IsNullOrWhiteSpace(textoBusqueda))
+            {
+                // Usamos ToLower() para una búsqueda insensible a mayúsculas/minúsculas.
+                string textoBusquedaLower = textoBusqueda.ToLower();
+                consultaFiltrada = consultaFiltrada.Where(evento =>
+                    evento.Nombre != null &&
+                    evento.Nombre.ToLower().Contains(textoBusquedaLower));
+            }
+
+            // 5. Actualizar el DataGridView con el resultado final.
+            // Convertimos el resultado de la consulta (IEnumerable) a una Lista (List).
+            dgv2.DataSource = null;
+            dgv2.DataSource = consultaFiltrada.ToList();
+        }
+
+
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnclose2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

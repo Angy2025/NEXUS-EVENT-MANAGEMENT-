@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             groupBox1 = new GroupBox();
             groupBox2 = new GroupBox();
             btnclose2 = new Button();
@@ -61,7 +62,7 @@
             // 
             // groupBox2
             // 
-            groupBox2.BackColor = Color.Silver;
+            groupBox2.BackColor = Color.RoyalBlue;
             groupBox2.Controls.Add(btnclose2);
             groupBox2.Controls.Add(btneliminar);
             groupBox2.Controls.Add(btnmod);
@@ -74,6 +75,7 @@
             groupBox2.Controls.Add(lblbuscar);
             groupBox2.Controls.Add(comBox);
             groupBox2.Controls.Add(label1);
+            groupBox2.ForeColor = Color.Black;
             groupBox2.Location = new Point(95, 112);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(1010, 654);
@@ -94,6 +96,7 @@
             btnclose2.Text = "Cerrar";
             btnclose2.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnclose2.UseVisualStyleBackColor = true;
+            btnclose2.Click += btnclose2_Click;
             // 
             // btneliminar
             // 
@@ -162,12 +165,23 @@
             // dgv2
             // 
             dgv2.BackgroundColor = Color.White;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.BackColor = Color.LightGray;
+            dataGridViewCellStyle1.Font = new Font("Palatino Linotype", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.Format = "d";
+            dataGridViewCellStyle1.NullValue = null;
+            dataGridViewCellStyle1.SelectionBackColor = Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.MenuBar;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dgv2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgv2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv2.Location = new Point(120, 136);
             dgv2.Name = "dgv2";
             dgv2.RowHeadersWidth = 51;
             dgv2.Size = new Size(767, 320);
             dgv2.TabIndex = 5;
+            dgv2.CellContentClick += dgv2_CellContentClick;
             // 
             // btnbuscar
             // 
@@ -188,6 +202,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(151, 27);
             textBox1.TabIndex = 3;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // lblbuscar
             // 
@@ -238,12 +253,12 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.DarkBlue;
+            BackColor = Color.Black;
             ClientSize = new Size(1185, 778);
             Controls.Add(txtTitulo2);
             Controls.Add(groupBox1);
             Controls.Add(groupBox2);
-            ForeColor = Color.DarkBlue;
+            ForeColor = Color.Black;
             Name = "FormularioGestion";
             Text = "GESTION";
             Load += frmGestionEventos_Load;
