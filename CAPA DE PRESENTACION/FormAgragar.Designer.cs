@@ -42,7 +42,7 @@
             textName = new TextBox();
             lblCapacidad = new Label();
             lbltipo = new Label();
-            txtTitulo = new TextBox();
+            lblTitle = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
@@ -51,40 +51,47 @@
             // 
             lblnombre.AutoSize = true;
             lblnombre.BackColor = Color.White;
-            lblnombre.Font = new Font("Times New Roman", 10.8F, FontStyle.Bold);
-            lblnombre.Location = new Point(30, 74);
+            lblnombre.Font = new Font("Century", 10.8F, FontStyle.Bold);
+            lblnombre.ImageAlign = ContentAlignment.MiddleLeft;
+            lblnombre.Location = new Point(146, 169);
             lblnombre.Name = "lblnombre";
-            lblnombre.Size = new Size(77, 20);
+            lblnombre.Size = new Size(198, 22);
             lblnombre.TabIndex = 0;
-            lblnombre.Text = "Nombre:";
+            lblnombre.Text = "Nombre Del Evento:";
+            lblnombre.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lbllugar
             // 
             lbllugar.AutoSize = true;
             lbllugar.BackColor = Color.White;
-            lbllugar.Font = new Font("Times New Roman", 10.8F, FontStyle.Bold);
-            lbllugar.Location = new Point(30, 130);
+            lbllugar.Font = new Font("Century", 10.8F, FontStyle.Bold);
+            lbllugar.ImageAlign = ContentAlignment.MiddleLeft;
+            lbllugar.Location = new Point(146, 241);
             lbllugar.Name = "lbllugar";
-            lbllugar.Size = new Size(66, 20);
+            lbllugar.Size = new Size(217, 22);
             lbllugar.TabIndex = 1;
-            lbllugar.Text = "Lugar: ";
+            lbllugar.Text = "Ubicacion Del Evento:";
+            lbllugar.TextAlign = ContentAlignment.MiddleLeft;
             lbllugar.Click += label2_Click;
             // 
             // lbldate
             // 
             lbldate.AutoSize = true;
             lbldate.BackColor = Color.White;
-            lbldate.Font = new Font("Times New Roman", 10.8F, FontStyle.Bold);
-            lbldate.Location = new Point(30, 189);
+            lbldate.Font = new Font("Century", 10.8F, FontStyle.Bold);
+            lbldate.ImageAlign = ContentAlignment.MiddleLeft;
+            lbldate.Location = new Point(146, 305);
             lbldate.Name = "lbldate";
-            lbldate.Size = new Size(118, 20);
+            lbldate.Size = new Size(216, 22);
             lbldate.TabIndex = 2;
-            lbldate.Text = "Fecha y Hora:";
+            lbldate.Text = "Fecha De Realizacion:";
+            lbldate.TextAlign = ContentAlignment.MiddleLeft;
             lbldate.Click += label3_Click;
             // 
             // groupBox1
             // 
-            groupBox1.BackColor = Color.Silver;
+            groupBox1.BackColor = Color.Transparent;
+            groupBox1.Controls.Add(lblTitle);
             groupBox1.Controls.Add(lbldetalle);
             groupBox1.Controls.Add(btnCancelar);
             groupBox1.Controls.Add(btnGuardar);
@@ -98,12 +105,13 @@
             groupBox1.Controls.Add(lblnombre);
             groupBox1.Controls.Add(lbllugar);
             groupBox1.Controls.Add(lbldate);
-            groupBox1.Location = new Point(111, 88);
+            groupBox1.Dock = DockStyle.Fill;
+            groupBox1.Location = new Point(0, 0);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(529, 471);
+            groupBox1.Padding = new Padding(15);
+            groupBox1.Size = new Size(883, 706);
             groupBox1.TabIndex = 3;
             groupBox1.TabStop = false;
-            groupBox1.Text = "groupBox1";
             groupBox1.Enter += groupBox1_Enter;
             // 
             // lbldetalle
@@ -111,19 +119,18 @@
             lbldetalle.AutoSize = true;
             lbldetalle.BackColor = Color.White;
             lbldetalle.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbldetalle.Location = new Point(128, 23);
+            lbldetalle.Location = new Point(304, 35);
             lbldetalle.Name = "lbldetalle";
-            lbldetalle.Size = new Size(245, 23);
+            lbldetalle.Size = new Size(0, 23);
             lbldetalle.TabIndex = 12;
-            lbldetalle.Text = "DETALLES DEL EVENTO";
             // 
             // btnCancelar
             // 
             btnCancelar.BackColor = Color.White;
-            btnCancelar.Font = new Font("Times New Roman", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCancelar.Font = new Font("Century", 10.8F, FontStyle.Bold);
             btnCancelar.Image = Properties.Resources.CERRAR;
             btnCancelar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCancelar.Location = new Point(305, 357);
+            btnCancelar.Location = new Point(488, 576);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(118, 42);
             btnCancelar.TabIndex = 11;
@@ -135,10 +142,10 @@
             // btnGuardar
             // 
             btnGuardar.BackColor = Color.White;
-            btnGuardar.Font = new Font("Times New Roman", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnGuardar.Font = new Font("Century", 10.8F, FontStyle.Bold);
             btnGuardar.Image = Properties.Resources.GUARDAR;
             btnGuardar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnGuardar.Location = new Point(106, 356);
+            btnGuardar.Location = new Point(176, 607);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(119, 43);
             btnGuardar.TabIndex = 10;
@@ -149,41 +156,52 @@
             // 
             // numericUpDown1
             // 
-            numericUpDown1.Location = new Point(182, 291);
+            numericUpDown1.Font = new Font("Century", 10.8F, FontStyle.Bold);
+            numericUpDown1.Location = new Point(470, 433);
+            numericUpDown1.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
             numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(288, 27);
+            numericUpDown1.Size = new Size(315, 29);
             numericUpDown1.TabIndex = 9;
             // 
             // CBType
             // 
+            CBType.BackColor = Color.FromArgb(91, 186, 100);
+            CBType.DropDownStyle = ComboBoxStyle.DropDownList;
+            CBType.Font = new Font("Century", 10.8F, FontStyle.Bold);
             CBType.FormattingEnabled = true;
-            CBType.Items.AddRange(new object[] { "Culturales", "Deportivos", "Tecnologicos ", "Cinematograficos ", "Networinkg " });
-            CBType.Location = new Point(182, 236);
+            CBType.ImeMode = ImeMode.NoControl;
+            CBType.Items.AddRange(new object[] { "Eventos Culturales", "Eventos Deportivos", "Eventos Tecnologicos ", "Eventos Cinematograficos ", "Eventos De Networinkg " });
+            CBType.Location = new Point(470, 367);
             CBType.Name = "CBType";
-            CBType.Size = new Size(288, 28);
+            CBType.Size = new Size(315, 30);
             CBType.TabIndex = 8;
             CBType.SelectedIndexChanged += CBType_SelectedIndexChanged;
             // 
             // dateTimePicker
             // 
-            dateTimePicker.Location = new Point(182, 184);
+            dateTimePicker.CustomFormat = "dddd, dd 'de' MMMM 'de' yyyy, hh:mm tt";
+            dateTimePicker.Font = new Font("Century", 10.8F, FontStyle.Bold);
+            dateTimePicker.Format = DateTimePickerFormat.Custom;
+            dateTimePicker.Location = new Point(470, 305);
             dateTimePicker.Name = "dateTimePicker";
-            dateTimePicker.Size = new Size(288, 27);
+            dateTimePicker.Size = new Size(315, 29);
             dateTimePicker.TabIndex = 7;
             dateTimePicker.ValueChanged += dateTimePicker1_ValueChanged;
             // 
             // textPlace
             // 
-            textPlace.Location = new Point(182, 127);
+            textPlace.Font = new Font("Century", 10.8F, FontStyle.Bold);
+            textPlace.Location = new Point(470, 241);
             textPlace.Name = "textPlace";
-            textPlace.Size = new Size(288, 27);
+            textPlace.Size = new Size(315, 29);
             textPlace.TabIndex = 6;
             // 
             // textName
             // 
-            textName.Location = new Point(182, 67);
+            textName.Font = new Font("Century", 10.8F, FontStyle.Bold);
+            textName.Location = new Point(470, 169);
             textName.Name = "textName";
-            textName.Size = new Size(288, 27);
+            textName.Size = new Size(315, 29);
             textName.TabIndex = 5;
             textName.TextChanged += textBox1_TextChanged;
             // 
@@ -191,47 +209,46 @@
             // 
             lblCapacidad.AutoSize = true;
             lblCapacidad.BackColor = Color.White;
-            lblCapacidad.Font = new Font("Times New Roman", 10.8F, FontStyle.Bold);
-            lblCapacidad.Location = new Point(30, 293);
+            lblCapacidad.Font = new Font("Century", 10.8F, FontStyle.Bold);
+            lblCapacidad.ImageAlign = ContentAlignment.MiddleLeft;
+            lblCapacidad.Location = new Point(146, 433);
             lblCapacidad.Name = "lblCapacidad";
-            lblCapacidad.Size = new Size(97, 20);
+            lblCapacidad.Size = new Size(207, 22);
             lblCapacidad.TabIndex = 4;
-            lblCapacidad.Text = "Capacidad:";
+            lblCapacidad.Text = "Asistencia al Evento:";
+            lblCapacidad.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lbltipo
             // 
             lbltipo.AutoSize = true;
             lbltipo.BackColor = Color.White;
-            lbltipo.Font = new Font("Times New Roman", 10.8F, FontStyle.Bold);
-            lbltipo.Location = new Point(30, 244);
+            lbltipo.Font = new Font("Century", 10.8F, FontStyle.Bold);
+            lbltipo.ImageAlign = ContentAlignment.MiddleLeft;
+            lbltipo.Location = new Point(146, 367);
             lbltipo.Name = "lbltipo";
-            lbltipo.Size = new Size(132, 20);
+            lbltipo.Size = new Size(212, 22);
             lbltipo.TabIndex = 3;
-            lbltipo.Text = "Tipo de Evento:";
+            lbltipo.Text = "Categoria del Evento:";
+            lbltipo.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // txtTitulo
+            // lblTitle
             // 
-            txtTitulo.BackColor = Color.White;
-            txtTitulo.Enabled = false;
-            txtTitulo.Font = new Font("Cambria", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            txtTitulo.ForeColor = SystemColors.ActiveCaptionText;
-            txtTitulo.Location = new Point(159, 28);
-            txtTitulo.Name = "txtTitulo";
-            txtTitulo.ReadOnly = true;
-            txtTitulo.Size = new Size(403, 43);
-            txtTitulo.TabIndex = 13;
-            txtTitulo.TabStop = false;
-            txtTitulo.Text = "Nexus Event Management\r\n";
-            txtTitulo.TextAlign = HorizontalAlignment.Center;
-            txtTitulo.WordWrap = false;
+            lblTitle.AutoSize = true;
+            lblTitle.BackColor = Color.White;
+            lblTitle.Font = new Font("Century", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitle.ForeColor = Color.Black;
+            lblTitle.Location = new Point(233, 58);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(394, 40);
+            lblTitle.TabIndex = 13;
+            lblTitle.Text = "Agregar Nuevo Evento";
             // 
             // FormularioDetalle
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkBlue;
-            ClientSize = new Size(724, 625);
-            Controls.Add(txtTitulo);
+            ClientSize = new Size(883, 706);
             Controls.Add(groupBox1);
             Name = "FormularioDetalle";
             Text = "FormularioDetalle";
@@ -240,7 +257,6 @@
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -259,6 +275,6 @@
         private Button btnCancelar;
         private Button btnGuardar;
         private Label lbldetalle;
-        private TextBox txtTitulo;
+        private Label lblTitle;
     }
 }

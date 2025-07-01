@@ -83,6 +83,16 @@ namespace CAPA_DE_PRESENTACION.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Captura_de_pantalla_2025_07_01_112345 {
+            get {
+                object obj = ResourceManager.GetObject("Captura de pantalla 2025-07-01 112345", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap CERRAR {
             get {
                 object obj = ResourceManager.GetObject("CERRAR", resourceCulture);
@@ -286,6 +296,26 @@ namespace CAPA_DE_PRESENTACION.Properties {
         internal static System.Drawing.Bitmap The_Diplomat_of_the_Year_Award1 {
             get {
                 object obj = ResourceManager.GetObject("The Diplomat of the Year Award1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap unnamed_1_ {
+            get {
+                object obj = ResourceManager.GetObject("unnamed(1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap unnamed_1__removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("unnamed_1_-removebg-preview", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

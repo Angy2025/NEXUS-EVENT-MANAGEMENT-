@@ -20,9 +20,8 @@ namespace CAPA_DE_PRESENTACION
 
         private void PersonalizarDiseño()
         {
-            PanelManagement.Visible = false;
+            
             PanelSubMenuMedios.Visible = false;
-            PanelTools.Visible = false;
         }
 
         private void hideSubMenu()
@@ -30,14 +29,6 @@ namespace CAPA_DE_PRESENTACION
             if (PanelSubMenuMedios.Visible == true)
             {
                 PanelSubMenuMedios.Visible = false;
-            }
-            if (PanelManagement.Visible == true)
-            {
-                PanelManagement.Visible = false;
-            }
-            if (PanelTools.Visible == true)
-            {
-                PanelTools.Visible = false;
             }
         }
 
@@ -92,38 +83,30 @@ namespace CAPA_DE_PRESENTACION
             hideSubMenu();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ShowSubMenu(PanelManagement);
-
-        }
-
-        private void button8_Click(object sender, EventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
         {
             //CODIGO PARA ABRIR EL FORMULARIO DE MEDIOS(PRINCIPAL)
 
             hideSubMenu();
+            this.Close();
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private Form activeForm = null; 
+        private void OpenPanelHerencia(Form herenciaForm)
         {
-            //CODIGO PARA ABRIR EL FORMULARIO DE MEDIOS(PRINCIPAL)
+            if (activeForm != null)
+                activeForm.Close();
+            activeForm = herenciaForm;
+            herenciaForm.TopLevel = false;
+            herenciaForm.FormBorderStyle = FormBorderStyle.None;
+            herenciaForm.Dock = DockStyle.Fill;
+            PanelHerencia.Controls.Add(herenciaForm);
+            PanelHerencia.Tag = herenciaForm;
+            herenciaForm.BringToFront();
+            herenciaForm.Show();
 
-            hideSubMenu();
-        }
 
-        private void button6_Click(object sender, EventArgs e)
-        {
-            //CODIGO PARA ABRIR EL FORMULARIO DE MEDIOS(PRINCIPAL)
 
-            hideSubMenu();
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            //CODIGO PARA ABRIR EL FORMULARIO DE MEDIOS(PRINCIPAL)
-
-            hideSubMenu();
         }
     }
 }
