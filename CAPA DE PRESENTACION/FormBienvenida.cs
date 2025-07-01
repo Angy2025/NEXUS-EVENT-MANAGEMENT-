@@ -45,10 +45,10 @@ namespace CAPA_DE_PRESENTACION
             timerunic.Stop();
 
             //Creamos una instancia de nuestro formulario de gestión
-            FormularioGestion frmGestion = new FormularioGestion();
+            FormLogin log = new FormLogin();
 
             //Lo mostramos
-            frmGestion.Show();
+            log.Show();
 
             //Ocultamos este formulario de bienvedida
             this.Hide();

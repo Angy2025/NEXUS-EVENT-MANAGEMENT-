@@ -38,11 +38,12 @@
             // 
             // groupBox3
             // 
-            groupBox3.BackgroundImage = Properties.Resources.Gemini_Generated_Image_6y0fnb6y0fnb6y0f__1_;
+            groupBox3.BackColor = Color.FromArgb(255, 224, 192);
+            groupBox3.BackgroundImage = Properties.Resources.unnamed_1__removebg_preview;
             groupBox3.BackgroundImageLayout = ImageLayout.Stretch;
             groupBox3.Controls.Add(label1);
             groupBox3.Dock = DockStyle.Fill;
-            groupBox3.Font = new Font("Cambria", 7.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            groupBox3.Font = new Font("Century", 10.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             groupBox3.Location = new Point(0, 0);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(645, 418);
@@ -54,19 +55,22 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.BackColor = Color.White;
+            label1.BackColor = Color.Black;
             label1.Dock = DockStyle.Bottom;
-            label1.Font = new Font("Georgia", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label1.Location = new Point(3, 397);
+            label1.Font = new Font("Century", 10.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(3, 394);
             label1.Name = "label1";
-            label1.Size = new Size(238, 18);
+            label1.Size = new Size(271, 21);
             label1.TabIndex = 0;
             label1.Text = "Cargando, por favor espere...";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // progressBar1
             // 
+            progressBar1.BackColor = Color.FromArgb(229, 85, 7);
             progressBar1.Dock = DockStyle.Bottom;
+            progressBar1.ForeColor = Color.FromArgb(229, 85, 7);
             progressBar1.Location = new Point(0, 418);
             progressBar1.Name = "progressBar1";
             progressBar1.Size = new Size(645, 29);

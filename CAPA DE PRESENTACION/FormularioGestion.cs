@@ -232,5 +232,10 @@ namespace CAPA_DE_PRESENTACION
         {
             this.Close();
         }
+
+        private void GBox_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

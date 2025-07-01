@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             GBox = new GroupBox();
             btnclose2 = new Button();
             btneliminar = new Button();
@@ -38,8 +38,8 @@
             btnbuscar = new Button();
             textBox1 = new TextBox();
             lblbuscar = new Label();
-            label1 = new Label();
             comBox = new ComboBox();
+            label1 = new Label();
             GBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv2).BeginInit();
             SuspendLayout();
@@ -63,16 +63,18 @@
             GBox.Size = new Size(810, 634);
             GBox.TabIndex = 1;
             GBox.TabStop = false;
+            GBox.Enter += GBox_Enter;
             // 
             // btnclose2
             // 
-            btnclose2.Font = new Font("Times New Roman", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnclose2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnclose2.Font = new Font("Century", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnclose2.ForeColor = Color.Black;
             btnclose2.Image = Properties.Resources.CERRAR;
             btnclose2.ImageAlign = ContentAlignment.MiddleLeft;
-            btnclose2.Location = new Point(626, 478);
+            btnclose2.Location = new Point(30, 547);
             btnclose2.Name = "btnclose2";
-            btnclose2.Size = new Size(94, 55);
+            btnclose2.Size = new Size(90, 45);
             btnclose2.TabIndex = 11;
             btnclose2.Text = "Cerrar";
             btnclose2.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -81,13 +83,14 @@
             // 
             // btneliminar
             // 
+            btneliminar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btneliminar.BackColor = Color.White;
-            btneliminar.Font = new Font("Times New Roman", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btneliminar.Font = new Font("Century", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btneliminar.ForeColor = Color.Black;
             btneliminar.Image = Properties.Resources.ELIMINAR;
-            btneliminar.Location = new Point(455, 478);
+            btneliminar.Location = new Point(658, 547);
             btneliminar.Name = "btneliminar";
-            btneliminar.Size = new Size(138, 55);
+            btneliminar.Size = new Size(115, 45);
             btneliminar.TabIndex = 10;
             btneliminar.Text = "Eliminar Evento";
             btneliminar.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -96,14 +99,15 @@
             // 
             // btnmod
             // 
+            btnmod.Anchor = AnchorStyles.Bottom;
             btnmod.BackColor = Color.White;
-            btnmod.Font = new Font("Times New Roman", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnmod.Font = new Font("Century", 9F, FontStyle.Bold);
             btnmod.ForeColor = Color.Black;
             btnmod.Image = Properties.Resources.MODIFICAR;
             btnmod.ImageAlign = ContentAlignment.MiddleLeft;
-            btnmod.Location = new Point(266, 478);
+            btnmod.Location = new Point(504, 451);
             btnmod.Name = "btnmod";
-            btnmod.Size = new Size(159, 55);
+            btnmod.Size = new Size(151, 53);
             btnmod.TabIndex = 9;
             btnmod.Text = "Modificar Evento";
             btnmod.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -112,13 +116,14 @@
             // 
             // btnagregar
             // 
-            btnagregar.Font = new Font("Times New Roman", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnagregar.Anchor = AnchorStyles.Bottom;
+            btnagregar.Font = new Font("Century", 9F, FontStyle.Bold);
             btnagregar.ForeColor = Color.Black;
             btnagregar.Image = Properties.Resources.ICONO_DE_AGREGAR;
             btnagregar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnagregar.Location = new Point(90, 478);
+            btnagregar.Location = new Point(122, 451);
             btnagregar.Name = "btnagregar";
-            btnagregar.Size = new Size(139, 55);
+            btnagregar.Size = new Size(131, 53);
             btnagregar.TabIndex = 8;
             btnagregar.Text = "Agregar Nuevo";
             btnagregar.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -127,32 +132,34 @@
             // 
             // dgv2
             // 
+            dgv2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgv2.BackgroundColor = Color.FromArgb(255, 224, 192);
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle6.BackColor = Color.LightGray;
-            dataGridViewCellStyle6.Font = new Font("Palatino Linotype", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle6.ForeColor = Color.Black;
-            dataGridViewCellStyle6.Format = "d";
-            dataGridViewCellStyle6.NullValue = null;
-            dataGridViewCellStyle6.SelectionBackColor = Color.White;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.MenuBar;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            dgv2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.BackColor = Color.LightGray;
+            dataGridViewCellStyle1.Font = new Font("Palatino Linotype", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.Format = "d";
+            dataGridViewCellStyle1.NullValue = null;
+            dataGridViewCellStyle1.SelectionBackColor = Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.MenuBar;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dgv2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgv2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv2.Location = new Point(69, 134);
+            dgv2.Location = new Point(49, 131);
             dgv2.Name = "dgv2";
             dgv2.RowHeadersWidth = 51;
-            dgv2.Size = new Size(664, 304);
+            dgv2.Size = new Size(704, 298);
             dgv2.TabIndex = 5;
             dgv2.CellContentClick += dgv2_CellContentClick;
             // 
             // btnbuscar
             // 
+            btnbuscar.Anchor = AnchorStyles.Top;
             btnbuscar.BackColor = Color.White;
             btnbuscar.Font = new Font("Times New Roman", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnbuscar.ForeColor = Color.Black;
             btnbuscar.Image = Properties.Resources.BUSCAR;
-            btnbuscar.Location = new Point(687, 72);
+            btnbuscar.Location = new Point(693, 72);
             btnbuscar.Name = "btnbuscar";
             btnbuscar.Size = new Size(102, 29);
             btnbuscar.TabIndex = 4;
@@ -161,6 +168,7 @@
             // 
             // textBox1
             // 
+            textBox1.Anchor = AnchorStyles.Top;
             textBox1.Location = new Point(556, 74);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(151, 27);
@@ -169,31 +177,21 @@
             // 
             // lblbuscar
             // 
+            lblbuscar.Anchor = AnchorStyles.Top;
             lblbuscar.AutoSize = true;
             lblbuscar.BackColor = Color.White;
-            lblbuscar.Font = new Font("Times New Roman", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblbuscar.Font = new Font("Century", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblbuscar.ForeColor = Color.Black;
-            lblbuscar.Location = new Point(371, 76);
+            lblbuscar.Location = new Point(361, 75);
             lblbuscar.Name = "lblbuscar";
-            lblbuscar.Size = new Size(167, 20);
+            lblbuscar.Size = new Size(189, 21);
             lblbuscar.TabIndex = 2;
             lblbuscar.Text = "Buscar por Nombre:";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.White;
-            label1.Font = new Font("Times New Roman", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.Black;
-            label1.Location = new Point(30, 74);
-            label1.Name = "label1";
-            label1.Size = new Size(139, 20);
-            label1.TabIndex = 0;
-            label1.Text = "Tipo de Eventos:";
             // 
             // comBox
             // 
             comBox.AllowDrop = true;
+            comBox.Anchor = AnchorStyles.Top;
             comBox.DropDownStyle = ComboBoxStyle.DropDownList;
             comBox.Font = new Font("Times New Roman", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             comBox.FormattingEnabled = true;
@@ -204,11 +202,24 @@
             comBox.TabIndex = 1;
             comBox.SelectedIndexChanged += comBox_SelectedIndexChanged;
             // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Top;
+            label1.AutoSize = true;
+            label1.BackColor = Color.White;
+            label1.Font = new Font("Century", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Black;
+            label1.Location = new Point(10, 75);
+            label1.Name = "label1";
+            label1.Size = new Size(159, 21);
+            label1.TabIndex = 0;
+            label1.Text = "Tipo de Eventos:";
+            // 
             // FormularioGestion
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Black;
+            BackColor = Color.FromArgb(255, 224, 192);
             ClientSize = new Size(873, 688);
             Controls.Add(GBox);
             ForeColor = Color.Black;

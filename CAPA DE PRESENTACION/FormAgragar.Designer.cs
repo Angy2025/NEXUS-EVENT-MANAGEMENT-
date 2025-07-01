@@ -32,6 +32,7 @@
             lbllugar = new Label();
             lbldate = new Label();
             groupBox1 = new GroupBox();
+            lblTitle = new Label();
             lbldetalle = new Label();
             btnCancelar = new Button();
             btnGuardar = new Button();
@@ -42,7 +43,6 @@
             textName = new TextBox();
             lblCapacidad = new Label();
             lbltipo = new Label();
-            lblTitle = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
@@ -90,7 +90,7 @@
             // 
             // groupBox1
             // 
-            groupBox1.BackColor = Color.Transparent;
+            groupBox1.BackColor = Color.White;
             groupBox1.Controls.Add(lblTitle);
             groupBox1.Controls.Add(lbldetalle);
             groupBox1.Controls.Add(btnCancelar);
@@ -114,6 +114,18 @@
             groupBox1.TabStop = false;
             groupBox1.Enter += groupBox1_Enter;
             // 
+            // lblTitle
+            // 
+            lblTitle.AutoSize = true;
+            lblTitle.BackColor = Color.White;
+            lblTitle.Font = new Font("Century", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitle.ForeColor = Color.Black;
+            lblTitle.Location = new Point(233, 58);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(394, 40);
+            lblTitle.TabIndex = 13;
+            lblTitle.Text = "Agregar Nuevo Evento";
+            // 
             // lbldetalle
             // 
             lbldetalle.AutoSize = true;
@@ -130,9 +142,9 @@
             btnCancelar.Font = new Font("Century", 10.8F, FontStyle.Bold);
             btnCancelar.Image = Properties.Resources.CERRAR;
             btnCancelar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCancelar.Location = new Point(488, 576);
+            btnCancelar.Location = new Point(502, 533);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(118, 42);
+            btnCancelar.Size = new Size(134, 51);
             btnCancelar.TabIndex = 11;
             btnCancelar.Text = "Cancelar";
             btnCancelar.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -145,9 +157,9 @@
             btnGuardar.Font = new Font("Century", 10.8F, FontStyle.Bold);
             btnGuardar.Image = Properties.Resources.GUARDAR;
             btnGuardar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnGuardar.Location = new Point(176, 607);
+            btnGuardar.Location = new Point(179, 536);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(119, 43);
+            btnGuardar.Size = new Size(125, 44);
             btnGuardar.TabIndex = 10;
             btnGuardar.Text = "Guardar";
             btnGuardar.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -230,18 +242,6 @@
             lbltipo.TabIndex = 3;
             lbltipo.Text = "Categoria del Evento:";
             lbltipo.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // lblTitle
-            // 
-            lblTitle.AutoSize = true;
-            lblTitle.BackColor = Color.White;
-            lblTitle.Font = new Font("Century", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitle.ForeColor = Color.Black;
-            lblTitle.Location = new Point(233, 58);
-            lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(394, 40);
-            lblTitle.TabIndex = 13;
-            lblTitle.Text = "Agregar Nuevo Evento";
             // 
             // FormularioDetalle
             // 

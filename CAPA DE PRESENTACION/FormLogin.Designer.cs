@@ -32,24 +32,26 @@
             btnExit = new Button();
             btnAdd = new Button();
             PanelSubMenuMedios = new Panel();
-            button4 = new Button();
-            button3 = new Button();
-            button2 = new Button();
             b = new Button();
             btnMedia = new Button();
             PanelLogo = new Panel();
             PanelHerencia = new Panel();
             pictureBox1 = new PictureBox();
+            panel1 = new Panel();
+            btnDetails = new Button();
+            btnMod2 = new Button();
             PanelMenuLateral.SuspendLayout();
             PanelSubMenuMedios.SuspendLayout();
             PanelHerencia.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // PanelMenuLateral
             // 
             PanelMenuLateral.AutoScroll = true;
             PanelMenuLateral.BackColor = Color.FromArgb(255, 224, 192);
+            PanelMenuLateral.Controls.Add(panel1);
             PanelMenuLateral.Controls.Add(btnExit);
             PanelMenuLateral.Controls.Add(btnAdd);
             PanelMenuLateral.Controls.Add(PanelSubMenuMedios);
@@ -89,7 +91,7 @@
             btnAdd.FlatStyle = FlatStyle.Flat;
             btnAdd.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             btnAdd.ForeColor = Color.Black;
-            btnAdd.Location = new Point(0, 356);
+            btnAdd.Location = new Point(0, 309);
             btnAdd.Margin = new Padding(4, 3, 4, 3);
             btnAdd.Name = "btnAdd";
             btnAdd.Padding = new Padding(11, 0, 0, 0);
@@ -98,74 +100,18 @@
             btnAdd.Text = "Detalles de Eventos";
             btnAdd.TextAlign = ContentAlignment.MiddleLeft;
             btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
             // 
             // PanelSubMenuMedios
             // 
             PanelSubMenuMedios.BackColor = Color.FromArgb(91, 186, 100);
-            PanelSubMenuMedios.Controls.Add(button4);
-            PanelSubMenuMedios.Controls.Add(button3);
-            PanelSubMenuMedios.Controls.Add(button2);
             PanelSubMenuMedios.Controls.Add(b);
             PanelSubMenuMedios.Dock = DockStyle.Top;
             PanelSubMenuMedios.Location = new Point(0, 216);
             PanelSubMenuMedios.Margin = new Padding(4, 3, 4, 3);
             PanelSubMenuMedios.Name = "PanelSubMenuMedios";
-            PanelSubMenuMedios.Size = new Size(281, 140);
+            PanelSubMenuMedios.Size = new Size(281, 93);
             PanelSubMenuMedios.TabIndex = 1;
-            // 
-            // button4
-            // 
-            button4.Dock = DockStyle.Top;
-            button4.FlatAppearance.BorderSize = 0;
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button4.ForeColor = Color.White;
-            button4.Location = new Point(0, 102);
-            button4.Margin = new Padding(4, 3, 4, 3);
-            button4.Name = "button4";
-            button4.Padding = new Padding(40, 0, 0, 0);
-            button4.Size = new Size(281, 34);
-            button4.TabIndex = 3;
-            button4.Text = "button4";
-            button4.TextAlign = ContentAlignment.MiddleLeft;
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
-            // 
-            // button3
-            // 
-            button3.Dock = DockStyle.Top;
-            button3.FlatAppearance.BorderSize = 0;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button3.ForeColor = Color.White;
-            button3.Location = new Point(0, 68);
-            button3.Margin = new Padding(4, 3, 4, 3);
-            button3.Name = "button3";
-            button3.Padding = new Padding(40, 0, 0, 0);
-            button3.Size = new Size(281, 34);
-            button3.TabIndex = 2;
-            button3.Text = "button3";
-            button3.TextAlign = ContentAlignment.MiddleLeft;
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
-            // 
-            // button2
-            // 
-            button2.Dock = DockStyle.Top;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            button2.ForeColor = Color.White;
-            button2.Location = new Point(0, 34);
-            button2.Margin = new Padding(4, 3, 4, 3);
-            button2.Name = "button2";
-            button2.Padding = new Padding(40, 0, 0, 0);
-            button2.Size = new Size(281, 34);
-            button2.TabIndex = 1;
-            button2.Text = "button2";
-            button2.TextAlign = ContentAlignment.MiddleLeft;
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
             // 
             // b
             // 
@@ -174,7 +120,7 @@
             b.FlatAppearance.MouseDownBackColor = Color.Transparent;
             b.FlatAppearance.MouseOverBackColor = Color.Transparent;
             b.FlatStyle = FlatStyle.Flat;
-            b.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            b.Font = new Font("Century", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             b.ForeColor = Color.White;
             b.Location = new Point(0, 0);
             b.Margin = new Padding(4, 3, 4, 3);
@@ -182,7 +128,7 @@
             b.Padding = new Padding(40, 0, 0, 0);
             b.Size = new Size(281, 34);
             b.TabIndex = 0;
-            b.Text = "button1";
+            b.Text = "Agregar Nuevo Evento";
             b.TextAlign = ContentAlignment.MiddleLeft;
             b.UseVisualStyleBackColor = true;
             b.Click += b_Click;
@@ -229,6 +175,7 @@
             PanelHerencia.Name = "PanelHerencia";
             PanelHerencia.Size = new Size(901, 753);
             PanelHerencia.TabIndex = 2;
+            PanelHerencia.Paint += PanelHerencia_Paint;
             // 
             // pictureBox1
             // 
@@ -241,6 +188,56 @@
             pictureBox1.Size = new Size(337, 288);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(91, 186, 100);
+            panel1.Controls.Add(btnMod2);
+            panel1.Controls.Add(btnDetails);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 347);
+            panel1.Margin = new Padding(4, 3, 4, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(281, 93);
+            panel1.TabIndex = 6;
+            // 
+            // btnDetails
+            // 
+            btnDetails.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            btnDetails.FlatAppearance.BorderSize = 0;
+            btnDetails.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnDetails.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnDetails.FlatStyle = FlatStyle.Flat;
+            btnDetails.Font = new Font("Century", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDetails.ForeColor = Color.White;
+            btnDetails.Location = new Point(0, 0);
+            btnDetails.Margin = new Padding(4, 3, 4, 3);
+            btnDetails.Name = "btnDetails";
+            btnDetails.Padding = new Padding(40, 0, 0, 0);
+            btnDetails.Size = new Size(281, 34);
+            btnDetails.TabIndex = 0;
+            btnDetails.Text = "Agregar Eventos";
+            btnDetails.TextAlign = ContentAlignment.TopCenter;
+            btnDetails.UseVisualStyleBackColor = true;
+            // 
+            // btnMod2
+            // 
+            btnMod2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            btnMod2.FlatAppearance.BorderSize = 0;
+            btnMod2.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnMod2.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnMod2.FlatStyle = FlatStyle.Flat;
+            btnMod2.Font = new Font("Century", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnMod2.ForeColor = Color.White;
+            btnMod2.Location = new Point(0, 29);
+            btnMod2.Margin = new Padding(4, 3, 4, 3);
+            btnMod2.Name = "btnMod2";
+            btnMod2.Padding = new Padding(40, 0, 0, 0);
+            btnMod2.Size = new Size(281, 34);
+            btnMod2.TabIndex = 1;
+            btnMod2.Text = "Modificar Evento Existente";
+            btnMod2.TextAlign = ContentAlignment.TopCenter;
+            btnMod2.UseVisualStyleBackColor = true;
             // 
             // FormLogin
             // 
@@ -261,6 +258,7 @@
             PanelSubMenuMedios.ResumeLayout(false);
             PanelHerencia.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -271,9 +269,6 @@
         private Button btnMedia;
         private Panel PanelSubMenuMedios;
         private Button b;
-        private Button button4;
-        private Button button3;
-        private Button button2;
         private Panel panel2;
         private Panel PanelManagement;
         private Button button5;
@@ -284,5 +279,8 @@
         private Button btnExit;
         private Panel PanelHerencia;
         private PictureBox pictureBox1;
+        private Panel panel1;
+        private Button btnDetails;
+        private Button btnMod2;
     }
 }

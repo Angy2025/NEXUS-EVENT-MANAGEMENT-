@@ -20,7 +20,7 @@ namespace CAPA_DE_PRESENTACION
 
         private void PersonalizarDiseño()
         {
-            
+
             PanelSubMenuMedios.Visible = false;
         }
 
@@ -57,6 +57,8 @@ namespace CAPA_DE_PRESENTACION
 
         private void b_Click(object sender, EventArgs e)
         {
+            OpenPanelHerencia(new FormularioGestion());
+
             //CODIGO PARA ABRIR EL FORMULARIO DE MEDIOS(PRINCIPAL)
 
             hideSubMenu();
@@ -91,7 +93,7 @@ namespace CAPA_DE_PRESENTACION
             this.Close();
         }
 
-        private Form activeForm = null; 
+        private Form activeForm = null;
         private void OpenPanelHerencia(Form herenciaForm)
         {
             if (activeForm != null)
@@ -104,8 +106,14 @@ namespace CAPA_DE_PRESENTACION
             PanelHerencia.Tag = herenciaForm;
             herenciaForm.BringToFront();
             herenciaForm.Show();
+        }
+        private void PanelHerencia_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
 
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
 
         }
     }
