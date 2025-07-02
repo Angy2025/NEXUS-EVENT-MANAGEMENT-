@@ -7,20 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace CAPA_DE_PRESENTACION
 {
-    public partial class FormLogin : Form
+    public partial class FormAcceso : Form
     {
-        public FormLogin()
+        public FormAcceso()
         {
             InitializeComponent();
             PersonalizarDiseño();
-        }
 
+            //Form
+            this.Text = string.Empty;
+            this.ControlBox = false;
+            this.DoubleBuffered = true;
+
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+        }
         private void PersonalizarDiseño()
         {
-
             PanelSubMenuMedios.Visible = false;
         }
 
@@ -30,8 +36,11 @@ namespace CAPA_DE_PRESENTACION
             {
                 PanelSubMenuMedios.Visible = false;
             }
+            if (PanelDetalles.Visible == true)
+            {
+                PanelDetalles.Visible = false;
+            }
         }
-
         private void ShowSubMenu(Panel subMenu)
         {
             if (subMenu.Visible == false)
@@ -43,11 +52,6 @@ namespace CAPA_DE_PRESENTACION
             {
                 subMenu.Visible = false;
             }
-        }
-
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void btnMedia_Click(object sender, EventArgs e)
@@ -64,26 +68,6 @@ namespace CAPA_DE_PRESENTACION
             hideSubMenu();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            //CODIGO PARA ABRIR EL FORMULARIO DE MEDIOS(PRINCIPAL)
-
-            hideSubMenu();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            //CODIGO PARA ABRIR EL FORMULARIO DE MEDIOS(PRINCIPAL)
-
-            hideSubMenu();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            //CODIGO PARA ABRIR EL FORMULARIO DE MEDIOS(PRINCIPAL)
-
-            hideSubMenu();
-        }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -112,9 +96,69 @@ namespace CAPA_DE_PRESENTACION
 
         }
 
+        //Drag Form
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private static extern void ReleaseCapture();
+
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private static extern void SendMessage(IntPtr hWnd, int wMsg, int wParam, int lParam);
+
         private void btnAdd_Click(object sender, EventArgs e)
+        {
+            ShowSubMenu(PanelDetalles);
+        }
+
+        private void PanelHerencia_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void btnMod2_Click(object sender, EventArgs e)
+        {
+            OpenPanelHerencia(new FormularioDetalle()); //Agregar Evento
+            hideSubMenu();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenPanelHerencia(new FormModificar()); //Editar Evento existente
+            hideSubMenu();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            OpenPanelHerencia(new FormIngreso()); //Login Form
+            hideSubMenu();
+        }
+
+        /*private void button2_Click(object sender, EventArgs e)
+        {
+            //CODIGO PARA ABRIR EL FORMULARIO DE MEDIOS(PRINCIPAL)
+
+            hideSubMenu();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //CODIGO PARA ABRIR EL FORMULARIO DE MEDIOS(PRINCIPAL)
+
+            hideSubMenu();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            //CODIGO PARA ABRIR EL FORMULARIO DE MEDIOS(PRINCIPAL)
+
+            hideSubMenu();
+        }
+        
+         private void panel4_Paint(object sender, PaintEventArgs e)
         {
 
         }
+         
+         */
+
     }
 }

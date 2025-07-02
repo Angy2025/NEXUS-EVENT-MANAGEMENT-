@@ -263,6 +263,66 @@ namespace CAPA_DE_PRESENTACION.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_box_important_24 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-box-important-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_cerrar_ventana_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-cerrar-ventana-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_close_window_24 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-close-window-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_error_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-error-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_logout_24 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-logout-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_menos_24 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-menos-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Magical_Moments_at_the_Annual_School_Festival {
             get {
                 object obj = ResourceManager.GetObject("Magical Moments at the Annual School Festival", resourceCulture);
@@ -316,6 +376,16 @@ namespace CAPA_DE_PRESENTACION.Properties {
         internal static System.Drawing.Bitmap unnamed_1__removebg_preview {
             get {
                 object obj = ResourceManager.GetObject("unnamed_1_-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap unnamed_1_1 {
+            get {
+                object obj = ResourceManager.GetObject("unnamed(1)1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

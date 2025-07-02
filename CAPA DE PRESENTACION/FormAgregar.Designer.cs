@@ -109,7 +109,7 @@
             groupBox1.Location = new Point(0, 0);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(15);
-            groupBox1.Size = new Size(883, 706);
+            groupBox1.Size = new Size(869, 644);
             groupBox1.TabIndex = 3;
             groupBox1.TabStop = false;
             groupBox1.Enter += groupBox1_Enter;
@@ -248,7 +248,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkBlue;
-            ClientSize = new Size(883, 706);
+            ClientSize = new Size(869, 644);
             Controls.Add(groupBox1);
             Name = "FormularioDetalle";
             Text = "FormularioDetalle";

@@ -88,10 +88,25 @@ namespace CAPA_DE_NEGOCIOS
             }
             _crud.Eliminar(id);
         }
+    }
 
-                 
-        
+    //-------LOGIN SECCTION -------
 
+    public class  UserModel
+    {
+        UserKey userE = new UserKey();
+        public bool LoginUser(string user, string password)
+        {             
+            if (string.IsNullOrWhiteSpace(user) || string.IsNullOrWhiteSpace(password))
+            {
+                throw new Exception("El usuario y la contraseña son obligatorios para iniciar sesión.");
+            }
+            return userE.Login(user, password);
+        }
+
+
+
+       
     }
 }
 

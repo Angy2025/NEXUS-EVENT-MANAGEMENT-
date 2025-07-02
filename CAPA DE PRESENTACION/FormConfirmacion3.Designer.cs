@@ -118,14 +118,17 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkBlue;
-            ClientSize = new Size(679, 290);
+            ClientSize = new Size(662, 285);
             Controls.Add(lbladver);
             Controls.Add(btnCancelar2);
             Controls.Add(btneliminar2);
             Controls.Add(btnIcon);
             Controls.Add(lblMensaje);
             Controls.Add(groupBox1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "FormConfirmacion";
+            Opacity = 0.85D;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormConfirmacion";
             Load += FormConfirmacion_Load_1;
             ResumeLayout(false);

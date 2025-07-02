@@ -45,7 +45,7 @@ namespace CAPA_DE_PRESENTACION
             timerunic.Stop();
 
             //Creamos una instancia de nuestro formulario de gestión
-            FormLogin log = new FormLogin();
+            FormIngreso log = new FormIngreso();
 
             //Lo mostramos
             log.Show();
