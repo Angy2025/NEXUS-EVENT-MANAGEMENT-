@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             PanelMenuLateral = new Panel();
-            btnLogin = new Button();
             PanelDetalles = new Panel();
             btnEditar = new Button();
             btnMod2 = new Button();
@@ -39,11 +38,19 @@
             b = new Button();
             btnMedia = new Button();
             PanelLogo = new Panel();
+            pictureBox2 = new PictureBox();
+            lblEmail = new Label();
+            lblnom = new Label();
+            lblposicion = new Label();
+            PBuser = new PictureBox();
             PanelHerencia = new Panel();
             pictureBox1 = new PictureBox();
             PanelMenuLateral.SuspendLayout();
             PanelDetalles.SuspendLayout();
             PanelSubMenuMedios.SuspendLayout();
+            PanelLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PBuser).BeginInit();
             PanelHerencia.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -52,7 +59,6 @@
             // 
             PanelMenuLateral.AutoScroll = true;
             PanelMenuLateral.BackColor = Color.FromArgb(255, 224, 192);
-            PanelMenuLateral.Controls.Add(btnLogin);
             PanelMenuLateral.Controls.Add(PanelDetalles);
             PanelMenuLateral.Controls.Add(btnExit);
             PanelMenuLateral.Controls.Add(btnAdd);
@@ -66,32 +72,13 @@
             PanelMenuLateral.Size = new Size(281, 753);
             PanelMenuLateral.TabIndex = 0;
             // 
-            // btnLogin
-            // 
-            btnLogin.BackColor = Color.White;
-            btnLogin.Dock = DockStyle.Bottom;
-            btnLogin.FlatAppearance.BorderSize = 0;
-            btnLogin.FlatStyle = FlatStyle.Flat;
-            btnLogin.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnLogin.ForeColor = Color.Black;
-            btnLogin.Location = new Point(0, 677);
-            btnLogin.Margin = new Padding(4, 3, 4, 3);
-            btnLogin.Name = "btnLogin";
-            btnLogin.Padding = new Padding(11, 0, 0, 0);
-            btnLogin.Size = new Size(281, 38);
-            btnLogin.TabIndex = 7;
-            btnLogin.Text = "Login";
-            btnLogin.TextAlign = ContentAlignment.MiddleLeft;
-            btnLogin.UseVisualStyleBackColor = false;
-            btnLogin.Click += btnLogin_Click;
-            // 
             // PanelDetalles
             // 
             PanelDetalles.BackColor = Color.FromArgb(91, 186, 100);
             PanelDetalles.Controls.Add(btnEditar);
             PanelDetalles.Controls.Add(btnMod2);
             PanelDetalles.Dock = DockStyle.Top;
-            PanelDetalles.Location = new Point(0, 403);
+            PanelDetalles.Location = new Point(0, 341);
             PanelDetalles.Margin = new Padding(4, 3, 4, 3);
             PanelDetalles.Name = "PanelDetalles";
             PanelDetalles.Size = new Size(281, 93);
@@ -148,7 +135,6 @@
             btnExit.FlatStyle = FlatStyle.Flat;
             btnExit.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             btnExit.ForeColor = Color.Black;
-            btnExit.ImageAlign = ContentAlignment.MiddleLeft;
             btnExit.Location = new Point(0, 715);
             btnExit.Margin = new Padding(4, 3, 4, 3);
             btnExit.Name = "btnExit";
@@ -168,7 +154,7 @@
             btnAdd.FlatStyle = FlatStyle.Flat;
             btnAdd.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             btnAdd.ForeColor = Color.Black;
-            btnAdd.Location = new Point(0, 365);
+            btnAdd.Location = new Point(0, 303);
             btnAdd.Margin = new Padding(4, 3, 4, 3);
             btnAdd.Name = "btnAdd";
             btnAdd.Padding = new Padding(11, 0, 0, 0);
@@ -184,7 +170,7 @@
             PanelSubMenuMedios.BackColor = Color.FromArgb(91, 186, 100);
             PanelSubMenuMedios.Controls.Add(b);
             PanelSubMenuMedios.Dock = DockStyle.Top;
-            PanelSubMenuMedios.Location = new Point(0, 272);
+            PanelSubMenuMedios.Location = new Point(0, 210);
             PanelSubMenuMedios.Margin = new Padding(4, 3, 4, 3);
             PanelSubMenuMedios.Name = "PanelSubMenuMedios";
             PanelSubMenuMedios.Size = new Size(281, 93);
@@ -218,7 +204,7 @@
             btnMedia.FlatStyle = FlatStyle.Flat;
             btnMedia.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             btnMedia.ForeColor = Color.Black;
-            btnMedia.Location = new Point(0, 234);
+            btnMedia.Location = new Point(0, 172);
             btnMedia.Margin = new Padding(4, 3, 4, 3);
             btnMedia.Name = "btnMedia";
             btnMedia.Padding = new Padding(11, 0, 0, 0);
@@ -232,14 +218,71 @@
             // PanelLogo
             // 
             PanelLogo.BackColor = Color.FromArgb(255, 224, 192);
-            PanelLogo.BackgroundImage = Properties.Resources.unnamed_1__removebg_preview;
             PanelLogo.BackgroundImageLayout = ImageLayout.Stretch;
+            PanelLogo.Controls.Add(pictureBox2);
+            PanelLogo.Controls.Add(lblEmail);
+            PanelLogo.Controls.Add(lblnom);
+            PanelLogo.Controls.Add(lblposicion);
+            PanelLogo.Controls.Add(PBuser);
             PanelLogo.Dock = DockStyle.Top;
             PanelLogo.Location = new Point(0, 0);
             PanelLogo.Margin = new Padding(4, 3, 4, 3);
             PanelLogo.Name = "PanelLogo";
-            PanelLogo.Size = new Size(281, 234);
+            PanelLogo.Size = new Size(281, 172);
             PanelLogo.TabIndex = 0;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.White;
+            pictureBox2.BackgroundImage = Properties.Resources.icons8_slider_24;
+            pictureBox2.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox2.Location = new Point(239, 12);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(36, 27);
+            pictureBox2.TabIndex = 4;
+            pictureBox2.TabStop = false;
+            // 
+            // lblEmail
+            // 
+            lblEmail.AutoSize = true;
+            lblEmail.Font = new Font("Century", 9F, FontStyle.Bold);
+            lblEmail.Location = new Point(109, 93);
+            lblEmail.Name = "lblEmail";
+            lblEmail.Size = new Size(55, 18);
+            lblEmail.TabIndex = 3;
+            lblEmail.Text = "Email";
+            // 
+            // lblnom
+            // 
+            lblnom.AutoSize = true;
+            lblnom.Font = new Font("Century", 9F, FontStyle.Bold);
+            lblnom.Location = new Point(109, 56);
+            lblnom.Name = "lblnom";
+            lblnom.Size = new Size(70, 18);
+            lblnom.TabIndex = 2;
+            lblnom.Text = "Nombre";
+            // 
+            // lblposicion
+            // 
+            lblposicion.AutoSize = true;
+            lblposicion.Font = new Font("Century", 9F, FontStyle.Bold);
+            lblposicion.Location = new Point(109, 21);
+            lblposicion.Name = "lblposicion";
+            lblposicion.Size = new Size(75, 18);
+            lblposicion.TabIndex = 1;
+            lblposicion.Text = "Posicion";
+            lblposicion.Click += label1_Click;
+            // 
+            // PBuser
+            // 
+            PBuser.BackColor = Color.White;
+            PBuser.BackgroundImage = Properties.Resources.icons8_profile_96_removebg_preview;
+            PBuser.BackgroundImageLayout = ImageLayout.Zoom;
+            PBuser.Location = new Point(3, 12);
+            PBuser.Name = "PBuser";
+            PBuser.Size = new Size(100, 99);
+            PBuser.TabIndex = 0;
+            PBuser.TabStop = false;
             // 
             // PanelHerencia
             // 
@@ -248,7 +291,6 @@
             PanelHerencia.Dock = DockStyle.Fill;
             PanelHerencia.Location = new Point(281, 0);
             PanelHerencia.MaximumSize = new Size(901, 753);
-            PanelHerencia.MinimumSize = new Size(901, 753);
             PanelHerencia.Name = "PanelHerencia";
             PanelHerencia.Size = new Size(901, 753);
             PanelHerencia.TabIndex = 2;
@@ -282,9 +324,14 @@
             Name = "FormAcceso";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormLogin";
+            Load += FormAcceso_Load;
             PanelMenuLateral.ResumeLayout(false);
             PanelDetalles.ResumeLayout(false);
             PanelSubMenuMedios.ResumeLayout(false);
+            PanelLogo.ResumeLayout(false);
+            PanelLogo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PBuser).EndInit();
             PanelHerencia.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
@@ -311,7 +358,11 @@
         private Button btnMod2;
         private Panel panel1;
         private Button button2;
-        private Button btnLogin;
         private Button btnEditar;
+        private PictureBox PBuser;
+        private Label lblEmail;
+        private Label lblnom;
+        private Label lblposicion;
+        private PictureBox pictureBox2;
     }
 }

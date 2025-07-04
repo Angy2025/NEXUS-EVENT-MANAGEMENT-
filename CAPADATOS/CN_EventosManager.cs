@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using CapaDatos;
 using CAPA_DE_NEGOCIOS;
+using CAPA_DE_ENTIDADES.CACHE;
 
 namespace CAPA_DE_NEGOCIOS
 {
@@ -104,6 +105,13 @@ namespace CAPA_DE_NEGOCIOS
             return userE.Login(user, password);
         }
 
+        public bool editPassword(int user, string password)
+        {
+            if (user == NewLoginUser.IdUser)
+            { }
+
+            return true;
+        }
 
 
        

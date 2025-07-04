@@ -6,9 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\CAPA DE DATOS\CAPA DE DATOS.csproj" />
-    <ProjectReference Include="..\CAPA_DE_ENTIDADES\CAPA_DE_ENTIDADES.csproj" />
-  </ItemGroup>
-
 </Project>

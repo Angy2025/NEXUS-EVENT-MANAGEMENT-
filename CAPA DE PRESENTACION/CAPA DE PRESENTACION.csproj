@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CAPADATOS\CAPA DE NEGOCIOS.csproj" />
+    <ProjectReference Include="..\CAPA_DE_ENTIDADES\CAPA_DE_ENTIDADES.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -323,6 +323,26 @@ namespace CAPA_DE_PRESENTACION.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_profile_96_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("icons8-profile-96-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_slider_24 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-slider-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Magical_Moments_at_the_Annual_School_Festival {
             get {
                 object obj = ResourceManager.GetObject("Magical Moments at the Annual School Festival", resourceCulture);

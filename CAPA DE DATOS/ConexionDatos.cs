@@ -5,27 +5,20 @@ using System.Data; // Necesario para DataTable y SqlDataReader
 
 namespace CapaDatos
 {
-    public class EventosDatos
-    {
-        //OPCION #2 Cadena de conexion a SQL Server 
-        private readonly string CadenaConexion = "Server=.;Database=Nexus;Integrated Security=true" + " ;TrustServerCertificate=True;";
-        public string ObtenerConexion()
-        {
-            return CadenaConexion;
-        }
-    }
-
+   
     public abstract class  ConnectionToSql
     {
         private readonly string connectionString;
         public ConnectionToSql()
         { 
-          connectionString = "Server=.;Database=Nexus;Integrated security=true";
+          connectionString = "Server=.;Database=Nexus;Integrated Security=true;TrustServerCertificate=True;";
         }
 
+        // El método 'protected' significa que solo esta clase y las clases que hereden de ella (como UserKey) pueden usarlo
         protected SqlConnection GetConnection()
         {
-           return new SqlConnection(connectionString);
+            // Este método crea y devuelve un nuevo objeto de conexión listo para ser usado
+            return new SqlConnection(connectionString);
         }
     }
 

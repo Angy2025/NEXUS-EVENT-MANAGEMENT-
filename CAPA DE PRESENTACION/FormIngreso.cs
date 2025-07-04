@@ -111,21 +111,48 @@ namespace CAPA_DE_PRESENTACION
             {
                 if (txtPassword.Text != "CONTRASEÑA")
                 {
+                    UserModel user = new UserModel();
+                    var validLogin = user.LoginUser(txtUser.Text, txtPassword.Text);
+
+                    if (validLogin == true)
+                    {
+                        FormAcceso mainmenu = new FormAcceso();
+                        mainmenu.FormClosed += Logout;
+                        mainmenu.Show(); // Mostrar el formulario principal
+                        this.Hide(); // Ocultar el formulario de ingreso
+                    }
+                    else
+                    { 
+                        msgError("Usuario o contraseña incorrectos \n Por favor, intente nuevamente."); // Mostrar mensaje de error si las credenciales son incorrectas
+                        txtPassword.Text = "CONTRASEÑA"; // Limpiar el campo de contraseña
+                        txtUser.Focus(); // Limpiar el campo de usuario
+                    }
 
                 }
-                else msgError("Por favor, ingrese su contraseña");
+                else msgError("Por favor, ingrese su contraseña.");
             }
-            else msgError("Por favor, ingrese su nombre de usuario");
+            else msgError("Por favor, ingrese su nombre de usuario.");
             {
                
             }
         }
-        
-
         private void msgError(string msg)
         {
             lblErrorMessage.Text = "      " + msg; // Mostrar mensaje de error en la etiqueta
             lblErrorMessage.Visible = true; // Hacer visible la etiqueta de error
+        }
+
+        private void Logout(object sender, FormClosedEventArgs e)
+        {
+            txtPassword.Text = "CONTRASEÑA";
+            txtPassword.UseSystemPasswordChar = false; // Mostrar el campo de contraseña como texto normal
+            txtUser.Text = "USUARIO";
+            lblErrorMessage.Visible = false; // Ocultar la etiqueta de error al cerrar el formulario
+            this.Show(); // Volver a mostrar el formulario de ingreso
+
+
+
+            //txtUser.Focus(); // Enfocar el campo de usuario al volver al formulario de ingreso
 
 
         }

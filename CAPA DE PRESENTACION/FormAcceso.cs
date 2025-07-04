@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using CAPA_DE_ENTIDADES.CACHE;
 
 namespace CAPA_DE_PRESENTACION
 {
@@ -71,10 +72,8 @@ namespace CAPA_DE_PRESENTACION
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            //CODIGO PARA ABRIR EL FORMULARIO DE MEDIOS(PRINCIPAL)
-
-            hideSubMenu();
-            this.Close();
+            if (MessageBox.Show("¿Esta seguro de que quiere cerrar sesion?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                this.Close();
         }
 
         private Form activeForm = null;
@@ -132,33 +131,49 @@ namespace CAPA_DE_PRESENTACION
             hideSubMenu();
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LoadUserData()
+        {
+            lblnom.Text = NewLoginUser.Nombre + ", " + NewLoginUser.Apellido;
+            lblposicion.Text = NewLoginUser.Posicion;
+            lblEmail.Text = NewLoginUser.Email;
+        }
+
+        private void FormAcceso_Load(object sender, EventArgs e)
+        {
+            LoadUserData();
+        }
+
         /*private void button2_Click(object sender, EventArgs e)
-        {
-            //CODIGO PARA ABRIR EL FORMULARIO DE MEDIOS(PRINCIPAL)
+            {
+                //CODIGO PARA ABRIR EL FORMULARIO DE MEDIOS(PRINCIPAL)
 
-            hideSubMenu();
-        }
+                hideSubMenu();
+            }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            //CODIGO PARA ABRIR EL FORMULARIO DE MEDIOS(PRINCIPAL)
+            private void button3_Click(object sender, EventArgs e)
+            {
+                //CODIGO PARA ABRIR EL FORMULARIO DE MEDIOS(PRINCIPAL)
 
-            hideSubMenu();
-        }
+                hideSubMenu();
+            }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            //CODIGO PARA ABRIR EL FORMULARIO DE MEDIOS(PRINCIPAL)
+            private void button4_Click(object sender, EventArgs e)
+            {
+                //CODIGO PARA ABRIR EL FORMULARIO DE MEDIOS(PRINCIPAL)
 
-            hideSubMenu();
-        }
-        
-         private void panel4_Paint(object sender, PaintEventArgs e)
-        {
+                hideSubMenu();
+            }
 
-        }
-         
-         */
+             private void panel4_Paint(object sender, PaintEventArgs e)
+            {
 
+            }
+
+             */
     }
 }
