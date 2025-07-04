@@ -148,6 +148,11 @@ namespace CAPA_DE_PRESENTACION
             LoadUserData();
         }
 
+        private void PanelMenuLateral_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         /*private void button2_Click(object sender, EventArgs e)
             {
                 //CODIGO PARA ABRIR EL FORMULARIO DE MEDIOS(PRINCIPAL)

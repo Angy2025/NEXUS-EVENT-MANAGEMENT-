@@ -58,7 +58,7 @@
             // 
             // pictureBox3
             // 
-            pictureBox3.BackColor = Color.FromArgb(255, 224, 192);
+            pictureBox3.BackColor = Color.White;
             pictureBox3.BackgroundImage = Properties.Resources.unnamed_1__removebg_preview;
             pictureBox3.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBox3.Dock = DockStyle.Fill;

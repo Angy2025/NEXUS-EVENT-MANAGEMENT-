@@ -58,7 +58,7 @@
             // PanelMenuLateral
             // 
             PanelMenuLateral.AutoScroll = true;
-            PanelMenuLateral.BackColor = Color.FromArgb(255, 224, 192);
+            PanelMenuLateral.BackColor = Color.Black;
             PanelMenuLateral.Controls.Add(PanelDetalles);
             PanelMenuLateral.Controls.Add(btnExit);
             PanelMenuLateral.Controls.Add(btnAdd);
@@ -69,8 +69,9 @@
             PanelMenuLateral.Location = new Point(0, 0);
             PanelMenuLateral.Margin = new Padding(4, 3, 4, 3);
             PanelMenuLateral.Name = "PanelMenuLateral";
-            PanelMenuLateral.Size = new Size(281, 753);
+            PanelMenuLateral.Size = new Size(344, 753);
             PanelMenuLateral.TabIndex = 0;
+            PanelMenuLateral.Paint += PanelMenuLateral_Paint;
             // 
             // PanelDetalles
             // 
@@ -78,56 +79,58 @@
             PanelDetalles.Controls.Add(btnEditar);
             PanelDetalles.Controls.Add(btnMod2);
             PanelDetalles.Dock = DockStyle.Top;
-            PanelDetalles.Location = new Point(0, 341);
+            PanelDetalles.Location = new Point(0, 291);
             PanelDetalles.Margin = new Padding(4, 3, 4, 3);
             PanelDetalles.Name = "PanelDetalles";
-            PanelDetalles.Size = new Size(281, 93);
+            PanelDetalles.Size = new Size(344, 93);
             PanelDetalles.TabIndex = 6;
             // 
             // btnEditar
             // 
+            btnEditar.BackColor = Color.White;
             btnEditar.Dock = DockStyle.Top;
             btnEditar.FlatAppearance.BorderSize = 0;
             btnEditar.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnEditar.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnEditar.FlatStyle = FlatStyle.Flat;
             btnEditar.Font = new Font("Century", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEditar.ForeColor = Color.White;
-            btnEditar.Location = new Point(0, 34);
+            btnEditar.ForeColor = Color.Black;
+            btnEditar.Location = new Point(0, 48);
             btnEditar.Margin = new Padding(4, 3, 4, 3);
             btnEditar.Name = "btnEditar";
             btnEditar.Padding = new Padding(40, 0, 0, 0);
-            btnEditar.Size = new Size(281, 34);
+            btnEditar.Size = new Size(344, 56);
             btnEditar.TabIndex = 2;
             btnEditar.Text = "Modificar Evento Existente";
             btnEditar.TextAlign = ContentAlignment.TopCenter;
             btnEditar.UseMnemonic = false;
-            btnEditar.UseVisualStyleBackColor = true;
+            btnEditar.UseVisualStyleBackColor = false;
             btnEditar.Click += button1_Click;
             // 
             // btnMod2
             // 
+            btnMod2.BackColor = Color.White;
             btnMod2.Dock = DockStyle.Top;
             btnMod2.FlatAppearance.BorderSize = 0;
             btnMod2.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnMod2.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnMod2.FlatStyle = FlatStyle.Flat;
             btnMod2.Font = new Font("Century", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnMod2.ForeColor = Color.White;
+            btnMod2.ForeColor = Color.Black;
             btnMod2.Location = new Point(0, 0);
             btnMod2.Margin = new Padding(4, 3, 4, 3);
             btnMod2.Name = "btnMod2";
             btnMod2.Padding = new Padding(40, 0, 0, 0);
-            btnMod2.Size = new Size(281, 34);
+            btnMod2.Size = new Size(344, 48);
             btnMod2.TabIndex = 1;
             btnMod2.Text = "Agregar Evento Nuevo";
             btnMod2.TextAlign = ContentAlignment.TopCenter;
-            btnMod2.UseVisualStyleBackColor = true;
+            btnMod2.UseVisualStyleBackColor = false;
             btnMod2.Click += btnMod2_Click;
             // 
             // btnExit
             // 
-            btnExit.BackColor = Color.White;
+            btnExit.BackColor = Color.FromArgb(255, 153, 22);
             btnExit.BackgroundImage = Properties.Resources.icons8_logout_24;
             btnExit.BackgroundImageLayout = ImageLayout.None;
             btnExit.Dock = DockStyle.Bottom;
@@ -139,7 +142,7 @@
             btnExit.Margin = new Padding(4, 3, 4, 3);
             btnExit.Name = "btnExit";
             btnExit.Padding = new Padding(11, 0, 0, 0);
-            btnExit.Size = new Size(281, 38);
+            btnExit.Size = new Size(344, 38);
             btnExit.TabIndex = 5;
             btnExit.Text = "Cerrar Sesion";
             btnExit.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -148,17 +151,17 @@
             // 
             // btnAdd
             // 
-            btnAdd.BackColor = Color.White;
+            btnAdd.BackColor = Color.FromArgb(255, 153, 22);
             btnAdd.Dock = DockStyle.Top;
             btnAdd.FlatAppearance.BorderSize = 0;
             btnAdd.FlatStyle = FlatStyle.Flat;
-            btnAdd.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnAdd.Font = new Font("Century", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAdd.ForeColor = Color.Black;
-            btnAdd.Location = new Point(0, 303);
+            btnAdd.Location = new Point(0, 253);
             btnAdd.Margin = new Padding(4, 3, 4, 3);
             btnAdd.Name = "btnAdd";
             btnAdd.Padding = new Padding(11, 0, 0, 0);
-            btnAdd.Size = new Size(281, 38);
+            btnAdd.Size = new Size(344, 38);
             btnAdd.TabIndex = 2;
             btnAdd.Text = "Detalles de Eventos";
             btnAdd.TextAlign = ContentAlignment.MiddleLeft;
@@ -167,48 +170,49 @@
             // 
             // PanelSubMenuMedios
             // 
-            PanelSubMenuMedios.BackColor = Color.FromArgb(91, 186, 100);
+            PanelSubMenuMedios.BackColor = Color.White;
             PanelSubMenuMedios.Controls.Add(b);
             PanelSubMenuMedios.Dock = DockStyle.Top;
             PanelSubMenuMedios.Location = new Point(0, 210);
             PanelSubMenuMedios.Margin = new Padding(4, 3, 4, 3);
             PanelSubMenuMedios.Name = "PanelSubMenuMedios";
-            PanelSubMenuMedios.Size = new Size(281, 93);
+            PanelSubMenuMedios.Size = new Size(344, 43);
             PanelSubMenuMedios.TabIndex = 1;
             // 
             // b
             // 
+            b.BackColor = Color.White;
             b.Dock = DockStyle.Top;
             b.FlatAppearance.BorderSize = 0;
             b.FlatAppearance.MouseDownBackColor = Color.Transparent;
             b.FlatAppearance.MouseOverBackColor = Color.Transparent;
             b.FlatStyle = FlatStyle.Flat;
             b.Font = new Font("Century", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            b.ForeColor = Color.White;
+            b.ForeColor = Color.Black;
             b.Location = new Point(0, 0);
             b.Margin = new Padding(4, 3, 4, 3);
             b.Name = "b";
             b.Padding = new Padding(40, 0, 0, 0);
-            b.Size = new Size(281, 34);
+            b.Size = new Size(344, 34);
             b.TabIndex = 0;
             b.Text = "Generalidades De Eventos";
             b.TextAlign = ContentAlignment.MiddleLeft;
-            b.UseVisualStyleBackColor = true;
+            b.UseVisualStyleBackColor = false;
             b.Click += b_Click;
             // 
             // btnMedia
             // 
-            btnMedia.BackColor = Color.White;
+            btnMedia.BackColor = Color.FromArgb(255, 153, 22);
             btnMedia.Dock = DockStyle.Top;
             btnMedia.FlatAppearance.BorderSize = 0;
             btnMedia.FlatStyle = FlatStyle.Flat;
-            btnMedia.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnMedia.Font = new Font("Century", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnMedia.ForeColor = Color.Black;
             btnMedia.Location = new Point(0, 172);
             btnMedia.Margin = new Padding(4, 3, 4, 3);
             btnMedia.Name = "btnMedia";
             btnMedia.Padding = new Padding(11, 0, 0, 0);
-            btnMedia.Size = new Size(281, 38);
+            btnMedia.Size = new Size(344, 38);
             btnMedia.TabIndex = 0;
             btnMedia.Text = "Gestionar Eventos";
             btnMedia.TextAlign = ContentAlignment.MiddleLeft;
@@ -217,7 +221,7 @@
             // 
             // PanelLogo
             // 
-            PanelLogo.BackColor = Color.FromArgb(255, 224, 192);
+            PanelLogo.BackColor = Color.Black;
             PanelLogo.BackgroundImageLayout = ImageLayout.Stretch;
             PanelLogo.Controls.Add(pictureBox2);
             PanelLogo.Controls.Add(lblEmail);
@@ -225,10 +229,11 @@
             PanelLogo.Controls.Add(lblposicion);
             PanelLogo.Controls.Add(PBuser);
             PanelLogo.Dock = DockStyle.Top;
+            PanelLogo.ForeColor = Color.White;
             PanelLogo.Location = new Point(0, 0);
             PanelLogo.Margin = new Padding(4, 3, 4, 3);
             PanelLogo.Name = "PanelLogo";
-            PanelLogo.Size = new Size(281, 172);
+            PanelLogo.Size = new Size(344, 172);
             PanelLogo.TabIndex = 0;
             // 
             // pictureBox2
@@ -286,13 +291,13 @@
             // 
             // PanelHerencia
             // 
-            PanelHerencia.BackColor = Color.FromArgb(229, 85, 7);
+            PanelHerencia.BackColor = Color.White;
             PanelHerencia.Controls.Add(pictureBox1);
             PanelHerencia.Dock = DockStyle.Fill;
-            PanelHerencia.Location = new Point(281, 0);
+            PanelHerencia.Location = new Point(344, 0);
             PanelHerencia.MaximumSize = new Size(901, 753);
             PanelHerencia.Name = "PanelHerencia";
-            PanelHerencia.Size = new Size(901, 753);
+            PanelHerencia.Size = new Size(838, 753);
             PanelHerencia.TabIndex = 2;
             PanelHerencia.Paint += PanelHerencia_Paint;
             PanelHerencia.MouseDown += PanelHerencia_MouseDown;
@@ -300,10 +305,10 @@
             // pictureBox1
             // 
             pictureBox1.Anchor = AnchorStyles.None;
-            pictureBox1.BackColor = Color.FromArgb(255, 224, 192);
+            pictureBox1.BackColor = Color.White;
             pictureBox1.BackgroundImage = Properties.Resources.unnamed_1__removebg_preview;
             pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox1.Location = new Point(273, 200);
+            pictureBox1.Location = new Point(242, 200);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(337, 288);
             pictureBox1.TabIndex = 0;
