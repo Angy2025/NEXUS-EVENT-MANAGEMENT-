@@ -21,5 +21,10 @@ namespace CAPA_DE_PRESENTACION
         {
 
         }
+
+        private void FormModificar_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

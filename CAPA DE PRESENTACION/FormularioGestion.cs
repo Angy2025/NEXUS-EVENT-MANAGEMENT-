@@ -65,7 +65,6 @@ namespace CAPA_DE_PRESENTACION
 
             // Limpiamos los filtros y mostramos todos los eventos en la tabla
             if (comBox.Items.Count > 0) comBox.SelectedIndex = 0;
-            textBox1.Clear();
             dgv2.DataSource = _listaCompletaDeEventos;
         }
 
@@ -84,10 +83,6 @@ namespace CAPA_DE_PRESENTACION
             // Cada vez que se hace clic en el botón de buscar, aplicamos los filtros
             AplicarFiltros();
         }
-
-
-
-
 
         private void btnagregar_Click(object sender, EventArgs e)
         {
@@ -169,10 +164,6 @@ namespace CAPA_DE_PRESENTACION
         }
 
 
-
-
-
-
         private readonly string CadenaConexion = "Server=.;Database=Nexus;Integrated Security=true;TrustServerCertificate=True;";
         private List<EventoBase> _listaCompletaDeEventos; // Asegúrate que esta lista se carga correctamente
 
@@ -203,17 +194,7 @@ namespace CAPA_DE_PRESENTACION
                 }
             }
 
-            // 4. FILTRO POR NOMBRE (TextBox de Búsqueda)
-            // Se encadena el filtro sobre el resultado anterior.
-            string textoBusqueda = textBox1.Text.Trim();
-            if (!string.IsNullOrWhiteSpace(textoBusqueda))
-            {
-                // Usamos ToLower() para una búsqueda insensible a mayúsculas/minúsculas.
-                string textoBusquedaLower = textoBusqueda.ToLower();
-                consultaFiltrada = consultaFiltrada.Where(evento =>
-                    evento.Nombre != null &&
-                    evento.Nombre.ToLower().Contains(textoBusquedaLower));
-            }
+
 
             // 5. Actualizar el DataGridView con el resultado final.
             // Convertimos el resultado de la consulta (IEnumerable) a una Lista (List).
@@ -228,14 +209,24 @@ namespace CAPA_DE_PRESENTACION
 
         }
 
-        private void btnclose2_Click(object sender, EventArgs e)
+        /*private void btnclose2_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
+        }*/
 
         private void GBox_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnclose2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnbuscar_Click(object sender, EventArgs e)
+        {
+            AplicarFiltros();
         }
     }
 }

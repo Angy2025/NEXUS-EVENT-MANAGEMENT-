@@ -29,33 +29,14 @@
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            btnclose2 = new Button();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             btneliminar = new Button();
-            btnmod = new Button();
-            btnagregar = new Button();
             dgv2 = new DataGridView();
             btnbuscar = new Button();
-            textBox1 = new TextBox();
-            lblbuscar = new Label();
             comBox = new ComboBox();
             label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgv2).BeginInit();
             SuspendLayout();
-            // 
-            // btnclose2
-            // 
-            btnclose2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnclose2.Font = new Font("Century", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnclose2.ForeColor = Color.Black;
-            btnclose2.Image = Properties.Resources.CERRAR;
-            btnclose2.ImageAlign = ContentAlignment.MiddleLeft;
-            btnclose2.Location = new Point(64, 560);
-            btnclose2.Name = "btnclose2";
-            btnclose2.Size = new Size(90, 45);
-            btnclose2.TabIndex = 21;
-            btnclose2.Text = "Cerrar";
-            btnclose2.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnclose2.UseVisualStyleBackColor = true;
             // 
             // btneliminar
             // 
@@ -64,64 +45,42 @@
             btneliminar.Font = new Font("Century", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btneliminar.ForeColor = Color.Black;
             btneliminar.Image = Properties.Resources.ELIMINAR;
-            btneliminar.Location = new Point(692, 560);
+            btneliminar.Location = new Point(643, 679);
             btneliminar.Name = "btneliminar";
-            btneliminar.Size = new Size(115, 45);
+            btneliminar.Size = new Size(183, 62);
             btneliminar.TabIndex = 20;
             btneliminar.Text = "Eliminar Evento";
             btneliminar.TextImageRelation = TextImageRelation.ImageBeforeText;
             btneliminar.UseVisualStyleBackColor = false;
             // 
-            // btnmod
-            // 
-            btnmod.Anchor = AnchorStyles.Bottom;
-            btnmod.BackColor = Color.White;
-            btnmod.Font = new Font("Century", 9F, FontStyle.Bold);
-            btnmod.ForeColor = Color.Black;
-            btnmod.Image = Properties.Resources.MODIFICAR;
-            btnmod.ImageAlign = ContentAlignment.MiddleLeft;
-            btnmod.Location = new Point(538, 464);
-            btnmod.Name = "btnmod";
-            btnmod.Size = new Size(151, 53);
-            btnmod.TabIndex = 19;
-            btnmod.Text = "Modificar Evento";
-            btnmod.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnmod.UseVisualStyleBackColor = false;
-            // 
-            // btnagregar
-            // 
-            btnagregar.Anchor = AnchorStyles.Bottom;
-            btnagregar.Font = new Font("Century", 9F, FontStyle.Bold);
-            btnagregar.ForeColor = Color.Black;
-            btnagregar.Image = Properties.Resources.ICONO_DE_AGREGAR;
-            btnagregar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnagregar.Location = new Point(156, 464);
-            btnagregar.Name = "btnagregar";
-            btnagregar.Size = new Size(131, 53);
-            btnagregar.TabIndex = 18;
-            btnagregar.Text = "Agregar Nuevo";
-            btnagregar.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnagregar.UseVisualStyleBackColor = true;
-            // 
             // dgv2
             // 
-            dgv2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dgv2.BackgroundColor = Color.FromArgb(255, 224, 192);
+            dgv2.BackgroundColor = Color.PeachPuff;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle1.BackColor = Color.LightGray;
-            dataGridViewCellStyle1.Font = new Font("Palatino Linotype", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.BackColor = Color.White;
+            dataGridViewCellStyle1.Font = new Font("Century", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle1.ForeColor = Color.Black;
             dataGridViewCellStyle1.Format = "d";
             dataGridViewCellStyle1.NullValue = null;
-            dataGridViewCellStyle1.SelectionBackColor = Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.MenuBar;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridViewCellStyle1.SelectionBackColor = Color.DarkOrange;
+            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgv2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgv2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv2.Location = new Point(83, 144);
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(165, 217, 165);
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgv2.DefaultCellStyle = dataGridViewCellStyle2;
+            dgv2.GridColor = Color.Black;
+            dgv2.Location = new Point(63, 67);
             dgv2.Name = "dgv2";
+            dgv2.ReadOnly = true;
             dgv2.RowHeadersWidth = 51;
-            dgv2.Size = new Size(704, 298);
+            dgv2.Size = new Size(751, 414);
             dgv2.TabIndex = 17;
             // 
             // btnbuscar
@@ -131,44 +90,25 @@
             btnbuscar.Font = new Font("Times New Roman", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnbuscar.ForeColor = Color.Black;
             btnbuscar.Image = Properties.Resources.BUSCAR;
-            btnbuscar.Location = new Point(727, 85);
+            btnbuscar.Location = new Point(487, 497);
             btnbuscar.Name = "btnbuscar";
-            btnbuscar.Size = new Size(102, 29);
+            btnbuscar.Size = new Size(115, 29);
             btnbuscar.TabIndex = 16;
             btnbuscar.UseVisualStyleBackColor = false;
-            // 
-            // textBox1
-            // 
-            textBox1.Anchor = AnchorStyles.Top;
-            textBox1.Location = new Point(590, 87);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(151, 27);
-            textBox1.TabIndex = 15;
-            // 
-            // lblbuscar
-            // 
-            lblbuscar.Anchor = AnchorStyles.Top;
-            lblbuscar.AutoSize = true;
-            lblbuscar.BackColor = Color.White;
-            lblbuscar.Font = new Font("Century", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblbuscar.ForeColor = Color.Black;
-            lblbuscar.Location = new Point(395, 88);
-            lblbuscar.Name = "lblbuscar";
-            lblbuscar.Size = new Size(189, 21);
-            lblbuscar.TabIndex = 14;
-            lblbuscar.Text = "Buscar por Nombre:";
+            btnbuscar.Click += btnbuscar_Click;
             // 
             // comBox
             // 
             comBox.AllowDrop = true;
             comBox.Anchor = AnchorStyles.Top;
+            comBox.BackColor = Color.FromArgb(255, 224, 192);
             comBox.DropDownStyle = ComboBoxStyle.DropDownList;
             comBox.Font = new Font("Times New Roman", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             comBox.FormattingEnabled = true;
             comBox.Items.AddRange(new object[] { "Culturales", "Deportivos", "Tecnologicos ", "Cinematograficos ", "Networinkg ", "Todos Los Eventos" });
-            comBox.Location = new Point(209, 84);
+            comBox.Location = new Point(164, 498);
             comBox.Name = "comBox";
-            comBox.Size = new Size(176, 28);
+            comBox.Size = new Size(317, 28);
             comBox.TabIndex = 13;
             // 
             // label1
@@ -176,32 +116,30 @@
             label1.Anchor = AnchorStyles.Top;
             label1.AutoSize = true;
             label1.BackColor = Color.White;
-            label1.Font = new Font("Century", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Century", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(44, 88);
+            label1.Location = new Point(264, 21);
             label1.Name = "label1";
-            label1.Size = new Size(159, 21);
+            label1.Size = new Size(360, 28);
             label1.TabIndex = 12;
-            label1.Text = "Tipo de Eventos:";
+            label1.Text = "Busqueda Por Tipo De Evento";
             // 
             // FormularioGestion
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(255, 224, 192);
-            ClientSize = new Size(873, 688);
-            Controls.Add(btnclose2);
+            BackColor = Color.White;
+            BackgroundImage = Properties.Resources.download;
+            ClientSize = new Size(838, 753);
             Controls.Add(btneliminar);
-            Controls.Add(btnmod);
-            Controls.Add(btnagregar);
             Controls.Add(dgv2);
             Controls.Add(btnbuscar);
-            Controls.Add(textBox1);
-            Controls.Add(lblbuscar);
             Controls.Add(comBox);
             Controls.Add(label1);
             ForeColor = Color.Black;
             FormBorderStyle = FormBorderStyle.None;
+            MaximumSize = new Size(838, 753);
+            MinimumSize = new Size(838, 753);
             Name = "FormularioGestion";
             Opacity = 0.85D;
             StartPosition = FormStartPosition.CenterParent;
@@ -213,15 +151,9 @@
         }
 
         #endregion
-
-        private Button btnclose2;
         private Button btneliminar;
-        private Button btnmod;
-        private Button btnagregar;
         private DataGridView dgv2;
         private Button btnbuscar;
-        private TextBox textBox1;
-        private Label lblbuscar;
         private ComboBox comBox;
         private Label label1;
     }

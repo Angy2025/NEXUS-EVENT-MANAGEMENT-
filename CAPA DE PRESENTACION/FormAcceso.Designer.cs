@@ -28,9 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             PanelMenuLateral = new Panel();
+            panel3 = new Panel();
+            button3 = new Button();
+            button1 = new Button();
             PanelDetalles = new Panel();
-            btnEditar = new Button();
             btnMod2 = new Button();
             btnExit = new Button();
             btnAdd = new Button();
@@ -38,27 +41,36 @@
             b = new Button();
             btnMedia = new Button();
             PanelLogo = new Panel();
-            pictureBox2 = new PictureBox();
             lblEmail = new Label();
             lblnom = new Label();
             lblposicion = new Label();
             PBuser = new PictureBox();
             PanelHerencia = new Panel();
+            panelTitulo = new Panel();
+            buttonMinimizar = new Button();
+            buttonMaximizar = new Button();
+            buttonCerrar = new Button();
             pictureBox1 = new PictureBox();
+            contextMenuStrip1 = new ContextMenuStrip(components);
+            verMiPerfilToolStripMenuItem = new ToolStripMenuItem();
             PanelMenuLateral.SuspendLayout();
+            panel3.SuspendLayout();
             PanelDetalles.SuspendLayout();
             PanelSubMenuMedios.SuspendLayout();
             PanelLogo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PBuser).BeginInit();
             PanelHerencia.SuspendLayout();
+            panelTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            contextMenuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // PanelMenuLateral
             // 
             PanelMenuLateral.AutoScroll = true;
             PanelMenuLateral.BackColor = Color.Black;
+            PanelMenuLateral.Controls.Add(panel3);
+            PanelMenuLateral.Controls.Add(button1);
             PanelMenuLateral.Controls.Add(PanelDetalles);
             PanelMenuLateral.Controls.Add(btnExit);
             PanelMenuLateral.Controls.Add(btnAdd);
@@ -69,47 +81,74 @@
             PanelMenuLateral.Location = new Point(0, 0);
             PanelMenuLateral.Margin = new Padding(4, 3, 4, 3);
             PanelMenuLateral.Name = "PanelMenuLateral";
-            PanelMenuLateral.Size = new Size(344, 753);
+            PanelMenuLateral.Size = new Size(344, 800);
             PanelMenuLateral.TabIndex = 0;
             PanelMenuLateral.Paint += PanelMenuLateral_Paint;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.White;
+            panel3.Controls.Add(button3);
+            panel3.Dock = DockStyle.Top;
+            panel3.Location = new Point(0, 485);
+            panel3.Margin = new Padding(4, 3, 4, 3);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(344, 43);
+            panel3.TabIndex = 8;
+            // 
+            // button3
+            // 
+            button3.BackColor = Color.FromArgb(91, 186, 100);
+            button3.Dock = DockStyle.Top;
+            button3.FlatAppearance.BorderSize = 0;
+            button3.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            button3.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Century", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button3.ForeColor = Color.Black;
+            button3.Location = new Point(0, 0);
+            button3.Margin = new Padding(4, 3, 4, 3);
+            button3.Name = "button3";
+            button3.Padding = new Padding(40, 0, 0, 0);
+            button3.Size = new Size(344, 43);
+            button3.TabIndex = 0;
+            button3.Text = "Modificar Evento Existente";
+            button3.TextAlign = ContentAlignment.MiddleLeft;
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(247, 165, 42);
+            button1.Dock = DockStyle.Top;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Century", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.Black;
+            button1.Location = new Point(0, 407);
+            button1.Margin = new Padding(4, 3, 4, 3);
+            button1.Name = "button1";
+            button1.Padding = new Padding(11, 0, 0, 0);
+            button1.Size = new Size(344, 78);
+            button1.TabIndex = 7;
+            button1.Text = "Realizar Cambios";
+            button1.TextAlign = ContentAlignment.MiddleLeft;
+            button1.UseVisualStyleBackColor = false;
             // 
             // PanelDetalles
             // 
             PanelDetalles.BackColor = Color.FromArgb(91, 186, 100);
-            PanelDetalles.Controls.Add(btnEditar);
             PanelDetalles.Controls.Add(btnMod2);
             PanelDetalles.Dock = DockStyle.Top;
-            PanelDetalles.Location = new Point(0, 291);
+            PanelDetalles.Location = new Point(0, 362);
             PanelDetalles.Margin = new Padding(4, 3, 4, 3);
             PanelDetalles.Name = "PanelDetalles";
-            PanelDetalles.Size = new Size(344, 93);
+            PanelDetalles.Size = new Size(344, 45);
             PanelDetalles.TabIndex = 6;
-            // 
-            // btnEditar
-            // 
-            btnEditar.BackColor = Color.White;
-            btnEditar.Dock = DockStyle.Top;
-            btnEditar.FlatAppearance.BorderSize = 0;
-            btnEditar.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            btnEditar.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            btnEditar.FlatStyle = FlatStyle.Flat;
-            btnEditar.Font = new Font("Century", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEditar.ForeColor = Color.Black;
-            btnEditar.Location = new Point(0, 48);
-            btnEditar.Margin = new Padding(4, 3, 4, 3);
-            btnEditar.Name = "btnEditar";
-            btnEditar.Padding = new Padding(40, 0, 0, 0);
-            btnEditar.Size = new Size(344, 56);
-            btnEditar.TabIndex = 2;
-            btnEditar.Text = "Modificar Evento Existente";
-            btnEditar.TextAlign = ContentAlignment.TopCenter;
-            btnEditar.UseMnemonic = false;
-            btnEditar.UseVisualStyleBackColor = false;
-            btnEditar.Click += button1_Click;
             // 
             // btnMod2
             // 
-            btnMod2.BackColor = Color.White;
+            btnMod2.BackColor = Color.FromArgb(91, 186, 100);
             btnMod2.Dock = DockStyle.Top;
             btnMod2.FlatAppearance.BorderSize = 0;
             btnMod2.FlatAppearance.MouseDownBackColor = Color.Transparent;
@@ -121,7 +160,7 @@
             btnMod2.Margin = new Padding(4, 3, 4, 3);
             btnMod2.Name = "btnMod2";
             btnMod2.Padding = new Padding(40, 0, 0, 0);
-            btnMod2.Size = new Size(344, 48);
+            btnMod2.Size = new Size(344, 42);
             btnMod2.TabIndex = 1;
             btnMod2.Text = "Agregar Evento Nuevo";
             btnMod2.TextAlign = ContentAlignment.TopCenter;
@@ -130,7 +169,7 @@
             // 
             // btnExit
             // 
-            btnExit.BackColor = Color.FromArgb(255, 153, 22);
+            btnExit.BackColor = Color.White;
             btnExit.BackgroundImage = Properties.Resources.icons8_logout_24;
             btnExit.BackgroundImageLayout = ImageLayout.None;
             btnExit.Dock = DockStyle.Bottom;
@@ -138,7 +177,7 @@
             btnExit.FlatStyle = FlatStyle.Flat;
             btnExit.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             btnExit.ForeColor = Color.Black;
-            btnExit.Location = new Point(0, 715);
+            btnExit.Location = new Point(0, 762);
             btnExit.Margin = new Padding(4, 3, 4, 3);
             btnExit.Name = "btnExit";
             btnExit.Padding = new Padding(11, 0, 0, 0);
@@ -151,17 +190,17 @@
             // 
             // btnAdd
             // 
-            btnAdd.BackColor = Color.FromArgb(255, 153, 22);
+            btnAdd.BackColor = Color.FromArgb(247, 165, 42);
             btnAdd.Dock = DockStyle.Top;
             btnAdd.FlatAppearance.BorderSize = 0;
             btnAdd.FlatStyle = FlatStyle.Flat;
             btnAdd.Font = new Font("Century", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAdd.ForeColor = Color.Black;
-            btnAdd.Location = new Point(0, 253);
+            btnAdd.Location = new Point(0, 285);
             btnAdd.Margin = new Padding(4, 3, 4, 3);
             btnAdd.Name = "btnAdd";
             btnAdd.Padding = new Padding(11, 0, 0, 0);
-            btnAdd.Size = new Size(344, 38);
+            btnAdd.Size = new Size(344, 77);
             btnAdd.TabIndex = 2;
             btnAdd.Text = "Detalles de Eventos";
             btnAdd.TextAlign = ContentAlignment.MiddleLeft;
@@ -173,15 +212,15 @@
             PanelSubMenuMedios.BackColor = Color.White;
             PanelSubMenuMedios.Controls.Add(b);
             PanelSubMenuMedios.Dock = DockStyle.Top;
-            PanelSubMenuMedios.Location = new Point(0, 210);
+            PanelSubMenuMedios.Location = new Point(0, 247);
             PanelSubMenuMedios.Margin = new Padding(4, 3, 4, 3);
             PanelSubMenuMedios.Name = "PanelSubMenuMedios";
-            PanelSubMenuMedios.Size = new Size(344, 43);
+            PanelSubMenuMedios.Size = new Size(344, 38);
             PanelSubMenuMedios.TabIndex = 1;
             // 
             // b
             // 
-            b.BackColor = Color.White;
+            b.BackColor = Color.FromArgb(91, 186, 100);
             b.Dock = DockStyle.Top;
             b.FlatAppearance.BorderSize = 0;
             b.FlatAppearance.MouseDownBackColor = Color.Transparent;
@@ -193,7 +232,7 @@
             b.Margin = new Padding(4, 3, 4, 3);
             b.Name = "b";
             b.Padding = new Padding(40, 0, 0, 0);
-            b.Size = new Size(344, 34);
+            b.Size = new Size(344, 49);
             b.TabIndex = 0;
             b.Text = "Generalidades De Eventos";
             b.TextAlign = ContentAlignment.MiddleLeft;
@@ -202,7 +241,7 @@
             // 
             // btnMedia
             // 
-            btnMedia.BackColor = Color.FromArgb(255, 153, 22);
+            btnMedia.BackColor = Color.FromArgb(247, 165, 42);
             btnMedia.Dock = DockStyle.Top;
             btnMedia.FlatAppearance.BorderSize = 0;
             btnMedia.FlatStyle = FlatStyle.Flat;
@@ -212,7 +251,7 @@
             btnMedia.Margin = new Padding(4, 3, 4, 3);
             btnMedia.Name = "btnMedia";
             btnMedia.Padding = new Padding(11, 0, 0, 0);
-            btnMedia.Size = new Size(344, 38);
+            btnMedia.Size = new Size(344, 75);
             btnMedia.TabIndex = 0;
             btnMedia.Text = "Gestionar Eventos";
             btnMedia.TextAlign = ContentAlignment.MiddleLeft;
@@ -223,7 +262,6 @@
             // 
             PanelLogo.BackColor = Color.Black;
             PanelLogo.BackgroundImageLayout = ImageLayout.Stretch;
-            PanelLogo.Controls.Add(pictureBox2);
             PanelLogo.Controls.Add(lblEmail);
             PanelLogo.Controls.Add(lblnom);
             PanelLogo.Controls.Add(lblposicion);
@@ -236,22 +274,12 @@
             PanelLogo.Size = new Size(344, 172);
             PanelLogo.TabIndex = 0;
             // 
-            // pictureBox2
-            // 
-            pictureBox2.BackColor = Color.White;
-            pictureBox2.BackgroundImage = Properties.Resources.icons8_slider_24;
-            pictureBox2.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox2.Location = new Point(239, 12);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(36, 27);
-            pictureBox2.TabIndex = 4;
-            pictureBox2.TabStop = false;
-            // 
             // lblEmail
             // 
             lblEmail.AutoSize = true;
             lblEmail.Font = new Font("Century", 9F, FontStyle.Bold);
-            lblEmail.Location = new Point(109, 93);
+            lblEmail.ForeColor = Color.White;
+            lblEmail.Location = new Point(121, 115);
             lblEmail.Name = "lblEmail";
             lblEmail.Size = new Size(55, 18);
             lblEmail.TabIndex = 3;
@@ -261,7 +289,8 @@
             // 
             lblnom.AutoSize = true;
             lblnom.Font = new Font("Century", 9F, FontStyle.Bold);
-            lblnom.Location = new Point(109, 56);
+            lblnom.ForeColor = Color.White;
+            lblnom.Location = new Point(121, 67);
             lblnom.Name = "lblnom";
             lblnom.Size = new Size(70, 18);
             lblnom.TabIndex = 2;
@@ -271,7 +300,8 @@
             // 
             lblposicion.AutoSize = true;
             lblposicion.Font = new Font("Century", 9F, FontStyle.Bold);
-            lblposicion.Location = new Point(109, 21);
+            lblposicion.ForeColor = Color.White;
+            lblposicion.Location = new Point(121, 21);
             lblposicion.Name = "lblposicion";
             lblposicion.Size = new Size(75, 18);
             lblposicion.TabIndex = 1;
@@ -281,26 +311,80 @@
             // PBuser
             // 
             PBuser.BackColor = Color.White;
-            PBuser.BackgroundImage = Properties.Resources.icons8_profile_96_removebg_preview;
+            PBuser.BackgroundImage = Properties.Resources.icons8_usuario_48;
             PBuser.BackgroundImageLayout = ImageLayout.Zoom;
             PBuser.Location = new Point(3, 12);
             PBuser.Name = "PBuser";
-            PBuser.Size = new Size(100, 99);
+            PBuser.Size = new Size(112, 138);
             PBuser.TabIndex = 0;
             PBuser.TabStop = false;
             // 
             // PanelHerencia
             // 
             PanelHerencia.BackColor = Color.White;
+            PanelHerencia.Controls.Add(panelTitulo);
             PanelHerencia.Controls.Add(pictureBox1);
             PanelHerencia.Dock = DockStyle.Fill;
             PanelHerencia.Location = new Point(344, 0);
-            PanelHerencia.MaximumSize = new Size(901, 753);
+            PanelHerencia.MaximumSize = new Size(838, 753);
+            PanelHerencia.MinimumSize = new Size(838, 753);
             PanelHerencia.Name = "PanelHerencia";
             PanelHerencia.Size = new Size(838, 753);
             PanelHerencia.TabIndex = 2;
             PanelHerencia.Paint += PanelHerencia_Paint;
             PanelHerencia.MouseDown += PanelHerencia_MouseDown;
+            // 
+            // panelTitulo
+            // 
+            panelTitulo.BackColor = Color.Black;
+            panelTitulo.Controls.Add(buttonMinimizar);
+            panelTitulo.Controls.Add(buttonMaximizar);
+            panelTitulo.Controls.Add(buttonCerrar);
+            panelTitulo.Dock = DockStyle.Top;
+            panelTitulo.Location = new Point(0, 0);
+            panelTitulo.Name = "panelTitulo";
+            panelTitulo.Size = new Size(838, 50);
+            panelTitulo.TabIndex = 1;
+            panelTitulo.MouseDown += panelTitulo_MouseDown;
+            // 
+            // buttonMinimizar
+            // 
+            buttonMinimizar.BackColor = Color.White;
+            buttonMinimizar.BackgroundImage = Properties.Resources.icons8_menos_32;
+            buttonMinimizar.BackgroundImageLayout = ImageLayout.Stretch;
+            buttonMinimizar.FlatStyle = FlatStyle.Flat;
+            buttonMinimizar.Location = new Point(687, 7);
+            buttonMinimizar.Name = "buttonMinimizar";
+            buttonMinimizar.Size = new Size(37, 32);
+            buttonMinimizar.TabIndex = 2;
+            buttonMinimizar.UseVisualStyleBackColor = false;
+            buttonMinimizar.Click += buttonMinimizar_Click;
+            // 
+            // buttonMaximizar
+            // 
+            buttonMaximizar.BackColor = Color.White;
+            buttonMaximizar.BackgroundImage = Properties.Resources.icons8_expand_24;
+            buttonMaximizar.BackgroundImageLayout = ImageLayout.Stretch;
+            buttonMaximizar.FlatStyle = FlatStyle.Flat;
+            buttonMaximizar.Location = new Point(730, 7);
+            buttonMaximizar.Name = "buttonMaximizar";
+            buttonMaximizar.Size = new Size(37, 32);
+            buttonMaximizar.TabIndex = 1;
+            buttonMaximizar.UseVisualStyleBackColor = false;
+            buttonMaximizar.Click += button9_Click;
+            // 
+            // buttonCerrar
+            // 
+            buttonCerrar.BackColor = Color.White;
+            buttonCerrar.BackgroundImage = Properties.Resources.icons8_salida_30;
+            buttonCerrar.BackgroundImageLayout = ImageLayout.Stretch;
+            buttonCerrar.FlatStyle = FlatStyle.Flat;
+            buttonCerrar.Location = new Point(773, 7);
+            buttonCerrar.Name = "buttonCerrar";
+            buttonCerrar.Size = new Size(37, 32);
+            buttonCerrar.TabIndex = 0;
+            buttonCerrar.UseVisualStyleBackColor = false;
+            buttonCerrar.Click += buttonCerrar_Click;
             // 
             // pictureBox1
             // 
@@ -308,11 +392,28 @@
             pictureBox1.BackColor = Color.White;
             pictureBox1.BackgroundImage = Properties.Resources.unnamed_1__removebg_preview;
             pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox1.Location = new Point(242, 200);
+            pictureBox1.Location = new Point(207, 181);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(337, 288);
+            pictureBox1.Size = new Size(388, 345);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
+            // 
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.BackColor = Color.White;
+            contextMenuStrip1.BackgroundImage = Properties.Resources.icons8_slider_24;
+            contextMenuStrip1.BackgroundImageLayout = ImageLayout.Stretch;
+            contextMenuStrip1.Font = new Font("Century", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            contextMenuStrip1.ImageScalingSize = new Size(20, 20);
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { verMiPerfilToolStripMenuItem });
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(181, 26);
+            // 
+            // verMiPerfilToolStripMenuItem
+            // 
+            verMiPerfilToolStripMenuItem.Name = "verMiPerfilToolStripMenuItem";
+            verMiPerfilToolStripMenuItem.Size = new Size(180, 22);
+            verMiPerfilToolStripMenuItem.Text = "Ver mi perfil";
             // 
             // FormAcceso
             // 
@@ -320,10 +421,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             BackgroundImageLayout = ImageLayout.Center;
-            ClientSize = new Size(1182, 753);
+            ClientSize = new Size(1200, 800);
             Controls.Add(PanelHerencia);
             Controls.Add(PanelMenuLateral);
             Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4, 3, 4, 3);
             MinimumSize = new Size(1200, 800);
             Name = "FormAcceso";
@@ -331,14 +433,16 @@
             Text = "FormLogin";
             Load += FormAcceso_Load;
             PanelMenuLateral.ResumeLayout(false);
+            panel3.ResumeLayout(false);
             PanelDetalles.ResumeLayout(false);
             PanelSubMenuMedios.ResumeLayout(false);
             PanelLogo.ResumeLayout(false);
             PanelLogo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)PBuser).EndInit();
             PanelHerencia.ResumeLayout(false);
+            panelTitulo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            contextMenuStrip1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -363,11 +467,18 @@
         private Button btnMod2;
         private Panel panel1;
         private Button button2;
-        private Button btnEditar;
         private PictureBox PBuser;
         private Label lblEmail;
         private Label lblnom;
         private Label lblposicion;
-        private PictureBox pictureBox2;
+        private Panel panel3;
+        private Button button3;
+        private Button button1;
+        private Panel panelTitulo;
+        private Button buttonMinimizar;
+        private Button buttonMaximizar;
+        private Button buttonCerrar;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem verMiPerfilToolStripMenuItem;
     }
 }

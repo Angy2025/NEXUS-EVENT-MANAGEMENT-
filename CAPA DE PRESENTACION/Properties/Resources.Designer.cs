@@ -203,6 +203,16 @@ namespace CAPA_DE_PRESENTACION.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap download {
+            get {
+                object obj = ResourceManager.GetObject("download", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ELIMINAR {
             get {
                 object obj = ResourceManager.GetObject("ELIMINAR", resourceCulture);
@@ -236,6 +246,16 @@ namespace CAPA_DE_PRESENTACION.Properties {
         internal static System.Drawing.Bitmap Gemini_Generated_Image_6y0fnb6y0fnb6y0f1 {
             get {
                 object obj = ResourceManager.GetObject("Gemini_Generated_Image_6y0fnb6y0fnb6y0f1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Gemini_Generated_Image_vcxq9lvcxq9lvcxq {
+            get {
+                object obj = ResourceManager.GetObject("Gemini_Generated_Image_vcxq9lvcxq9lvcxq", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -303,6 +323,16 @@ namespace CAPA_DE_PRESENTACION.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_expand_24 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-expand-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_logout_24 {
             get {
                 object obj = ResourceManager.GetObject("icons8-logout-24", resourceCulture);
@@ -323,6 +353,16 @@ namespace CAPA_DE_PRESENTACION.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_menos_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-menos-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_profile_96_removebg_preview {
             get {
                 object obj = ResourceManager.GetObject("icons8-profile-96-removebg-preview", resourceCulture);
@@ -333,9 +373,29 @@ namespace CAPA_DE_PRESENTACION.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_salida_30 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-salida-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_slider_24 {
             get {
                 object obj = ResourceManager.GetObject("icons8-slider-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_usuario_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-usuario-48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

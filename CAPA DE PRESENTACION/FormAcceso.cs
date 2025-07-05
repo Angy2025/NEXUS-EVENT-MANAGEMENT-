@@ -153,6 +153,37 @@ namespace CAPA_DE_PRESENTACION
 
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            OpenPanelHerencia(new FormModificar()); //Editar Evento existente
+            hideSubMenu();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            // Si ya está maximizado, lo restaura a su tamaño normal. Si no, lo maximiza
+            if (this.WindowState == FormWindowState.Maximized)
+                this.WindowState = FormWindowState.Normal;
+            else
+                this.WindowState = FormWindowState.Maximized;
+        }
+
+        private void buttonCerrar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void buttonMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void panelTitulo_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
         /*private void button2_Click(object sender, EventArgs e)
             {
                 //CODIGO PARA ABRIR EL FORMULARIO DE MEDIOS(PRINCIPAL)

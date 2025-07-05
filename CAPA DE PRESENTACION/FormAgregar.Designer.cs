@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             lblnombre = new Label();
             lbllugar = new Label();
             lbldate = new Label();
             groupBox1 = new GroupBox();
+            dgv3 = new DataGridView();
+            panel1 = new Panel();
             lblTitle = new Label();
             lbldetalle = new Label();
             btnCancelar = new Button();
@@ -44,6 +47,7 @@
             lblCapacidad = new Label();
             lbltipo = new Label();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgv3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
             // 
@@ -51,11 +55,11 @@
             // 
             lblnombre.AutoSize = true;
             lblnombre.BackColor = Color.White;
-            lblnombre.Font = new Font("Century", 10.8F, FontStyle.Bold);
+            lblnombre.Font = new Font("Century", 9F, FontStyle.Bold);
             lblnombre.ImageAlign = ContentAlignment.MiddleLeft;
-            lblnombre.Location = new Point(146, 169);
+            lblnombre.Location = new Point(18, 381);
             lblnombre.Name = "lblnombre";
-            lblnombre.Size = new Size(198, 22);
+            lblnombre.Size = new Size(169, 18);
             lblnombre.TabIndex = 0;
             lblnombre.Text = "Nombre Del Evento:";
             lblnombre.TextAlign = ContentAlignment.MiddleLeft;
@@ -64,11 +68,11 @@
             // 
             lbllugar.AutoSize = true;
             lbllugar.BackColor = Color.White;
-            lbllugar.Font = new Font("Century", 10.8F, FontStyle.Bold);
+            lbllugar.Font = new Font("Century", 9F, FontStyle.Bold);
             lbllugar.ImageAlign = ContentAlignment.MiddleLeft;
-            lbllugar.Location = new Point(146, 241);
+            lbllugar.Location = new Point(18, 453);
             lbllugar.Name = "lbllugar";
-            lbllugar.Size = new Size(217, 22);
+            lbllugar.Size = new Size(185, 18);
             lbllugar.TabIndex = 1;
             lbllugar.Text = "Ubicacion Del Evento:";
             lbllugar.TextAlign = ContentAlignment.MiddleLeft;
@@ -78,11 +82,11 @@
             // 
             lbldate.AutoSize = true;
             lbldate.BackColor = Color.White;
-            lbldate.Font = new Font("Century", 10.8F, FontStyle.Bold);
+            lbldate.Font = new Font("Century", 9F, FontStyle.Bold);
             lbldate.ImageAlign = ContentAlignment.MiddleLeft;
-            lbldate.Location = new Point(146, 305);
+            lbldate.Location = new Point(18, 517);
             lbldate.Name = "lbldate";
-            lbldate.Size = new Size(216, 22);
+            lbldate.Size = new Size(184, 18);
             lbldate.TabIndex = 2;
             lbldate.Text = "Fecha De Realizacion:";
             lbldate.TextAlign = ContentAlignment.MiddleLeft;
@@ -90,7 +94,9 @@
             // 
             // groupBox1
             // 
-            groupBox1.BackColor = Color.White;
+            groupBox1.BackColor = Color.GhostWhite;
+            groupBox1.Controls.Add(dgv3);
+            groupBox1.Controls.Add(panel1);
             groupBox1.Controls.Add(lblTitle);
             groupBox1.Controls.Add(lbldetalle);
             groupBox1.Controls.Add(btnCancelar);
@@ -109,20 +115,52 @@
             groupBox1.Location = new Point(0, 0);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(15);
-            groupBox1.Size = new Size(869, 644);
+            groupBox1.Size = new Size(883, 706);
             groupBox1.TabIndex = 3;
             groupBox1.TabStop = false;
             groupBox1.Enter += groupBox1_Enter;
+            // 
+            // dgv3
+            // 
+            dgv3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgv3.BackgroundColor = Color.FromArgb(247, 165, 42);
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.BackColor = Color.LightGray;
+            dataGridViewCellStyle1.Font = new Font("Palatino Linotype", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.Format = "d";
+            dataGridViewCellStyle1.NullValue = null;
+            dataGridViewCellStyle1.SelectionBackColor = Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.MenuBar;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dgv3.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgv3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv3.GridColor = Color.Black;
+            dgv3.Location = new Point(360, 77);
+            dgv3.Name = "dgv3";
+            dgv3.RowHeadersWidth = 51;
+            dgv3.Size = new Size(481, 263);
+            dgv3.TabIndex = 18;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.White;
+            panel1.BackgroundImage = Properties.Resources.unnamed_1__removebg_preview;
+            panel1.BackgroundImageLayout = ImageLayout.Stretch;
+            panel1.Location = new Point(0, 12);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(314, 328);
+            panel1.TabIndex = 14;
             // 
             // lblTitle
             // 
             lblTitle.AutoSize = true;
             lblTitle.BackColor = Color.White;
-            lblTitle.Font = new Font("Century", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitle.Font = new Font("Century", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitle.ForeColor = Color.Black;
-            lblTitle.Location = new Point(233, 58);
+            lblTitle.Location = new Point(483, 21);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(394, 40);
+            lblTitle.Size = new Size(275, 28);
             lblTitle.TabIndex = 13;
             lblTitle.Text = "Agregar Nuevo Evento";
             // 
@@ -131,7 +169,7 @@
             lbldetalle.AutoSize = true;
             lbldetalle.BackColor = Color.White;
             lbldetalle.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbldetalle.Location = new Point(304, 35);
+            lbldetalle.Location = new Point(320, 134);
             lbldetalle.Name = "lbldetalle";
             lbldetalle.Size = new Size(0, 23);
             lbldetalle.TabIndex = 12;
@@ -142,9 +180,9 @@
             btnCancelar.Font = new Font("Century", 10.8F, FontStyle.Bold);
             btnCancelar.Image = Properties.Resources.CERRAR;
             btnCancelar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCancelar.Location = new Point(502, 533);
+            btnCancelar.Location = new Point(256, 681);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(134, 51);
+            btnCancelar.Size = new Size(153, 51);
             btnCancelar.TabIndex = 11;
             btnCancelar.Text = "Cancelar";
             btnCancelar.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -157,9 +195,9 @@
             btnGuardar.Font = new Font("Century", 10.8F, FontStyle.Bold);
             btnGuardar.Image = Properties.Resources.GUARDAR;
             btnGuardar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnGuardar.Location = new Point(179, 536);
+            btnGuardar.Location = new Point(602, 688);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(125, 44);
+            btnGuardar.Size = new Size(144, 44);
             btnGuardar.TabIndex = 10;
             btnGuardar.Text = "Guardar";
             btnGuardar.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -168,52 +206,60 @@
             // 
             // numericUpDown1
             // 
-            numericUpDown1.Font = new Font("Century", 10.8F, FontStyle.Bold);
-            numericUpDown1.Location = new Point(470, 433);
+            numericUpDown1.BackColor = Color.FromArgb(165, 217, 165);
+            numericUpDown1.Font = new Font("Century", 9F, FontStyle.Bold);
+            numericUpDown1.ForeColor = Color.Black;
+            numericUpDown1.Location = new Point(256, 634);
             numericUpDown1.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
             numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(315, 29);
+            numericUpDown1.Size = new Size(490, 26);
             numericUpDown1.TabIndex = 9;
             // 
             // CBType
             // 
-            CBType.BackColor = Color.FromArgb(91, 186, 100);
+            CBType.BackColor = Color.FromArgb(165, 217, 165);
             CBType.DropDownStyle = ComboBoxStyle.DropDownList;
-            CBType.Font = new Font("Century", 10.8F, FontStyle.Bold);
+            CBType.Font = new Font("Century", 9F, FontStyle.Bold);
             CBType.FormattingEnabled = true;
             CBType.ImeMode = ImeMode.NoControl;
             CBType.Items.AddRange(new object[] { "Eventos Culturales", "Eventos Deportivos", "Eventos Tecnologicos ", "Eventos Cinematograficos ", "Eventos De Networinkg " });
-            CBType.Location = new Point(470, 367);
+            CBType.Location = new Point(256, 568);
             CBType.Name = "CBType";
-            CBType.Size = new Size(315, 30);
+            CBType.Size = new Size(490, 26);
             CBType.TabIndex = 8;
             CBType.SelectedIndexChanged += CBType_SelectedIndexChanged;
             // 
             // dateTimePicker
             // 
+            dateTimePicker.CalendarMonthBackground = Color.FromArgb(165, 217, 165);
+            dateTimePicker.CalendarTitleBackColor = Color.FromArgb(165, 217, 165);
+            dateTimePicker.CalendarTitleForeColor = Color.FromArgb(165, 217, 165);
+            dateTimePicker.CalendarTrailingForeColor = Color.FromArgb(165, 217, 165);
             dateTimePicker.CustomFormat = "dddd, dd 'de' MMMM 'de' yyyy, hh:mm tt";
-            dateTimePicker.Font = new Font("Century", 10.8F, FontStyle.Bold);
+            dateTimePicker.Font = new Font("Century", 10.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             dateTimePicker.Format = DateTimePickerFormat.Custom;
-            dateTimePicker.Location = new Point(470, 305);
+            dateTimePicker.Location = new Point(256, 506);
             dateTimePicker.Name = "dateTimePicker";
-            dateTimePicker.Size = new Size(315, 29);
+            dateTimePicker.Size = new Size(490, 28);
             dateTimePicker.TabIndex = 7;
             dateTimePicker.ValueChanged += dateTimePicker1_ValueChanged;
             // 
             // textPlace
             // 
-            textPlace.Font = new Font("Century", 10.8F, FontStyle.Bold);
-            textPlace.Location = new Point(470, 241);
+            textPlace.BackColor = Color.FromArgb(165, 217, 165);
+            textPlace.Font = new Font("Century", 9F, FontStyle.Bold);
+            textPlace.Location = new Point(256, 442);
             textPlace.Name = "textPlace";
-            textPlace.Size = new Size(315, 29);
+            textPlace.Size = new Size(490, 26);
             textPlace.TabIndex = 6;
             // 
             // textName
             // 
-            textName.Font = new Font("Century", 10.8F, FontStyle.Bold);
-            textName.Location = new Point(470, 169);
+            textName.BackColor = Color.FromArgb(165, 217, 165);
+            textName.Font = new Font("Century", 9F, FontStyle.Bold);
+            textName.Location = new Point(256, 373);
             textName.Name = "textName";
-            textName.Size = new Size(315, 29);
+            textName.Size = new Size(490, 26);
             textName.TabIndex = 5;
             textName.TextChanged += textBox1_TextChanged;
             // 
@@ -221,11 +267,11 @@
             // 
             lblCapacidad.AutoSize = true;
             lblCapacidad.BackColor = Color.White;
-            lblCapacidad.Font = new Font("Century", 10.8F, FontStyle.Bold);
+            lblCapacidad.Font = new Font("Century", 9F, FontStyle.Bold);
             lblCapacidad.ImageAlign = ContentAlignment.MiddleLeft;
-            lblCapacidad.Location = new Point(146, 433);
+            lblCapacidad.Location = new Point(18, 645);
             lblCapacidad.Name = "lblCapacidad";
-            lblCapacidad.Size = new Size(207, 22);
+            lblCapacidad.Size = new Size(177, 18);
             lblCapacidad.TabIndex = 4;
             lblCapacidad.Text = "Asistencia al Evento:";
             lblCapacidad.TextAlign = ContentAlignment.MiddleLeft;
@@ -234,11 +280,11 @@
             // 
             lbltipo.AutoSize = true;
             lbltipo.BackColor = Color.White;
-            lbltipo.Font = new Font("Century", 10.8F, FontStyle.Bold);
+            lbltipo.Font = new Font("Century", 9F, FontStyle.Bold);
             lbltipo.ImageAlign = ContentAlignment.MiddleLeft;
-            lbltipo.Location = new Point(146, 367);
+            lbltipo.Location = new Point(18, 579);
             lbltipo.Name = "lbltipo";
-            lbltipo.Size = new Size(212, 22);
+            lbltipo.Size = new Size(182, 18);
             lbltipo.TabIndex = 3;
             lbltipo.Text = "Categoria del Evento:";
             lbltipo.TextAlign = ContentAlignment.MiddleLeft;
@@ -248,13 +294,15 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkBlue;
-            ClientSize = new Size(869, 644);
+            ClientSize = new Size(883, 706);
             Controls.Add(groupBox1);
+            Cursor = Cursors.Arrow;
             Name = "FormularioDetalle";
             Text = "FormularioDetalle";
             Load += FormularioDetalle_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgv3).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
         }
@@ -276,5 +324,7 @@
         private Button btnGuardar;
         private Label lbldetalle;
         private Label lblTitle;
+        private Panel panel1;
+        private DataGridView dgv3;
     }
 }

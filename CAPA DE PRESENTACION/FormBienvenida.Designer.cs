@@ -38,7 +38,7 @@
             // 
             // groupBox3
             // 
-            groupBox3.BackColor = Color.FromArgb(255, 224, 192);
+            groupBox3.BackColor = Color.White;
             groupBox3.BackgroundImage = Properties.Resources.unnamed_1__removebg_preview;
             groupBox3.BackgroundImageLayout = ImageLayout.Stretch;
             groupBox3.Controls.Add(label1);
@@ -55,10 +55,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.BackColor = Color.Black;
+            label1.BackColor = Color.Gainsboro;
             label1.Dock = DockStyle.Bottom;
             label1.Font = new Font("Century", 10.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.White;
+            label1.ForeColor = Color.Black;
             label1.Location = new Point(3, 394);
             label1.Name = "label1";
             label1.Size = new Size(271, 21);
@@ -68,7 +68,7 @@
             // 
             // progressBar1
             // 
-            progressBar1.BackColor = Color.FromArgb(229, 85, 7);
+            progressBar1.BackColor = Color.Black;
             progressBar1.Dock = DockStyle.Bottom;
             progressBar1.ForeColor = Color.FromArgb(229, 85, 7);
             progressBar1.Location = new Point(0, 418);
