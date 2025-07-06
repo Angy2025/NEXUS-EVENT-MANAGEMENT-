@@ -1,126 +1,73 @@
 ﻿using CAPA_DE_NEGOCIOS;
 using CapaDatos;
-using System;
 using System.Windows.Forms;
-using static Azure.Core.HttpHeader;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CAPA_DE_PRESENTACION
 {
     public partial class FormularioDetalle : Form
     {
+        #region de Campos y Propiedades
+
+
+        // Instancia de la capa de negocios para interactuar con la lógica de eventos.
         private readonly CN_EventosManager _eventosManager = new CN_EventosManager();
 
-        private EventoBase _eventoAEditar = null; // Evento que se va a editar, si es que existe
 
+        // Almacena el evento que se está editando. Si es null, significa que estamos en modo "Agregar"
+        private EventoBase _eventoAEditar = null;
+
+        #endregion
+
+
+
+
+
+
+        #region Constructores y Carga del Formulario
         public FormularioDetalle()
         {
             InitializeComponent();
+            this.Text = "Agregar Nuevo Evento"; 
         }
 
-        // Este constructor se llama cuando se le pasa un evento existente desde la tabla principal
-        public FormularioDetalle(EventoBase eventoParaEditar) : this()
+        // Constructor para el modo "Modificar"
+
+        public FormularioDetalle(EventoBase eventoParaEditar) : this() //Llama al constructor base primero
         {
             this.Text = "Modificar Evento";
             _eventoAEditar = eventoParaEditar; // Guardamos la referencia al evento que vamos a editar
-            CargarDatos(); // Llamamos al método para llenar los campos del formulario
-        }
-        private void CargarDatos()
-        {
-            if (_eventoAEditar != null)
-            {
-                // Asignamos los datos del objeto a los controles del formulario
-                textName.Text = _eventoAEditar.Nombre;
-                textPlace.Text = _eventoAEditar.Lugar;
-                dateTimePicker.Value = _eventoAEditar.Fecha;
-                CBType.SelectedItem = _eventoAEditar.Tipo;
-                numericUpDown1.Value = _eventoAEditar.Capacidad;
-            }
-        }
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
         }
 
         private void FormularioDetalle_Load(object sender, EventArgs e)
         {
-            try
+            ConfigurarComboBox();
+
+            // Si estamos en modo "Modificar", llena los campos con los datos del evento.
+            if (_eventoAEditar != null)
             {
-                ConfigurarComboBox();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al iniciar la aplicación: {ex.Message}", "Error de Arranque", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Application.Exit();
+                CargarDatos();
             }
         }
+        #endregion
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+
+
+
+
+
+        #region Metodos de Configuración
+        private void CargarDatos()
         {
-            try
-            {
-                //Si estamos en modo crear, creamos un evento nuevo
-                if (_eventoAEditar == null)
-                {
-                    //Evento generico para agregar
-                    _eventoAEditar = new Cultural(); // Cambia esto según el tipo de evento que quieras agregar
-                }
+            // Asignamos los datos del objeto a los controles del formulario
+            textName.Text = _eventoAEditar.Nombre;
+            textPlace.Text = _eventoAEditar.Lugar;
 
-                //Recolectar los datos del formulario y ponerlos en el objeto
-                _eventoAEditar.Nombre = textName.Text;
-                _eventoAEditar.Lugar = textPlace.Text;
-                _eventoAEditar.Fecha = dateTimePicker.Value;
-                _eventoAEditar.Tipo = CBType.SelectedItem.ToString();
-                _eventoAEditar.Capacidad = (int)numericUpDown1.Value;
+            // Combinamos la fecha y la hora para establecer correctamente el DateTimePicker
+            dateTimePicker.Value = _eventoAEditar.Fecha.Date + _eventoAEditar.Hora;
 
-                //Le pasamos el objeto al manager de negocios para que aplique
-                // las reglas y lo guarde (ya sea como nuevo o como modificación)
-
-                _eventosManager.AddEvent(_eventoAEditar);
-
-                //Le indicamos al formulario que se guardó correctamente
-                this.DialogResult = DialogResult.OK;
-                this.Close(); // Cerramos el formulario de Detalles
-            }
-            catch (Exception ex)
-            {
-                //Si hubo un error, mostramos un mensaje al usuario
-                MessageBox.Show($"Error al guardar el evento: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            CBType.SelectedItem = _eventoAEditar.Tipo;
+            numericUpDown1.Value = _eventoAEditar.Capacidad;
         }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            //Si el usuario cancela, simplemente cerramos el formulario sin guardar nada
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
-        }
-
-        private void CBType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void ConfigurarComboBox()
         {
             CBType.Items.Clear();
@@ -130,5 +77,80 @@ namespace CAPA_DE_PRESENTACION
             CBType.Items.Add("Cinematográfico");
             CBType.Items.Add("Profesional");
         }
+        #endregion
+
+
+
+
+
+
+        #region Eventos de Controles
+
+        //Se ejecuta al hacer clic en el botón Guardar
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Validación de Datos 
+                if (string.IsNullOrWhiteSpace(textName.Text))
+                {
+                    MessageBox.Show("El nombre del evento es obligatorio.", "Dato Requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return; 
+                }
+                if (CBType.SelectedItem == null)
+                {
+                    MessageBox.Show("Debe seleccionar un tipo de evento.", "Dato Requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                //Creación o Actualización del Objeto, si estamos en modo "Agregar" (_eventoAEditar es null), creamos un nuevo objeto.
+
+                if (_eventoAEditar == null)
+                {
+                    // Creamos la instancia correcta basándonos en la selección del ComboBox
+                    string tipoSeleccionado = CBType.SelectedItem.ToString();
+                    switch (tipoSeleccionado)
+                    {
+                        case "Deportivo": _eventoAEditar = new Deportivo();
+                            break;
+                        case "Cultural": _eventoAEditar = new Cultural(); 
+                            break;
+                        case "Tecnológico": _eventoAEditar = new Tecnologico();
+                            break;
+                        case "Cinematográfico": _eventoAEditar = new Cinematografico(); 
+                            break;
+                        case "Profesional": _eventoAEditar = new Profesional(); 
+                            break;
+                    }
+                }
+
+                //Recolección de Datos del Formulario 
+                _eventoAEditar.Nombre = textName.Text;
+                _eventoAEditar.Lugar = textPlace.Text;
+                _eventoAEditar.Fecha = dateTimePicker.Value.Date; // Obtenemos solo la parte de la FECHA
+                _eventoAEditar.Hora = dateTimePicker.Value.TimeOfDay; // Obtenemos solo la parte de la HORA como un TimeSpan
+                _eventoAEditar.Tipo = CBType.SelectedItem.ToString();
+                _eventoAEditar.Capacidad = (int)numericUpDown1.Value;
+
+                // Le pasamos el objeto al manager para que lo guarde (agrega o modifica)
+                _eventosManager.AddEvent(_eventoAEditar);
+
+                // Le indicamos al formulario anterior que la operación fue exitosa
+                this.DialogResult = DialogResult.OK;
+                this.Close(); 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al guardar el evento: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            //Si el usuario cancela, simplemente cerramos el formulario sin guardar nada
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+        #endregion
     }
 }

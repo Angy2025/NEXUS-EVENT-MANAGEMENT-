@@ -14,6 +14,7 @@ public static class NewLoginUser
         public static string Email { get; set; }
         public static string Posicion { get; set; }
         public static string Password { get; set; }
+        public static string FotoPath { get; set; }
 
     }
 }

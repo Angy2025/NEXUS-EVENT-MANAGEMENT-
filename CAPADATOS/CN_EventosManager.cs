@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using CapaDatos;
-using CAPA_DE_NEGOCIOS;
 using CAPA_DE_ENTIDADES.CACHE;
 
 namespace CAPA_DE_NEGOCIOS
@@ -14,19 +13,20 @@ namespace CAPA_DE_NEGOCIOS
         // READ: Este método contiene la lógica de traducción
         public List<EventoBase> ObtainAllEvents()
         {
-            //Pide los datos GENÉRICOS a la capa de datos
-            DataTable tablaDeDatos = _crud.ListarTodos();
+            //Pide los datos genericos a la capa de datos
 
-            // Lista para almacenar los eventos
+            DataTable tablaDeDatos = _crud.ListarTodos();
             List<EventoBase> lista = new List<EventoBase>();
 
             // Recorre cada fila del DataTable
+
             foreach (DataRow fila in tablaDeDatos.Rows)
             {
-                string tipo = fila["Tipo"].ToString();
+                string tipo = fila["Categoria"].ToString();
                 EventoBase evento;
 
-                //TODO Requisito: Uso de herencia y sus constructores, aqui voy a crear el objeto correcto basado en el tipo de evento
+                //TODO Requisito: Uso de herencia y sus constructores
+
                 switch (tipo)
                 {
                     case "Deportivo":
@@ -44,43 +44,49 @@ namespace CAPA_DE_NEGOCIOS
                     case "Profesional":
                         evento = new Profesional();
                         break;
-                    default: continue; // Si el tipo no es reconocido, saltamos a la siguiente iteración
+                    default: 
+                        continue; // Si el tipo no es reconocido, saltamos a la siguiente iteración
                 }
 
                 // Asignamos los valores de la fila a las propiedades del evento
+
                 evento.Id = Convert.ToInt32(fila["Id"]);
                 evento.Nombre = fila["Nombre"].ToString();
                 evento.Lugar = fila["Lugar"].ToString();
-                evento.Fecha = Convert.ToDateTime(fila["Fecha"]);
+                evento.FechaHora = Convert.ToDateTime(fila["FechaHora"]);
                 evento.Capacidad = Convert.ToInt32(fila["Capacidad"]);
 
-                lista.Add(evento); // Agregamos el evento a la lista
+                lista.Add(evento);
             }
 
             return lista;
         }
 
         // CREATE: Este método recibe un objeto EventoBase y lo agrega a la base de datos
+
         public void AddEvent(EventoBase evento)
         {
-            //TODO Requisito: Validar que el evento no sea nulo
+            //TODO Requisito: Validacion de datos
+
             if (string.IsNullOrWhiteSpace(evento.Nombre))
             {
-                throw new Exception("El nombre del evento es obligatorio para esta accion");
+                throw new Exception("El nombre del evento es obligatorio");
             }
+
+            // Lógica para decidir si es un evento nuevo (Agregar) o existente (Modificar)
+
             if (evento.Id == 0)
             {
-                //Llamar al método de la capa de datos para agregar el evento
-                _crud.Agregar(evento.Nombre, evento.Lugar, evento.Fecha, evento.Tipo, evento.Capacidad);
+                _crud.Agregar(evento.Nombre, evento.Lugar, evento.FechaHora, evento.Tipo, evento.Capacidad);
             }
             else
             {
-                //Llamamos al metodo modificar (tambien de la capa de datos)
-                _crud.Modificar(evento.Id, evento.Nombre, evento.Lugar, evento.Fecha, evento.Tipo, evento.Capacidad);
+                _crud.Modificar(evento.Id, evento.Nombre, evento.Lugar, evento.FechaHora, evento.Tipo, evento.Capacidad);
             }
         }
 
         //DELETE 
+
         public void EliminarEvento(int id)
         {
             if (id <= 0)
@@ -91,30 +97,28 @@ namespace CAPA_DE_NEGOCIOS
         }
     }
 
+    #region Login Negocios
+
     //-------LOGIN SECCTION -------
 
     public class  UserModel
     {
-        UserKey userE = new UserKey();
+        private UserKey userE = new UserKey();
+
+
         public bool LoginUser(string user, string password)
-        {             
+
+        {   //Si el usuario o la contraseña son nulos o vacíos, lanzamos una excepción          
             if (string.IsNullOrWhiteSpace(user) || string.IsNullOrWhiteSpace(password))
             {
-                throw new Exception("El usuario y la contraseña son obligatorios para iniciar sesión.");
+                return false; 
             }
+            //Llama al metodo de la capa de datos para autenticar al usuario y llenar la cache
             return userE.Login(user, password);
         }
 
-        public bool editPassword(int user, string password)
-        {
-            if (user == NewLoginUser.IdUser)
-            { }
-
-            return true;
-        }
-
-
        
     }
+    #endregion
 }
 

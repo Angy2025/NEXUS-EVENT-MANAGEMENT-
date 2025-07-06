@@ -1,18 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.SqlClient;
-using System.Data;
+﻿using CAPA_DE_ENTIDADES.CACHE; 
 using Microsoft.Data.SqlClient;
-using CAPA_DE_ENTIDADES.CACHE; 
+using System;
+using System.Data;
 
 namespace CapaDatos
 {
     // UserKey hereda de ConnectionToSql, lo que le da acceso al método GetConnection() 
     public class UserKey : ConnectionToSql
     {
+
+        #region Metodos publicos
+
+        // Valida las credenciales de un usuario y, si son correctas, carga sus datos en la caché
         public bool Login(string user, string password)
         {
             using (var connection = GetConnection())
@@ -32,16 +31,19 @@ namespace CapaDatos
                     if (reader.HasRows)
                     {
                         while (reader.Read())
-                        { 
+                        {
+                            // Llenamos la clase estática (caché) con los datos del usuario
+
                             NewLoginUser.IdUser = reader.GetInt32(0); 
                             NewLoginUser.Nombre = reader.GetString(1);
                             NewLoginUser.Apellido = reader.GetString(2);
                             NewLoginUser.Email = reader.GetString(3);
                             NewLoginUser.Posicion = reader.GetString(4);
                             NewLoginUser.Password = reader.GetString(5);
+                            NewLoginUser.FotoPath = reader.GetValue(6).ToString();
 
                         }
-                    return true; // Usuario encontrado y autenticado correctamente
+                    return true; // Usuario encontrado y autenticado correctamente, con foto correspondiente
                     }
                     else
                     {
@@ -50,5 +52,9 @@ namespace CapaDatos
                 }
             }
         }
+
+        #endregion
     }
 }
+
+

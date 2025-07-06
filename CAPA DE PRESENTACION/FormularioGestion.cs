@@ -5,44 +5,79 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Windows.Documents;
 using System.Windows.Forms;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 
 namespace CAPA_DE_PRESENTACION
 {
     public partial class FormularioGestion : Form
     {
-        SqlConnection connection = new SqlConnection("Server=.;Database=Nexus;Integrated Security=true" + " ;TrustServerCertificate=True;"); //
-        SqlDataAdapter adapt;
-        //Creamos un puente con la capa de negocios que todo el formulario utilizara
 
+        #region Campos y Propiedades
+
+        //Este delegado es como un "control remoto", almacenará el método OpenPanelHerencia del formulario Acceso
+        public Action<Form> AbrirFormularioHijo { get; set; }
+
+        //Instancia unica de la capa de negocios, para gestionar la logica de los eventos
         private readonly CN_EventosManager _eventosManager = new CN_EventosManager();
 
-        //  public List<EventoBase> _listaCompletaDeEventos;
+        // Almacena la lista completa de eventos para no tener que consultar la BD repetidamente
+        private List<EventoBase> _listaCompletaDeEventos;
+
+        #endregion
+
+
+
+
+
+        #region Constructor y Carga del Formulario
 
         public FormularioGestion()
         {
             InitializeComponent();
         }
-
-
-
-        private void FormularioPrincpal_Load(object sender, EventArgs e)
+        private void frmGestionEventos_Load(object sender, EventArgs e)
         {
             try
             {
-                CargarEventos();
+                //Configuramos las propiedades visuales del dgv2
+                ConfigurarDGV();
+
+                //Cargamos los tipos de eventos en el comboBox
                 ConfigurarComboBox();
+
+                //Cargamos todos los eventos desde la BD y los mostramos en el dgv2
+                CargarEventos();
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al iniciar la aplicación: {ex.Message}", "Error de Arranque", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Application.Exit();
+                MessageBox.Show($"Error al iniciar el formulario de gestion: {ex.Message}", "Error capa 8", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        #endregion
 
-        // Método para configurar el ComboBox con los tipos de eventos
+
+
+
+
+
+        #region Configuraciones iniciales
+
+        private void ConfigurarDGV()
+        {
+            // Hace que las columnas se ajusten automáticamente para llenar el control.
+            dgv2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            // Permite al usuario seleccionar filas completas en lugar de celdas individuales.
+            dgv2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            // Evita que el usuario pueda seleccionar múltiples filas.
+            dgv2.MultiSelect = false;
+            // Oculta la cabecera de las filas (la columna gris de la izquierda).
+            dgv2.RowHeadersVisible = false;
+            dgv2.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dgv2.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+        }
         private void ConfigurarComboBox()
         {
             comBox.Items.Clear();
@@ -54,179 +89,161 @@ namespace CAPA_DE_PRESENTACION
             comBox.Items.Add("Profesional");
             comBox.SelectedIndex = 0; //Seleccionamos "Todos" por defecto, inicalizandose en 0 
         }
+        #endregion
 
 
 
-        //Metodo para cargar y refrescar la tabla de eventos
+
+
+
+        #region Carga de datos y estadisticas
+
         private void CargarEventos()
         {
-            // Obtenemos la lista completa de la base de datos y la guardamos en nuestra variable de clase
-            _listaCompletaDeEventos = _eventosManager.ObtainAllEvents();
+            try
+            {
+                //Obtenemos la lista completa desde la capa de negocios
+                _listaCompletaDeEventos = _eventosManager.ObtainAllEvents();
 
-            // Limpiamos los filtros y mostramos todos los eventos en la tabla
-            if (comBox.Items.Count > 0) comBox.SelectedIndex = 0;
-            dgv2.DataSource = _listaCompletaDeEventos;
+                //Asignamos la lista completa 
+                dgv2.DataSource = null;
+                dgv2.DataSource = _listaCompletaDeEventos;
+
+                ActualizarEstadisticas();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"No se pudieron cargar los eventos: {ex.Message}", "Error de carga de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
+        private void AplicarFiltros()
+        {
+            if (_listaCompletaDeEventos == null) return;
 
+
+            // Empezamos siempre con la lista completa
+            IEnumerable<EventoBase> consultaFiltrada = _listaCompletaDeEventos;
+            string tipoSeleccionado = comBox.SelectedItem.ToString();
+
+            //Aplicamos el filtro si la seleccion no es la opcion de todos los eventos
+            if (comBox.SelectedItem != null && comBox.SelectedItem.ToString() != "Todos")
+            {
+                string tipoSeleccionado = comBox.SelectedItem.ToString();
+                
+                consultaFiltrada = consultaFiltrada.Where(evento => evento.Tipo.ToUpper() == tipoSeleccionado.ToUpper());
+            }
+
+            dgv2.DataSource = null;
+            dgv2.DataSource = consultaFiltrada.ToList();
+        }
+
+        /// Calcula y muestra las estadísticas (total de eventos y próximo evento)
+        private void ActualizarEstadisticas()
+        {
+            if (_listaCompletaDeEventos == null) return;
+
+            //Calculamos el total de eventos y mostrarlo en el Label correspondiente
+            lblTotalEventos.Text = $"Total de Eventos: {_listaCompletaDeEventos.Count}";
+
+            //Encontramos el próximo evento, luego, los ordenamos por fecha para encontrar el más cercano
+            var proximoEvento = _listaCompletaDeEventos
+                                .Where(e => e.FechaHora >= DateTime.Now)
+                                .OrderBy(e => e.FechaHora)
+                                .FirstOrDefault();
+
+            //Actualizamos el label del próximo evento
+            if (proximoEvento != null)
+            {
+                lblProximoEvento.Text = $"Próximo Evento: {proximoEvento.Nombre} ({proximoEvento.Fecha.ToShortDateString()})";
+            }
+            else
+            {
+                lblProximoEvento.Text = "Próximo Evento: No hay eventos futuros";
+            }
+        }
+        #endregion
+
+
+
+
+
+
+
+        #region Eventos del Formulario
+
+        // Filtra la tabla automáticamente cada vez que el usuario cambia la seleccion en el ComBox
 
         private void comBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Cada vez que el ComboBox cambia, aplicamos los filtros
             AplicarFiltros();
         }
 
+        //Permite modificar un evento al hacer doble clic
 
-
-        private void button1_Click(object sender, EventArgs e)
+        private void dgv2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Cada vez que se hace clic en el botón de buscar, aplicamos los filtros
-            AplicarFiltros();
-        }
-
-        private void btnagregar_Click(object sender, EventArgs e)
-        {
-            FormularioDetalle frmDetalle = new FormularioDetalle();
-            if (frmDetalle.ShowDialog() == DialogResult.OK)
+            // Nos aseguramos de que el doble clic no fue en la cabecera del dgv2
+            if (e.RowIndex >= 0)
             {
-                CargarEventos();
+                btndeModificar_Click(sender, e);
             }
         }
-
-        private void btnmod_Click(object sender, EventArgs e)
+        private void btndeAgregar_Click(object sender, EventArgs e)
         {
-            if (dgv2.SelectedRows.Count > 0)
-            {
-                //Obtenemos el eventoBase seleccionado
-                EventoBase EditEvento = (EventoBase)dgv2.SelectedRows[0].DataBoundItem;
+            //Para agregar y modificar se utilizara un solo formulario y para agregar un evento, abriremos el formulario en blanco
 
-                //Abrimos el formulario de detalles, pasandole el evento a editar
-                FormularioDetalle frmDetalle = new FormularioDetalle(EditEvento);
-                if (frmDetalle.ShowDialog() == DialogResult.OK)
-                {
-                    CargarEventos();
-                }
+            // Verificamos que el el delegado nos fue entregado
+            if (AbrirFormularioHijo != null)
+            {
+                // Usamos el delegado para pedirle al formulario de Acceso que abra el formulario de detalle
+                AbrirFormularioHijo(new FormularioDetalle());
             }
-            else
+
+        }
+        private void btndeModificar_Click(object sender, EventArgs e)
+        {
+            if (dgv2.SelectedRows.Count > 0 && AbrirFormularioHijo != null)
+            {
+                // Obtenemos el evento completo de la fila seleccionada
+                EventoBase eventoSeleccionado = (EventoBase)dgv2.SelectedRows[0].DataBoundItem;
+                var frmDetalle = new FormularioDetalle(eventoSeleccionado);
+
+
+                // Abrimos el mismo formulario, pero esta vez le pasamos el evento para que se cargue en modo "Modificar"
+                AbrirFormularioHijo(new FormularioDetalle(eventoSeleccionado));
+                
+            }
+            else if (dgv2.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Por favor, seleccione un evento para modificar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
-
-
         private void btneliminar_Click(object sender, EventArgs e)
         {
-            if (dgv2.SelectedRows.Count > 0)
+            if (dgv2.SelectedRows.Count == 0)
             {
-                // Obtenemos los datos nombre y Id del evento para mostrar un mensaje
-                int id = (int)dgv2.SelectedRows[0].Cells["Id"].Value;
-                string nombre = dgv2.SelectedRows[0].Cells["Nombre"].Value.ToString();
-
-                // Mostramos el formulario de confirmación
-                FormConfirmacion frmConfirmar = new FormConfirmacion(nombre);
-
-                if (frmConfirmar.ShowDialog() == DialogResult.Yes)
-                {
-                    try
-                    {
-                        // Le damos la orden al Manager de eliminar el evento
-                        _eventosManager.EliminarEvento(id);
-                        MessageBox.Show("Evento eliminado con éxito.", "Operación Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        CargarEventos();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Error al eliminar: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Por favor, seleccione un evento para eliminar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void frmGestionEventos_Load(object sender, EventArgs e)
-        {
-            connection.Open();
-            DataTable dt = new DataTable();
-            adapt = new SqlDataAdapter("SELECT * FROM Evento", connection);
-            adapt.Fill(dt);
-            dgv2.DataSource = dt;
-            connection.Close();
-        }
-
-
-        private void dgv2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-
-        private readonly string CadenaConexion = "Server=.;Database=Nexus;Integrated Security=true;TrustServerCertificate=True;";
-        private List<EventoBase> _listaCompletaDeEventos; // Asegúrate que esta lista se carga correctamente
-
-        private void AplicarFiltros()
-        {
-            // 1. Verificación inicial: Si la lista base no está cargada, no hacer nada.
-            if (_listaCompletaDeEventos == null)
-            {
+                MessageBox.Show("Por favor, seleccione el evento que desea eliminar.", "Selección Requerida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
-            // 2. Empezar siempre con la lista completa.
-            IEnumerable<EventoBase> consultaFiltrada = _listaCompletaDeEventos;
-
-            // 3. FILTRO POR TIPO (ComboBox)
-            // Se comprueba que haya un item seleccionado y no sea la opción "Todos"
-            if (comBox.SelectedItem != null)
+            EventoBase eventoAEliminar = (EventoBase)dgv2.SelectedRows[0].DataBoundItem;
+            string msg = $"¿Está seguro de que desea eliminar el evento '{eventoAEliminar.Nombre}'?";
+            if (MessageBox.Show(msg, "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                string tipoSeleccionado = comBox.SelectedItem.ToString();
-
-                // Si no es "Todos" (o como llames a tu opción para ver todo), aplicamos el filtro.
-                // Usamos .Equals con StringComparison.OrdinalIgnoreCase para evitar problemas de mayúsculas/minúsculas.
-                if (!tipoSeleccionado.Equals("Todos", StringComparison.OrdinalIgnoreCase))
+                try
                 {
-                    consultaFiltrada = consultaFiltrada.Where(evento =>
-                        evento.Tipo != null &&
-                        evento.Tipo.Equals(tipoSeleccionado, StringComparison.OrdinalIgnoreCase));
+                    _eventosManager.EliminarEvento(eventoAEliminar.Id);
+                    CargarEventos();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al eliminar: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-
-
-
-            // 5. Actualizar el DataGridView con el resultado final.
-            // Convertimos el resultado de la consulta (IEnumerable) a una Lista (List).
-            dgv2.DataSource = null;
-            dgv2.DataSource = consultaFiltrada.ToList();
         }
+        #endregion
 
 
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        /*private void btnclose2_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }*/
-
-        private void GBox_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnclose2_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnbuscar_Click(object sender, EventArgs e)
-        {
-            AplicarFiltros();
-        }
     }
 }

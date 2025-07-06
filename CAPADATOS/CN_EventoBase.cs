@@ -13,11 +13,12 @@ namespace CAPA_DE_NEGOCIOS
     {
         //Atributos de la clase eventos para ser heredados en otras clases
         public int Id { get; set; }
-        public DateTime Fecha { get; set; }
+        public DateTime FechaHora { get; set; }
         public string Nombre { get; set; }
         public string Lugar { get; set; }
         public string Tipo { get; set; }
         public int Capacidad { get; set; } //Capacidad del evento
+
 
 
         //TODO Requisito: Método virtual que las clases hijas PUEDEN sobrescribir si quieren
