@@ -8,8 +8,6 @@ namespace CapaDatos
    
     public abstract class  ConnectionToSql
     {
-
-
         private readonly string connectionString;
 
 
@@ -20,18 +18,10 @@ namespace CapaDatos
         }
 
         // El método 'protected' significa que solo esta clase y las clases que hereden de ella (como UserKey y CRUD) pueden usarlo
-        protected SqlConnection GetConnection()
-        {
-            // Este método crea y devuelve un nuevo objeto de conexión listo para ser usado
-            return new SqlConnection(connectionString);
-        }
+        protected SqlConnection GetConnection() => new SqlConnection(connectionString); // Este método crea y devuelve un nuevo objeto de conexión listo para ser usado
+
     }
-
-
 }
-
-
-
 
 
 

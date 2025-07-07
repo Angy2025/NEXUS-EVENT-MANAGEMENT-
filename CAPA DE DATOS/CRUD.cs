@@ -4,6 +4,7 @@ using System.Data;
 
 namespace CapaDatos
 {
+    //TODO Requisito: Herencias
     public class CRUD : ConnectionToSql
     {
         #region Métodos Públicos (CRUD)
@@ -11,19 +12,20 @@ namespace CapaDatos
 
         // CREATE: Inserta un nuevo evento en la base de datos
 
-        public void Agregar(string nombre, string lugar, DateTime fechahora,string tipo, int capacidad)
+        public void Agregar(string nombre, string lugar, DateTime fechahora,string tipo, int capacidad, string estatus)
         {
-            using (SqlConnection conn = GetConnection())
+            using (var conn = GetConnection())
             {
                 conn.Open();
-                string query = "INSERT INTO Evento (Nombre, Lugar, Fecha, Hora, Categoria, Capacidad) VALUES (@Nombre, @Lugar, @Fecha, @Categoria, @Capacidad);";
+                var query = "INSERT INTO Evento (Nombre, Lugar, FechaHora, Categoria, Capacidad, Estatus) VALUES (@Nombre, @Lugar, @FechaHora, @Categoria, @Capacidad, @Estatus);";
                 using (SqlCommand comando = new SqlCommand(query, conn))
                 {
                     comando.Parameters.AddWithValue("@Nombre", nombre);
                     comando.Parameters.AddWithValue("@Lugar", lugar);
-                    comando.Parameters.AddWithValue("@Fecha", fechahora);    
+                    comando.Parameters.AddWithValue("@FechaHora", fechahora);    
                     comando.Parameters.AddWithValue("@Categoria", tipo);
                     comando.Parameters.AddWithValue("@Capacidad", capacidad);
+                    comando.Parameters.AddWithValue("@Estatus", estatus);
                     comando.ExecuteNonQuery();
                 }
             }
@@ -33,39 +35,35 @@ namespace CapaDatos
         // READ: Obtiene todos los eventos de la BD
         public DataTable ListarTodos()
         {
-            DataTable tabla = new DataTable();
-            
-            // Usamos el método GetConnection() heredado
-
-            using (SqlConnection conn = GetConnection())
+            var tabla = new DataTable();
+            using (var conn = GetConnection())
             {
                 conn.Open();
-                string query = "SELECT * FROM Evento;";
-                using (SqlCommand comand = new SqlCommand(query, conn))
+                using (var adapter = new SqlDataAdapter("SELECT * FROM Evento;", conn))
                 {
-                    SqlDataAdapter adapter = new SqlDataAdapter(comand);
-                    adapter.Fill(tabla); // Llenamos el DataTable con los resultados
+                    adapter.Fill(tabla);
                 }
             }
             return tabla;
         }
 
         // UPDATE: Modifica un evento existente 
-        public void Modificar(int id, string nombre, string lugar, DateTime fechahora, string tipo, int capacidad)
+        public void Modificar(int id, string nombre, string lugar, DateTime fechahora, string tipo, int capacidad, string estatus)
         {
             // Usamos el método GetConnection() heredado
             using (SqlConnection conn = GetConnection())
             {
                 conn.Open();
-                string query = "UPDATE Evento SET Nombre = @Nombre, Lugar = @Lugar, FechaHora = @FechaHora,  Categoria = @Categoria, Capacidad = @Capacidad WHERE Id = @Id;";
+                string query = "UPDATE Evento SET Nombre = @Nombre, Lugar = @Lugar, FechaHora = @FechaHora,  Categoria = @Categoria, Capacidad = @Capacidad, Estatus = @Estatus WHERE Id = @Id;";
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@Id", id);
                     cmd.Parameters.AddWithValue("@Nombre", nombre);
                     cmd.Parameters.AddWithValue("@Lugar", lugar);
-                    cmd.Parameters.AddWithValue("@Fecha", fechahora);
+                    cmd.Parameters.AddWithValue("@FechaHora", fechahora);
                     cmd.Parameters.AddWithValue("@Categoria", tipo);
                     cmd.Parameters.AddWithValue("@Capacidad", capacidad);
+                    cmd.Parameters.AddWithValue("@Estatus", estatus);
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -75,11 +73,11 @@ namespace CapaDatos
 
         public void Eliminar(int id)
         {
-            using (SqlConnection conn = GetConnection())
+            using (var conn = GetConnection())
             {
                 conn.Open();
-                string query = "DELETE FROM Evento WHERE Id = @Id;";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                var query = "DELETE FROM Evento WHERE Id = @Id;";
+                using (var cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@Id", id);
                     cmd.ExecuteNonQuery();

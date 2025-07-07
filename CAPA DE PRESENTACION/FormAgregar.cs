@@ -1,5 +1,5 @@
 ﻿using CAPA_DE_NEGOCIOS;
-using CapaDatos;
+using System;
 using System.Windows.Forms;
 
 namespace CAPA_DE_PRESENTACION
@@ -21,13 +21,11 @@ namespace CAPA_DE_PRESENTACION
 
 
 
-
-
         #region Constructores y Carga del Formulario
         public FormularioDetalle()
         {
             InitializeComponent();
-            this.Text = "Agregar Nuevo Evento"; 
+            this.Text = "Agregar Nuevo Evento";
         }
 
         // Constructor para el modo "Modificar"
@@ -42,7 +40,7 @@ namespace CAPA_DE_PRESENTACION
         {
             ConfigurarComboBox();
 
-            // Si estamos en modo "Modificar", llena los campos con los datos del evento.
+            // Si estamos en modo "Modificar", llena los campos con los datos del evento
             if (_eventoAEditar != null)
             {
                 CargarDatos();
@@ -61,10 +59,7 @@ namespace CAPA_DE_PRESENTACION
             // Asignamos los datos del objeto a los controles del formulario
             textName.Text = _eventoAEditar.Nombre;
             textPlace.Text = _eventoAEditar.Lugar;
-
-            // Combinamos la fecha y la hora para establecer correctamente el DateTimePicker
-            dateTimePicker.Value = _eventoAEditar.Fecha.Date + _eventoAEditar.Hora;
-
+            dateTimePicker.Value = _eventoAEditar.FechaHora; // Combinamos la fecha y la hora para establecer correctamente el DateTimePicker
             CBType.SelectedItem = _eventoAEditar.Tipo;
             numericUpDown1.Value = _eventoAEditar.Capacidad;
         }
@@ -92,53 +87,42 @@ namespace CAPA_DE_PRESENTACION
         {
             try
             {
-                //Validación de Datos 
+                //TODO Requisito: Validación de Datos 
                 if (string.IsNullOrWhiteSpace(textName.Text))
                 {
-                    MessageBox.Show("El nombre del evento es obligatorio.", "Dato Requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return; 
-                }
-                if (CBType.SelectedItem == null)
-                {
-                    MessageBox.Show("Debe seleccionar un tipo de evento.", "Dato Requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("El nombre y el tipo del evento son obligatorios.", "Datos Requeridos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                //Creación o Actualización del Objeto, si estamos en modo "Agregar" (_eventoAEditar es null), creamos un nuevo objeto.
-
+                //Creación o Actualización del Objeto, si estamos en modo "Agregar" (_eventoAEditar es null), creamos un nuevo objeto
+                
                 if (_eventoAEditar == null)
                 {
-                    // Creamos la instancia correcta basándonos en la selección del ComboBox
                     string tipoSeleccionado = CBType.SelectedItem.ToString();
                     switch (tipoSeleccionado)
                     {
                         case "Deportivo": _eventoAEditar = new Deportivo();
                             break;
-                        case "Cultural": _eventoAEditar = new Cultural(); 
+                        case "Cultural": _eventoAEditar = new Cultural();
                             break;
-                        case "Tecnológico": _eventoAEditar = new Tecnologico();
+                        case "Tecnológico": _eventoAEditar = new Tecnologico(); 
                             break;
-                        case "Cinematográfico": _eventoAEditar = new Cinematografico(); 
+                        case "Cinematográfico": _eventoAEditar = new Cinematografico();
                             break;
-                        case "Profesional": _eventoAEditar = new Profesional(); 
+                        case "Profesional": _eventoAEditar = new Profesional();
                             break;
                     }
                 }
-
                 //Recolección de Datos del Formulario 
                 _eventoAEditar.Nombre = textName.Text;
                 _eventoAEditar.Lugar = textPlace.Text;
-                _eventoAEditar.Fecha = dateTimePicker.Value.Date; // Obtenemos solo la parte de la FECHA
-                _eventoAEditar.Hora = dateTimePicker.Value.TimeOfDay; // Obtenemos solo la parte de la HORA como un TimeSpan
+                _eventoAEditar.FechaHora = dateTimePicker.Value; 
                 _eventoAEditar.Tipo = CBType.SelectedItem.ToString();
                 _eventoAEditar.Capacidad = (int)numericUpDown1.Value;
 
                 // Le pasamos el objeto al manager para que lo guarde (agrega o modifica)
                 _eventosManager.AddEvent(_eventoAEditar);
-
-                // Le indicamos al formulario anterior que la operación fue exitosa
-                this.DialogResult = DialogResult.OK;
-                this.Close(); 
+                this.Close();
             }
             catch (Exception ex)
             {
@@ -147,10 +131,13 @@ namespace CAPA_DE_PRESENTACION
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            //Si el usuario cancela, simplemente cerramos el formulario sin guardar nada
-            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
         #endregion
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

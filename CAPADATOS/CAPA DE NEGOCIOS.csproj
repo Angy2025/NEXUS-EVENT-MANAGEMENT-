@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="QuestPDF" Version="2025.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\CAPA DE DATOS\CAPA DE DATOS.csproj" />
     <ProjectReference Include="..\CAPA_DE_ENTIDADES\CAPA_DE_ENTIDADES.csproj" />
   </ItemGroup>

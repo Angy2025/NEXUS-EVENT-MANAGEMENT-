@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <PackageReference Include="FontAwesome.Sharp" Version="6.6.0" />
+    <PackageReference Include="PdfiumViewer.Updated" Version="2.14.5" />
   </ItemGroup>
 
   <ItemGroup>

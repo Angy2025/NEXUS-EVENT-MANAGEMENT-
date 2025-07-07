@@ -1,219 +1,160 @@
 ﻿using CAPA_DE_NEGOCIOS;
-using CapaDatos;
-using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
-using System.Data;
+using System.Drawing;
 using System.Linq;
-using System.Windows.Documents;
 using System.Windows.Forms;
-
 
 namespace CAPA_DE_PRESENTACION
 {
     public partial class FormularioGestion : Form
     {
-
         #region Campos y Propiedades
 
-        //Este delegado es como un "control remoto", almacenará el método OpenPanelHerencia del formulario Acceso
         public Action<Form> AbrirFormularioHijo { get; set; }
-
-        //Instancia unica de la capa de negocios, para gestionar la logica de los eventos
         private readonly CN_EventosManager _eventosManager = new CN_EventosManager();
-
-        // Almacena la lista completa de eventos para no tener que consultar la BD repetidamente
         private List<EventoBase> _listaCompletaDeEventos;
 
         #endregion
 
-
-
-
-
-        #region Constructor y Carga del Formulario
+        #region Constructor y Carga
 
         public FormularioGestion()
         {
             InitializeComponent();
         }
+
         private void frmGestionEventos_Load(object sender, EventArgs e)
         {
             try
             {
-                //Configuramos las propiedades visuales del dgv2
+                //Primero definimos las columnas que queremos ver
+                DefinirColumnasDGV2();
+
+                // Luego, aplicamos el estilo
                 ConfigurarDGV();
 
-                //Cargamos los tipos de eventos en el comboBox
-                ConfigurarComboBox();
-
-                //Cargamos todos los eventos desde la BD y los mostramos en el dgv2
+                // Finalmente, cargamos los datos
                 CargarEventos();
-
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al iniciar el formulario de gestion: {ex.Message}", "Error capa 8", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al iniciar: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         #endregion
 
+        #region Configuración y Lógica de Datos
 
+        
+        private void DefinirColumnasDGV2()
+        {
+            dgv2.Columns.Clear();
+            dgv2.AutoGenerateColumns = false; // Le decimos a la tabla que no cree columnas por su cuenta
 
+            // Creamos cada columna que queremos mostrar
+            dgv2.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "ID", DataPropertyName = "Id", Name = "Id", FillWeight = 8 });
+            dgv2.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Nombre del Evento", DataPropertyName = "Nombre", Name = "Nombre", FillWeight = 30 });
+            dgv2.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Lugar", DataPropertyName = "Lugar", Name = "Lugar", FillWeight = 22 });
+            dgv2.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Fecha y Hora", DataPropertyName = "FechaHora", Name = "FechaHora", FillWeight = 20 });
+            dgv2.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Tipo", DataPropertyName = "Tipo", Name = "Tipo", FillWeight = 10 });
+            dgv2.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Capacidad", DataPropertyName = "Capacidad", Name = "Capacidad", FillWeight = 10 });
 
-
-
-        #region Configuraciones iniciales
+            // Creamos la columna Estatus, pero la dejamos invisible en este formulario
+            dgv2.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Estatus", DataPropertyName = "Estatus", Name = "Estatus", Visible = false });
+        }
 
         private void ConfigurarDGV()
         {
-            // Hace que las columnas se ajusten automáticamente para llenar el control.
             dgv2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            // Permite al usuario seleccionar filas completas en lugar de celdas individuales.
             dgv2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            // Evita que el usuario pueda seleccionar múltiples filas.
             dgv2.MultiSelect = false;
-            // Oculta la cabecera de las filas (la columna gris de la izquierda).
             dgv2.RowHeadersVisible = false;
             dgv2.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             dgv2.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgv2.DefaultCellStyle.BackColor = Color.White;
+            dgv2.DefaultCellStyle.ForeColor = Color.Black;
+            dgv2.AlternatingRowsDefaultCellStyle.BackColor = Color.WhiteSmoke;
         }
-        private void ConfigurarComboBox()
-        {
-            comBox.Items.Clear();
-            comBox.Items.Add("Todos");
-            comBox.Items.Add("Deportivo");
-            comBox.Items.Add("Cultural");
-            comBox.Items.Add("Tecnológico");
-            comBox.Items.Add("Cinematográfico");
-            comBox.Items.Add("Profesional");
-            comBox.SelectedIndex = 0; //Seleccionamos "Todos" por defecto, inicalizandose en 0 
-        }
-        #endregion
-
-
-
-
-
-
-        #region Carga de datos y estadisticas
 
         private void CargarEventos()
         {
             try
             {
-                //Obtenemos la lista completa desde la capa de negocios
                 _listaCompletaDeEventos = _eventosManager.ObtainAllEvents();
-
-                //Asignamos la lista completa 
                 dgv2.DataSource = null;
                 dgv2.DataSource = _listaCompletaDeEventos;
-
                 ActualizarEstadisticas();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"No se pudieron cargar los eventos: {ex.Message}", "Error de carga de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"No se pudieron cargar los eventos: {ex.Message}", "Error de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void AplicarFiltros()
-        {
-            if (_listaCompletaDeEventos == null) return;
-
-
-            // Empezamos siempre con la lista completa
-            IEnumerable<EventoBase> consultaFiltrada = _listaCompletaDeEventos;
-            string tipoSeleccionado = comBox.SelectedItem.ToString();
-
-            //Aplicamos el filtro si la seleccion no es la opcion de todos los eventos
-            if (comBox.SelectedItem != null && comBox.SelectedItem.ToString() != "Todos")
-            {
-                string tipoSeleccionado = comBox.SelectedItem.ToString();
-                
-                consultaFiltrada = consultaFiltrada.Where(evento => evento.Tipo.ToUpper() == tipoSeleccionado.ToUpper());
-            }
-
-            dgv2.DataSource = null;
-            dgv2.DataSource = consultaFiltrada.ToList();
-        }
-
-        /// Calcula y muestra las estadísticas (total de eventos y próximo evento)
         private void ActualizarEstadisticas()
         {
             if (_listaCompletaDeEventos == null) return;
-
-            //Calculamos el total de eventos y mostrarlo en el Label correspondiente
             lblTotalEventos.Text = $"Total de Eventos: {_listaCompletaDeEventos.Count}";
-
-            //Encontramos el próximo evento, luego, los ordenamos por fecha para encontrar el más cercano
             var proximoEvento = _listaCompletaDeEventos
                                 .Where(e => e.FechaHora >= DateTime.Now)
                                 .OrderBy(e => e.FechaHora)
                                 .FirstOrDefault();
-
-            //Actualizamos el label del próximo evento
-            if (proximoEvento != null)
-            {
-                lblProximoEvento.Text = $"Próximo Evento: {proximoEvento.Nombre} ({proximoEvento.Fecha.ToShortDateString()})";
-            }
-            else
-            {
-                lblProximoEvento.Text = "Próximo Evento: No hay eventos futuros";
-            }
+            lblProximoEvento.Text = proximoEvento != null
+                ? $"Próximo Evento: {proximoEvento.Nombre} ({proximoEvento.FechaHora.ToShortDateString()})"
+                : "Próximo Evento: No hay eventos futuros";
         }
+
         #endregion
-
-
-
-
 
 
 
         #region Eventos del Formulario
 
-        // Filtra la tabla automáticamente cada vez que el usuario cambia la seleccion en el ComBox
-
-        private void comBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            AplicarFiltros();
-        }
-
         //Permite modificar un evento al hacer doble clic
 
         private void dgv2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+
         {
-            // Nos aseguramos de que el doble clic no fue en la cabecera del dgv2
-            if (e.RowIndex >= 0)
-            {
-                btndeModificar_Click(sender, e);
-            }
+
+            if (e.RowIndex >= 0) btndeModificar_Click(sender, e);
+
         }
+
         private void btndeAgregar_Click(object sender, EventArgs e)
         {
-            //Para agregar y modificar se utilizara un solo formulario y para agregar un evento, abriremos el formulario en blanco
+            //Para agregar y modificar se utilizara un solo formulario y para agregar un evento, abriremos el formulario en blanco
 
-            // Verificamos que el el delegado nos fue entregado
-            if (AbrirFormularioHijo != null)
+            // Verificamos que el el delegado nos fue entregado
+
+            if (AbrirFormularioHijo != null)
             {
-                // Usamos el delegado para pedirle al formulario de Acceso que abra el formulario de detalle
-                AbrirFormularioHijo(new FormularioDetalle());
-            }
+                // Usamos el delegado para pedirle al formulario de Acceso que abra el formulario de detalle y le decimos que cuando cierre debe avisarnos para refrescar
 
+                var frmDetalle = new FormularioDetalle();
+
+                frmDetalle.FormClosed += (s, args) => CargarEventos();
+
+                AbrirFormularioHijo(frmDetalle);
+            }
         }
         private void btndeModificar_Click(object sender, EventArgs e)
         {
-            if (dgv2.SelectedRows.Count > 0 && AbrirFormularioHijo != null)
+            if (dgv2.SelectedRows.Count > 0)
             {
-                // Obtenemos el evento completo de la fila seleccionada
-                EventoBase eventoSeleccionado = (EventoBase)dgv2.SelectedRows[0].DataBoundItem;
+                // Obtenemos el evento completo de la fila seleccionada
+
+                EventoBase eventoSeleccionado = (EventoBase)dgv2.SelectedRows[0].DataBoundItem;
                 var frmDetalle = new FormularioDetalle(eventoSeleccionado);
 
+                // Abrimos el mismo formulario, pero esta vez le pasamos el evento para que se cargue en modo "Modificar"
 
-                // Abrimos el mismo formulario, pero esta vez le pasamos el evento para que se cargue en modo "Modificar"
-                AbrirFormularioHijo(new FormularioDetalle(eventoSeleccionado));
-                
+                frmDetalle.FormClosed += (s, args) => CargarEventos();
+                AbrirFormularioHijo(frmDetalle);
+
             }
+
             else if (dgv2.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Por favor, seleccione un evento para modificar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -222,28 +163,62 @@ namespace CAPA_DE_PRESENTACION
 
         private void btneliminar_Click(object sender, EventArgs e)
         {
-            if (dgv2.SelectedRows.Count == 0)
+            //Verificar que hay una fila seleccionada.
+
+            if (dgv2.SelectedRows.Count == 0)
+
             {
+
                 MessageBox.Show("Por favor, seleccione el evento que desea eliminar.", "Selección Requerida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                 return;
+
             }
-            EventoBase eventoAEliminar = (EventoBase)dgv2.SelectedRows[0].DataBoundItem;
-            string msg = $"¿Está seguro de que desea eliminar el evento '{eventoAEliminar.Nombre}'?";
+
+
+
+            //Obtener el objeto completo de la fila seleccionada
+
+            EventoBase eventoAEliminar = (EventoBase)dgv2.SelectedRows[0].DataBoundItem;
+
+
+
+            //Pedir confirmación al usuario, mostrando el nombre del evento
+
+            string msg = $"¿Está seguro de que desea eliminar permanentemente el evento '{eventoAEliminar.Nombre}'?";
+
             if (MessageBox.Show(msg, "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+
             {
+
                 try
+
                 {
-                    _eventosManager.EliminarEvento(eventoAEliminar.Id);
+
+                    //Llamar al método de la capa de negocios con el ID del objeto
+
+                    _eventosManager.EliminarEvento(eventoAEliminar.Id);
+
                     CargarEventos();
+
                 }
+
                 catch (Exception ex)
+
                 {
-                    MessageBox.Show($"Error al eliminar: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    MessageBox.Show($"Error al eliminar el evento: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 }
+
             }
+
         }
-        #endregion
 
+        #endregion
 
-    }
+    }
+
 }
+    
+

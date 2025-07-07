@@ -57,7 +57,7 @@ namespace CAPA_DE_PRESENTACION
         private void txtUser_Leave(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtUser.Text))
-                {
+            {
                 txtUser.Text = "USUARIO";
                 txtUser.ForeColor = Color.Gray;
             }
@@ -101,7 +101,7 @@ namespace CAPA_DE_PRESENTACION
 
         private void FormIngreso_Load(object sender, EventArgs e)
         {
-            
+
         }
         private void btnAccess_Click(object sender, EventArgs e)
         {
@@ -164,12 +164,17 @@ namespace CAPA_DE_PRESENTACION
         }
 
         private void ResetPassword()
-        { 
+        {
             txtPassword.Text = "CONTRASEÑA"; // Resetea el campo de contraseña
             txtPassword.ForeColor = Color.Gray; // Cambia el color del texto a gris
             txtPassword.UseSystemPasswordChar = false;
         }
         #endregion
+
+        private void linkPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
     }
 }
 

@@ -162,6 +162,7 @@
             linkPassword.TabIndex = 0;
             linkPassword.TabStop = true;
             linkPassword.Text = "¿Ha olvidado su contraseña?";
+            linkPassword.LinkClicked += linkPassword_LinkClicked;
             // 
             // btnC
             // 

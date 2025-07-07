@@ -17,13 +17,13 @@ namespace CAPA_DE_PRESENTACION
         #region Campos de clase
 
         //Mantiene una referencia al formulario activo dentro del panel principal
-        private Form activeForm = null;
+        private Form? activeForm = null;
         #endregion
 
 
 
 
-        #region Constructor y Carga del formulario
+        #region Constructor, Carga del formulario y eleccion de fotos por login
         public FormAcceso()
         {
             InitializeComponent();
@@ -74,23 +74,44 @@ namespace CAPA_DE_PRESENTACION
         #endregion
 
 
-        #region Logica de Submenús y paneles
-        #endregion
 
 
 
         #region Eventos click de los menus
         private void btnGestionEventos_Click(object sender, EventArgs e)
         {
-           FormularioGestion frmGestion = new FormularioGestion();
+            FormularioGestion frmGestion = new FormularioGestion();
 
             frmGestion.AbrirFormularioHijo = this.OpenPanelHerencia;
             OpenPanelHerencia(frmGestion);
         }
-        private void btnModificarEvento_Click(object sender, EventArgs e)
+        private void btnEstatus_Click(object sender, EventArgs e)
         {
-            OpenPanelHerencia(new FormModificar());
+            var frmEstatus = new FormularioEstatusYReportes();
+            // También le pasamos el "control remoto" a este formulario
+            frmEstatus.AbrirFormularioHijo = this.OpenPanelHerencia;
+            OpenPanelHerencia(frmEstatus);
         }
+        private void btnGestionEventos_MouseEnter(object sender, EventArgs e)
+        {
+            Button? boton = sender as Button;
+            if (boton != null)
+            {
+                // Convertimos el 'sender' al tipo Button
+                // 'as' es una forma segura de hacerlo que no causa un error si la conversión falla
+                boton.BackColor = Color.Silver;
+            }
+        }
+
+        private void btnGestionEventos_MouseLeave(object sender, EventArgs e)
+        {
+            Button? boton = sender as Button;
+            if (boton != null)
+            {
+                boton.BackColor = Color.Black;
+            }
+        }
+
         private void btnExit_Click(object sender, EventArgs e) //Boton "Cerrar sesion"
         {
             if (MessageBox.Show("¿Esta seguro de que quiere cerrar sesion?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
@@ -104,6 +125,7 @@ namespace CAPA_DE_PRESENTACION
 
 
         #region Logica para abrir Formularios hijos en el panel principal
+
 
         private void OpenPanelHerencia(Form herenciaForm)
         {
@@ -131,7 +153,7 @@ namespace CAPA_DE_PRESENTACION
 
 
 
-        #region Controles de la ventana (cerrar, Maximizar, Minimizar)
+        #region Controles de la ventana (cerrar, restaurar, Maximizar, Minimizar)
         private void buttonCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -143,7 +165,16 @@ namespace CAPA_DE_PRESENTACION
         private void button9_Click(object sender, EventArgs e) //Maximizar
         {
             // Alterna entre estado maximizado y normal
-            this.WindowState = (this.WindowState == FormWindowState.Maximized) ? FormWindowState.Normal : FormWindowState.Maximized;
+            this.WindowState = FormWindowState.Maximized;
+            btnrestaurar.Visible = true;
+            buttonMaximizar.Visible = false;
+        }
+
+        private void btnrestaurar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            btnrestaurar.Visible = false;
+            buttonMaximizar.Visible = true;
         }
         #endregion
 
@@ -170,21 +201,18 @@ namespace CAPA_DE_PRESENTACION
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+
         #endregion
-
-
-
-
-
         #region Eventos vacios, xd
-
-        private void PanelHerencia_Paint(object sender, PaintEventArgs e) { }
         private void label1_Click(object sender, EventArgs e) { }
         private void PanelMenuLateral_Paint(object sender, PaintEventArgs e) { }
         private void PBuser_Click(object sender, EventArgs e) { }
         private void panelsub3_Paint(object sender, PaintEventArgs e) { }
 
         #endregion
+
+
+
 
 
 

@@ -13,52 +13,31 @@ namespace CAPA_DE_NEGOCIOS
         // READ: Este método contiene la lógica de traducción
         public List<EventoBase> ObtainAllEvents()
         {
-            //Pide los datos genericos a la capa de datos
-
-            DataTable tablaDeDatos = _crud.ListarTodos();
-            List<EventoBase> lista = new List<EventoBase>();
-
-            // Recorre cada fila del DataTable
+            var tablaDeDatos = _crud.ListarTodos();
+            var lista = new List<EventoBase>();
 
             foreach (DataRow fila in tablaDeDatos.Rows)
             {
-                string tipo = fila["Categoria"].ToString();
-                EventoBase evento;
-
-                //TODO Requisito: Uso de herencia y sus constructores
-
-                switch (tipo)
+                string tipo = fila["Categoria"].ToString() ?? "";
+                EventoBase evento = tipo switch
                 {
-                    case "Deportivo":
-                        evento = new Deportivo();
-                        break;
-                    case "Cultural":
-                        evento = new Cultural();
-                        break;
-                    case "Tecnológico":
-                        evento = new Tecnologico();
-                        break;
-                    case "Cinematográfico":
-                        evento = new Cinematografico();
-                        break;
-                    case "Profesional":
-                        evento = new Profesional();
-                        break;
-                    default: 
-                        continue; // Si el tipo no es reconocido, saltamos a la siguiente iteración
-                }
-
-                // Asignamos los valores de la fila a las propiedades del evento
+                    "Deportivo" => new Deportivo(),
+                    "Cultural" => new Cultural(),
+                    "Tecnológico" => new Tecnologico(),
+                    "Cinematográfico" => new Cinematografico(),
+                    "Profesional" => new Profesional(),
+                    _ => new Cultural() // Un valor por defecto seguro
+                };
 
                 evento.Id = Convert.ToInt32(fila["Id"]);
-                evento.Nombre = fila["Nombre"].ToString();
-                evento.Lugar = fila["Lugar"].ToString();
-                evento.FechaHora = Convert.ToDateTime(fila["FechaHora"]);
+                evento.Nombre = fila["Nombre"].ToString() ?? "";
+                evento.Lugar = fila["Lugar"].ToString() ?? "";
+                evento.Tipo = fila["Categoria"].ToString() ?? "";
                 evento.Capacidad = Convert.ToInt32(fila["Capacidad"]);
-
+                evento.FechaHora = Convert.ToDateTime(fila["FechaHora"]);
+                evento.Estatus = fila["Estatus"].ToString() ?? "Planificado";
                 lista.Add(evento);
             }
-
             return lista;
         }
 
@@ -70,18 +49,18 @@ namespace CAPA_DE_NEGOCIOS
 
             if (string.IsNullOrWhiteSpace(evento.Nombre))
             {
-                throw new Exception("El nombre del evento es obligatorio");
+                throw new ArgumentException("El nombre del evento es obligatorio");
             }
 
             // Lógica para decidir si es un evento nuevo (Agregar) o existente (Modificar)
 
             if (evento.Id == 0)
             {
-                _crud.Agregar(evento.Nombre, evento.Lugar, evento.FechaHora, evento.Tipo, evento.Capacidad);
+                _crud.Agregar(evento.Nombre, evento.Lugar, evento.FechaHora, evento.Tipo, evento.Capacidad, evento.Estatus);
             }
             else
             {
-                _crud.Modificar(evento.Id, evento.Nombre, evento.Lugar, evento.FechaHora, evento.Tipo, evento.Capacidad);
+                _crud.Modificar(evento.Id, evento.Nombre, evento.Lugar, evento.FechaHora, evento.Tipo, evento.Capacidad, evento.Estatus);
             }
         }
 
