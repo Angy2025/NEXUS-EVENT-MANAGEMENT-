@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             btneliminar = new Button();
             dgv2 = new DataGridView();
             label1 = new Label();
@@ -39,6 +39,7 @@
             GBacciones = new GroupBox();
             btndeModificar = new Button();
             btndeAgregar = new Button();
+            btnNotificarCambios = new Button();
             ((System.ComponentModel.ISupportInitialize)dgv2).BeginInit();
             GBEstadistica.SuspendLayout();
             GBacciones.SuspendLayout();
@@ -51,7 +52,7 @@
             btneliminar.Font = new Font("Century", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btneliminar.ForeColor = Color.Black;
             btneliminar.Image = Properties.Resources.ELIMINAR;
-            btneliminar.Location = new Point(468, 27);
+            btneliminar.Location = new Point(472, 27);
             btneliminar.Name = "btneliminar";
             btneliminar.Size = new Size(186, 60);
             btneliminar.TabIndex = 20;
@@ -66,25 +67,25 @@
             dgv2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv2.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgv2.BackgroundColor = Color.FromArgb(220, 230, 229);
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle5.BackColor = Color.White;
-            dataGridViewCellStyle5.Font = new Font("Century", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle5.ForeColor = Color.Black;
-            dataGridViewCellStyle5.Format = "d";
-            dataGridViewCellStyle5.NullValue = null;
-            dataGridViewCellStyle5.SelectionBackColor = Color.DarkOrange;
-            dataGridViewCellStyle5.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            dgv2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Century", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.Format = "d";
+            dataGridViewCellStyle3.NullValue = null;
+            dataGridViewCellStyle3.SelectionBackColor = Color.DarkOrange;
+            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgv2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgv2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.White;
-            dataGridViewCellStyle6.Font = new Font("Century", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle6.ForeColor = Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = Color.SandyBrown;
-            dataGridViewCellStyle6.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            dgv2.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.White;
+            dataGridViewCellStyle4.Font = new Font("Century", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = Color.SandyBrown;
+            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgv2.DefaultCellStyle = dataGridViewCellStyle4;
             dgv2.GridColor = Color.Black;
             dgv2.Location = new Point(50, 258);
             dgv2.Name = "dgv2";
@@ -114,12 +115,13 @@
             GBEstadistica.Controls.Add(lblProximoEvento);
             GBEstadistica.Controls.Add(lblTotalEventos);
             GBEstadistica.Font = new Font("Century", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            GBEstadistica.ForeColor = Color.Black;
             GBEstadistica.Location = new Point(80, 101);
             GBEstadistica.Name = "GBEstadistica";
             GBEstadistica.Size = new Size(818, 116);
             GBEstadistica.TabIndex = 21;
             GBEstadistica.TabStop = false;
-            GBEstadistica.Text = "Estadisticas Rapidas:";
+            GBEstadistica.Text = "Control Rapido:";
             // 
             // lblProximoEvento
             // 
@@ -148,21 +150,22 @@
             // 
             GBacciones.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             GBacciones.BackColor = Color.FromArgb(214, 168, 116);
+            GBacciones.Controls.Add(btnNotificarCambios);
             GBacciones.Controls.Add(btndeModificar);
             GBacciones.Controls.Add(btndeAgregar);
             GBacciones.Controls.Add(btneliminar);
             GBacciones.FlatStyle = FlatStyle.Flat;
             GBacciones.Font = new Font("Century", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            GBacciones.Location = new Point(134, 632);
+            GBacciones.Location = new Point(50, 632);
             GBacciones.Name = "GBacciones";
-            GBacciones.Size = new Size(679, 115);
+            GBacciones.Size = new Size(879, 115);
             GBacciones.TabIndex = 25;
             GBacciones.TabStop = false;
             // 
             // btndeModificar
             // 
             btndeModificar.Anchor = AnchorStyles.None;
-            btndeModificar.Location = new Point(248, 27);
+            btndeModificar.Location = new Point(252, 27);
             btndeModificar.Name = "btndeModificar";
             btndeModificar.Size = new Size(183, 62);
             btndeModificar.TabIndex = 22;
@@ -175,7 +178,7 @@
             btndeAgregar.Anchor = AnchorStyles.None;
             btndeAgregar.Image = Properties.Resources.icons8_add_to_favorites_26;
             btndeAgregar.ImageAlign = ContentAlignment.MiddleLeft;
-            btndeAgregar.Location = new Point(26, 27);
+            btndeAgregar.Location = new Point(30, 27);
             btndeAgregar.Name = "btndeAgregar";
             btndeAgregar.Size = new Size(189, 62);
             btndeAgregar.TabIndex = 21;
@@ -183,6 +186,18 @@
             btndeAgregar.TextAlign = ContentAlignment.MiddleRight;
             btndeAgregar.UseVisualStyleBackColor = true;
             btndeAgregar.Click += btndeAgregar_Click;
+            // 
+            // btnNotificarCambios
+            // 
+            btnNotificarCambios.Anchor = AnchorStyles.None;
+            btnNotificarCambios.Font = new Font("Century", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnNotificarCambios.Location = new Point(673, 29);
+            btnNotificarCambios.Name = "btnNotificarCambios";
+            btnNotificarCambios.Size = new Size(190, 60);
+            btnNotificarCambios.TabIndex = 26;
+            btnNotificarCambios.Text = "Notificar Cambios";
+            btnNotificarCambios.UseVisualStyleBackColor = true;
+            btnNotificarCambios.Click += btnNotificarCambios_Click;
             // 
             // FormularioGestion
             // 
@@ -224,5 +239,6 @@
         private GroupBox GBacciones;
         private Button btndeModificar;
         private Button btndeAgregar;
+        private Button btnNotificarCambios;
     }
 }

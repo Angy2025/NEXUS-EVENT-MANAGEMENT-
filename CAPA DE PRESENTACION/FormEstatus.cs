@@ -2,14 +2,19 @@
 using System.Data;
 using Microsoft.Data.SqlClient;
 using System.Windows.Forms;
-using CAPA_DE_NEGOCIOS; // Para EventoBase, Tecnologico, etc.
-using CapaDatos; // Para ConnectionToSql
+using CAPA_DE_NEGOCIOS;
+using CapaDatos;
+using System.Drawing;
 
 namespace CAPA_DE_PRESENTACION
 {
     public partial class FormEstatus : Form
     {
-        // Heredamos la conexión desde la capa de datos
+        public Action<Form> AbrirFormularioHijo { get; set; }
+
+
+        #region Campos y Carga de Datos
+
         private class EventosData : ConnectionToSql
         {
             public SqlConnection ObtenerConexion() => GetConnection();
@@ -22,27 +27,48 @@ namespace CAPA_DE_PRESENTACION
             InitializeComponent();
         }
 
-        #region --- Carga de Datos ---
-
         private void FormEstatus_Load(object sender, EventArgs e)
         {
+            // Llamamos al método de estilo para ambas tablas
+            ConfigurarEstiloDGV(dgvActivos);
+            ConfigurarEstiloDGV(dgvHistorial);
+
             CargarEstatusEventos();
             CargarHistorialEventos();
         }
 
+        private void ConfigurarEstiloDGV(DataGridView dgv)
+        {
+            // Estilos de comportamiento y apariencia general
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgv.MultiSelect = false;
+            dgv.RowHeadersVisible = false;
+            dgv.BorderStyle = BorderStyle.None;
+            dgv.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+
+            // Estilos para el texto y las filas
+            dgv.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dgv.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgv.BackgroundColor = Color.White;
+            dgv.DefaultCellStyle.ForeColor = Color.Black;
+            dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.WhiteSmoke;
+
+            // Estilo para la selección
+            dgv.DefaultCellStyle.SelectionBackColor = Color.FromArgb(214, 168, 116);
+            dgv.DefaultCellStyle.SelectionForeColor = Color.White;
+        }
+
         private void CargarEstatusEventos()
         {
-            // Eventos que aún no han ocurrido (Planificado y Confirmado)
             string query = "SELECT Id, Nombre, Estatus FROM Evento WHERE Estatus IN ('Planificado', 'Confirmado') ORDER BY FechaHora ASC;";
-            // --- CORRECCIÓN AQUÍ ---
-            CargarDatos(dgvActivos, query); // Corregido de dgvEstatus a dgvActivos
+            CargarDatos(dgvActivos, query);
         }
 
         private void CargarHistorialEventos()
         {
-            // Eventos que ya pasaron o fueron cancelados ('Realizado', 'Cancelado')
             string query = "SELECT Id, Nombre, Estatus FROM Evento WHERE Estatus IN ('Realizado', 'Cancelado') ORDER BY FechaHora DESC;";
-            CargarDatos(dgvHistorial, query); // Este ya era correcto
+            CargarDatos(dgvHistorial, query);
         }
 
         private void CargarDatos(DataGridView dgv, string query)
@@ -56,14 +82,10 @@ namespace CAPA_DE_PRESENTACION
                     adapter.Fill(dt);
                     dgv.DataSource = dt;
 
-                    // Ocultar la columna ID, pero mantenerla accesible
-                    if (dgv.Columns["Id"] != null)
+                    if (dgv.Columns.Contains("Id") && dgv.Columns["Id"] != null)
                     {
                         dgv.Columns["Id"].Visible = false;
                     }
-
-                    // Ajustar las columnas visibles para que ocupen todo el ancho
-                    dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 }
             }
             catch (Exception ex)
@@ -71,48 +93,40 @@ namespace CAPA_DE_PRESENTACION
                 MessageBox.Show($"Error al cargar los datos: {ex.Message}", "Error de Conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         #endregion
 
-        #region --- Generación de Reporte ---
+
+
+
+        #region Generación de Reporte 
 
         private void btnGenerarReporte_Click(object sender, EventArgs e)
         {
-            DataGridView dgvActivo = null;
+            DataGridView dgvActivo = (tabControl1.SelectedTab == tabEstatus) ? dgvActivos : dgvHistorial;
 
-            // Determina el DataGridView activo basado en la pestaña seleccionada
-            if (tabControl1.SelectedTab == tabEstatus)
-            {
-                // --- CORRECCIÓN AQUÍ ---
-                dgvActivo = dgvActivos; // Corregido de dgvEstatus a dgvActivos
-            }
-            else if (tabControl1.SelectedTab == tabHistorial)
-            {
-                dgvActivo = dgvHistorial;
-            }
-
-            if (dgvActivo?.CurrentRow != null)
-            {
-                // Obtiene el ID de la fila seleccionada (usando la columna oculta)
-                int eventoId = Convert.ToInt32(dgvActivo.CurrentRow.Cells["Id"].Value);
-
-                // Obtiene el objeto completo del evento desde la base de datos
-                EventoBase eventoCompleto = ObtenerEventoCompletoPorId(eventoId);
-
-                if (eventoCompleto != null)
-                {
-                    // Genera el PDF usando la clase de la capa de negocios
-                    var generador = new GeneradorDeReportes(eventoCompleto);
-                    byte[] pdfData = generador.GenerarPDF();
-
-                    // Abre el formulario visor con los datos del PDF
-                    FormVisorPDF visor = new FormVisorPDF(pdfData, eventoCompleto.Nombre);
-                    visor.ShowDialog();
-                }
-            }
-            else
+            if (dgvActivo?.CurrentRow == null)
             {
                 MessageBox.Show("Por favor, seleccione un evento de la lista para generar el reporte.", "Selección Requerida", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            int eventoId = Convert.ToInt32(dgvActivo.CurrentRow.Cells["Id"].Value);
+            EventoBase eventoCompleto = ObtenerEventoCompletoPorId(eventoId);
+
+            if (eventoCompleto != null)
+            {
+                var generador = new GeneradorDeReportes(eventoCompleto);
+                byte[] pdfData = generador.GenerarPDF();
+                var frmVisor = new FormVisorPDF(pdfData, eventoCompleto.Nombre);
+
+                if (AbrirFormularioHijo != null)
+                {
+                    AbrirFormularioHijo(frmVisor);
+                }
+                else
+                {
+                    frmVisor.ShowDialog();
+                }
             }
         }
 
@@ -131,15 +145,13 @@ namespace CAPA_DE_PRESENTACION
                     SqlDataReader reader = cmd.ExecuteReader();
                     if (reader.Read())
                     {
-                        // Aquí podrías tener una lógica para instanciar la clase correcta
-                        // según la 'Categoria'. Por ahora, usamos 'Tecnologico' como ejemplo.
-                        evento = new Tecnologico // O Deportivo, Cultural, etc.
+                        evento = new Tecnologico // O la clase que corresponda
                         {
                             Id = Convert.ToInt32(reader["Id"]),
                             Nombre = reader["Nombre"].ToString(),
                             Lugar = reader["Lugar"].ToString(),
                             FechaHora = Convert.ToDateTime(reader["FechaHora"]),
-                            Categoria = reader["Categoria"].ToString(), // Asignamos la categoría
+                            Categoria = reader["Categoria"].ToString(),
                             Capacidad = Convert.ToInt32(reader["Capacidad"]),
                             Estatus = reader["Estatus"].ToString()
                         };
@@ -150,10 +162,8 @@ namespace CAPA_DE_PRESENTACION
             {
                 MessageBox.Show($"Error al obtener los detalles del evento: {ex.Message}", "Error de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
             return evento;
         }
-
         #endregion
     }
 }

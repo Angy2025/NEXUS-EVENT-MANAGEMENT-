@@ -66,13 +66,11 @@
             btnGestionEventos.ImageAlign = ContentAlignment.MiddleLeft;
             btnGestionEventos.Location = new Point(0, 172);
             btnGestionEventos.Name = "btnGestionEventos";
-            btnGestionEventos.Size = new Size(344, 96);
+            btnGestionEventos.Size = new Size(345, 96);
             btnGestionEventos.TabIndex = 6;
             btnGestionEventos.Text = "Gestionar Eventos";
             btnGestionEventos.UseVisualStyleBackColor = false;
             btnGestionEventos.Click += btnGestionEventos_Click;
-            btnGestionEventos.MouseEnter += btnGestionEventos_MouseEnter;
-            btnGestionEventos.MouseLeave += btnGestionEventos_MouseLeave;
             // 
             // btnEstatus
             // 
@@ -84,7 +82,7 @@
             btnEstatus.ImageAlign = ContentAlignment.MiddleLeft;
             btnEstatus.Location = new Point(0, 268);
             btnEstatus.Name = "btnEstatus";
-            btnEstatus.Size = new Size(344, 86);
+            btnEstatus.Size = new Size(345, 86);
             btnEstatus.TabIndex = 7;
             btnEstatus.Text = "Estatus de Eventos";
             btnEstatus.UseVisualStyleBackColor = false;
@@ -100,7 +98,7 @@
             btnReportes.ImageAlign = ContentAlignment.MiddleLeft;
             btnReportes.Location = new Point(0, 354);
             btnReportes.Name = "btnReportes";
-            btnReportes.Size = new Size(344, 85);
+            btnReportes.Size = new Size(345, 85);
             btnReportes.TabIndex = 8;
             btnReportes.Text = "Reportar Eventos";
             btnReportes.UseVisualStyleBackColor = false;
@@ -108,7 +106,7 @@
             // PanelMenuLateral
             // 
             PanelMenuLateral.AutoScroll = true;
-            PanelMenuLateral.BackColor = Color.Black;
+            PanelMenuLateral.BackColor = Color.FromArgb(255, 154, 0);
             PanelMenuLateral.Controls.Add(btnReportes);
             PanelMenuLateral.Controls.Add(btnEstatus);
             PanelMenuLateral.Controls.Add(btnGestionEventos);
@@ -119,7 +117,7 @@
             PanelMenuLateral.Location = new Point(0, 0);
             PanelMenuLateral.Margin = new Padding(4, 3, 4, 3);
             PanelMenuLateral.Name = "PanelMenuLateral";
-            PanelMenuLateral.Size = new Size(344, 800);
+            PanelMenuLateral.Size = new Size(345, 800);
             PanelMenuLateral.TabIndex = 0;
             // 
             // btnExit
@@ -146,7 +144,7 @@
             // 
             // PanelLogo
             // 
-            PanelLogo.BackColor = Color.Black;
+            PanelLogo.BackColor = Color.FromArgb(255, 154, 0);
             PanelLogo.BackgroundImageLayout = ImageLayout.Stretch;
             PanelLogo.Controls.Add(PBuser);
             PanelLogo.Controls.Add(lblnom);
@@ -169,7 +167,7 @@
             PBuser.BackgroundImageLayout = ImageLayout.Zoom;
             PBuser.Location = new Point(0, 0);
             PBuser.Name = "PBuser";
-            PBuser.Size = new Size(112, 138);
+            PBuser.Size = new Size(121, 139);
             PBuser.SizeMode = PictureBoxSizeMode.Zoom;
             PBuser.TabIndex = 0;
             PBuser.TabStop = false;
@@ -179,8 +177,8 @@
             // 
             lblnom.AutoSize = true;
             lblnom.Font = new Font("Century", 9F, FontStyle.Bold);
-            lblnom.ForeColor = Color.White;
-            lblnom.Location = new Point(121, 67);
+            lblnom.ForeColor = Color.Black;
+            lblnom.Location = new Point(127, 56);
             lblnom.Name = "lblnom";
             lblnom.Size = new Size(70, 18);
             lblnom.TabIndex = 2;
@@ -190,8 +188,8 @@
             // 
             lblposicion.AutoSize = true;
             lblposicion.Font = new Font("Century", 9F, FontStyle.Bold);
-            lblposicion.ForeColor = Color.White;
-            lblposicion.Location = new Point(121, 21);
+            lblposicion.ForeColor = Color.Black;
+            lblposicion.Location = new Point(127, 10);
             lblposicion.Name = "lblposicion";
             lblposicion.Size = new Size(75, 18);
             lblposicion.TabIndex = 1;
@@ -202,8 +200,8 @@
             // 
             lblEmail.AutoSize = true;
             lblEmail.Font = new Font("Century", 9F, FontStyle.Bold);
-            lblEmail.ForeColor = Color.White;
-            lblEmail.Location = new Point(121, 115);
+            lblEmail.ForeColor = Color.Black;
+            lblEmail.Location = new Point(127, 104);
             lblEmail.Name = "lblEmail";
             lblEmail.Size = new Size(55, 18);
             lblEmail.TabIndex = 3;
@@ -211,11 +209,11 @@
             // 
             // PanelHerencia
             // 
-            PanelHerencia.BackColor = Color.FromArgb(255, 154, 0);
+            PanelHerencia.BackColor = Color.White;
             PanelHerencia.Controls.Add(panelTitulo);
             PanelHerencia.Controls.Add(pictureBox1);
             PanelHerencia.Dock = DockStyle.Fill;
-            PanelHerencia.Location = new Point(344, 0);
+            PanelHerencia.Location = new Point(345, 0);
             PanelHerencia.MinimumSize = new Size(1006, 800);
             PanelHerencia.Name = "PanelHerencia";
             PanelHerencia.Size = new Size(1006, 800);
@@ -225,7 +223,7 @@
             // 
             // panelTitulo
             // 
-            panelTitulo.BackColor = Color.Black;
+            panelTitulo.BackColor = Color.FromArgb(255, 154, 0);
             panelTitulo.Controls.Add(btnrestaurar);
             panelTitulo.Controls.Add(buttonMinimizar);
             panelTitulo.Controls.Add(buttonMaximizar);

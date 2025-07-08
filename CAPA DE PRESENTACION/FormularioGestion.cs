@@ -9,13 +9,14 @@ namespace CAPA_DE_PRESENTACION
 {
     public partial class FormularioGestion : Form
     {
-        #region Campos y Propiedades
+        #region Asignar delegacion, propiedades y campos
 
         public Action<Form> AbrirFormularioHijo { get; set; }
         private readonly CN_EventosManager _eventosManager = new CN_EventosManager();
         private List<EventoBase> _listaCompletaDeEventos;
 
         #endregion
+
 
         #region Constructor y Carga
 
@@ -36,6 +37,8 @@ namespace CAPA_DE_PRESENTACION
 
                 // Finalmente, cargamos los datos
                 CargarEventos();
+
+                btnNotificarCambios.Enabled = false; //deshabilita el boton de notificar
             }
             catch (Exception ex)
             {
@@ -47,7 +50,7 @@ namespace CAPA_DE_PRESENTACION
 
         #region Configuración y Lógica de Datos
 
-        
+
         private void DefinirColumnasDGV2()
         {
             dgv2.Columns.Clear();
@@ -58,7 +61,7 @@ namespace CAPA_DE_PRESENTACION
             dgv2.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Nombre del Evento", DataPropertyName = "Nombre", Name = "Nombre", FillWeight = 30 });
             dgv2.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Lugar", DataPropertyName = "Lugar", Name = "Lugar", FillWeight = 22 });
             dgv2.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Fecha y Hora", DataPropertyName = "FechaHora", Name = "FechaHora", FillWeight = 20 });
-            dgv2.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Tipo", DataPropertyName = "Tipo", Name = "Tipo", FillWeight = 10 });
+            dgv2.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Tipo", DataPropertyName = "Categoria", Name = "Categoria", FillWeight = 10 });
             dgv2.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Capacidad", DataPropertyName = "Capacidad", Name = "Capacidad", FillWeight = 10 });
 
             // Creamos la columna Estatus, pero la dejamos invisible en este formulario
@@ -134,7 +137,11 @@ namespace CAPA_DE_PRESENTACION
 
                 var frmDetalle = new FormularioDetalle();
 
-                frmDetalle.FormClosed += (s, args) => CargarEventos();
+                frmDetalle.FormClosed += (s, args) =>
+                {
+                    CargarEventos(); // Refresca la tabla
+                    btnNotificarCambios.Enabled = true; // Habilita el botón de notificar
+                };
 
                 AbrirFormularioHijo(frmDetalle);
             }
@@ -150,7 +157,12 @@ namespace CAPA_DE_PRESENTACION
 
                 // Abrimos el mismo formulario, pero esta vez le pasamos el evento para que se cargue en modo "Modificar"
 
-                frmDetalle.FormClosed += (s, args) => CargarEventos();
+                frmDetalle.FormClosed += (s, args) =>
+                {
+                    CargarEventos();
+                    btnNotificarCambios.Enabled = true;
+                };
+
                 AbrirFormularioHijo(frmDetalle);
 
             }
@@ -170,7 +182,6 @@ namespace CAPA_DE_PRESENTACION
             {
 
                 MessageBox.Show("Por favor, seleccione el evento que desea eliminar.", "Selección Requerida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
                 return;
 
             }
@@ -180,8 +191,6 @@ namespace CAPA_DE_PRESENTACION
             //Obtener el objeto completo de la fila seleccionada
 
             EventoBase eventoAEliminar = (EventoBase)dgv2.SelectedRows[0].DataBoundItem;
-
-
 
             //Pedir confirmación al usuario, mostrando el nombre del evento
 
@@ -215,9 +224,17 @@ namespace CAPA_DE_PRESENTACION
 
         }
 
-        #endregion
+        #endregion
 
-    }
+        private void btnNotificarCambios_Click(object sender, EventArgs e)
+        {
+            string mensaje = "Los cambios recientes en los eventos han sido notificados a todos los departamentos.";
+            MessageBox.Show(mensaje, "Notificación de Cambios Enviada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            // Se deshabilita a sí mismo después de notificar
+            btnNotificarCambios.Enabled = false;
+        }
+    }
 
 }
     

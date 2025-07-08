@@ -413,6 +413,38 @@ namespace CAPA_DE_PRESENTACION.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap download__9_ {
+            get {
+                object obj = ResourceManager.GetObject("download (9)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap elegante_cena_dourada_diagonal_brilhando_com_brilho_de_efeito_de_iluminação_em_fundo_preto__modelo_de_design_de_prêmio_premium_ {
+            get {
+                object obj = ResourceManager.GetObject("elegante cena dourada diagonal brilhando com brilho de efeito de iluminação em fu" +
+                        "ndo preto_ modelo de design de prêmio premium_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap elegante_cena_dourada_diagonal_brilhando_com_brilho_de_efeito_de_iluminação_em_fundo_preto__modelo_de_design_de_prêmio_premium_1 {
+            get {
+                object obj = ResourceManager.GetObject("elegante cena dourada diagonal brilhando com brilho de efeito de iluminação em fu" +
+                        "ndo preto_ modelo de design de prêmio premium_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ELIMINAR {
             get {
                 object obj = ResourceManager.GetObject("ELIMINAR", resourceCulture);

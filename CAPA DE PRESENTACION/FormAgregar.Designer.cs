@@ -110,7 +110,7 @@
             groupBox1.Location = new Point(0, 0);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(15);
-            groupBox1.Size = new Size(988, 753);
+            groupBox1.Size = new Size(1006, 800);
             groupBox1.TabIndex = 3;
             groupBox1.TabStop = false;
             groupBox1.Enter += groupBox1_Enter;
@@ -132,7 +132,7 @@
             lblTitle.BackColor = Color.White;
             lblTitle.Font = new Font("Century", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitle.ForeColor = Color.Black;
-            lblTitle.Location = new Point(376, 61);
+            lblTitle.Location = new Point(385, 141);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(394, 40);
             lblTitle.TabIndex = 13;
@@ -156,7 +156,7 @@
             btnCancelar.Font = new Font("Century", 10.8F, FontStyle.Bold);
             btnCancelar.Image = Properties.Resources.CERRAR;
             btnCancelar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCancelar.Location = new Point(204, 583);
+            btnCancelar.Location = new Point(615, 620);
             btnCancelar.MinimumSize = new Size(182, 65);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(182, 65);
@@ -173,7 +173,7 @@
             btnGuardar.Font = new Font("Century", 10.8F, FontStyle.Bold);
             btnGuardar.Image = Properties.Resources.GUARDAR;
             btnGuardar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnGuardar.Location = new Point(603, 583);
+            btnGuardar.Location = new Point(256, 620);
             btnGuardar.MinimumSize = new Size(182, 65);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(182, 65);
@@ -192,7 +192,7 @@
             numericUpDown1.Location = new Point(298, 529);
             numericUpDown1.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
             numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(640, 26);
+            numericUpDown1.Size = new Size(658, 26);
             numericUpDown1.TabIndex = 9;
             // 
             // CBType
@@ -207,7 +207,7 @@
             CBType.Items.AddRange(new object[] { "Eventos Culturales", "Eventos Deportivos", "Eventos Tecnologicos ", "Eventos Cinematograficos ", "Eventos De Networinkg " });
             CBType.Location = new Point(298, 463);
             CBType.Name = "CBType";
-            CBType.Size = new Size(640, 26);
+            CBType.Size = new Size(658, 26);
             CBType.TabIndex = 8;
             // 
             // dateTimePicker
@@ -222,7 +222,7 @@
             dateTimePicker.Format = DateTimePickerFormat.Custom;
             dateTimePicker.Location = new Point(298, 401);
             dateTimePicker.Name = "dateTimePicker";
-            dateTimePicker.Size = new Size(640, 28);
+            dateTimePicker.Size = new Size(658, 28);
             dateTimePicker.TabIndex = 7;
             // 
             // textPlace
@@ -235,7 +235,7 @@
             textPlace.MinimumSize = new Size(640, 35);
             textPlace.Multiline = true;
             textPlace.Name = "textPlace";
-            textPlace.Size = new Size(640, 35);
+            textPlace.Size = new Size(658, 35);
             textPlace.TabIndex = 6;
             // 
             // textName
@@ -248,7 +248,7 @@
             textName.MinimumSize = new Size(640, 35);
             textName.Multiline = true;
             textName.Name = "textName";
-            textName.Size = new Size(640, 35);
+            textName.Size = new Size(658, 35);
             textName.TabIndex = 5;
             // 
             // lblCapacidad
@@ -283,8 +283,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             BackgroundImage = Properties.Resources.The_Diplomat_of_the_Year_Award__1_;
-            ClientSize = new Size(988, 753);
+            ClientSize = new Size(1006, 800);
             Controls.Add(groupBox1);
+            FormBorderStyle = FormBorderStyle.None;
             MaximumSize = new Size(1006, 800);
             MinimumSize = new Size(1006, 800);
             Name = "FormularioDetalle";

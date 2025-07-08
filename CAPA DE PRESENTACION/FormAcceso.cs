@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using CAPA_DE_ENTIDADES.CACHE;
 
+
+
 namespace CAPA_DE_PRESENTACION
 {
     public partial class FormAcceso : Form
@@ -88,28 +90,8 @@ namespace CAPA_DE_PRESENTACION
         private void btnEstatus_Click(object sender, EventArgs e)
         {
             var frmEstatus = new FormEstatus();
-            // También le pasamos el "control remoto" a este formulario
             frmEstatus.AbrirFormularioHijo = this.OpenPanelHerencia;
             OpenPanelHerencia(frmEstatus);
-        }
-        private void btnGestionEventos_MouseEnter(object sender, EventArgs e)
-        {
-            Button? boton = sender as Button;
-            if (boton != null)
-            {
-                // Convertimos el 'sender' al tipo Button
-                // 'as' es una forma segura de hacerlo que no causa un error si la conversión falla
-                boton.BackColor = Color.Silver;
-            }
-        }
-
-        private void btnGestionEventos_MouseLeave(object sender, EventArgs e)
-        {
-            Button? boton = sender as Button;
-            if (boton != null)
-            {
-                boton.BackColor = Color.Black;
-            }
         }
 
         private void btnExit_Click(object sender, EventArgs e) //Boton "Cerrar sesion"
@@ -124,7 +106,7 @@ namespace CAPA_DE_PRESENTACION
 
 
 
-        #region Logica para abrir Formularios hijos en el panel principal
+        #region Metodo para abrir Formularios hijos en el panel principal
 
 
         private void OpenPanelHerencia(Form herenciaForm)
@@ -141,7 +123,7 @@ namespace CAPA_DE_PRESENTACION
             herenciaForm.Dock = DockStyle.Fill;
 
 
-            // Lo agregamos al panel y lo traemos al frente.
+            // Lo agregamos al panel y lo traemos al frente
             PanelHerencia.Controls.Add(herenciaForm);
             PanelHerencia.Tag = herenciaForm;
             herenciaForm.BringToFront();
@@ -218,6 +200,7 @@ namespace CAPA_DE_PRESENTACION
 
 
 
-       
+
+        
     }
 }

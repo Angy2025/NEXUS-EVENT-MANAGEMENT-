@@ -17,7 +17,10 @@ namespace CAPA_DE_PRESENTACION
             this.Text = $"Reporte para: {nombreEvento}"; // Título del formulario
         }
 
-        #region --- Eventos del Formulario ---
+
+
+
+        #region  Eventos del Formulario 
 
         private void FormVisorPDF_Load(object sender, EventArgs e)
         {
@@ -37,10 +40,14 @@ namespace CAPA_DE_PRESENTACION
                 }
             }
         }
-
         #endregion
 
-        #region --- Lógica de Botones ---
+
+
+
+
+
+        #region Lógica de Botones 
 
         private void btnSave_Click(object sender, EventArgs e)
         {
