@@ -11,7 +11,7 @@ namespace CAPA_DE_NEGOCIOS
     {
         public Cultural()
         {
-            Tipo = "Cultural";
+            Categoria = "Cultural";
         }
 
         public override string MiPatrocinadorFav()

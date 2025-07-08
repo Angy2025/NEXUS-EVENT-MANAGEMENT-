@@ -16,7 +16,7 @@ namespace CAPA_DE_NEGOCIOS
         public DateTime FechaHora { get; set; }
         public string? Nombre { get; set; }
         public string? Lugar { get; set; }
-        public string? Tipo { get; set; }
+        public string? Categoria { get; set; }
         public int Capacidad { get; set; } //Capacidad del evento
         public string Estatus { get; set; } = "Planificado";
 

@@ -10,7 +10,7 @@ namespace CAPA_DE_NEGOCIOS
     {
         public Profesional()
         {
-            Tipo = "Profesional";
+            Categoria = "Profesional";
         }
 
         public override string MiPatrocinadorFav()

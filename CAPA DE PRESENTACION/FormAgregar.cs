@@ -20,7 +20,6 @@ namespace CAPA_DE_PRESENTACION
 
 
 
-
         #region Constructores y Carga del Formulario
         public FormularioDetalle()
         {
@@ -60,7 +59,7 @@ namespace CAPA_DE_PRESENTACION
             textName.Text = _eventoAEditar.Nombre;
             textPlace.Text = _eventoAEditar.Lugar;
             dateTimePicker.Value = _eventoAEditar.FechaHora; // Combinamos la fecha y la hora para establecer correctamente el DateTimePicker
-            CBType.SelectedItem = _eventoAEditar.Tipo;
+            CBType.SelectedItem = _eventoAEditar.Categoria;
             numericUpDown1.Value = _eventoAEditar.Capacidad;
         }
         private void ConfigurarComboBox()
@@ -117,7 +116,7 @@ namespace CAPA_DE_PRESENTACION
                 _eventoAEditar.Nombre = textName.Text;
                 _eventoAEditar.Lugar = textPlace.Text;
                 _eventoAEditar.FechaHora = dateTimePicker.Value; 
-                _eventoAEditar.Tipo = CBType.SelectedItem.ToString();
+                _eventoAEditar.Categoria = CBType.SelectedItem.ToString();
                 _eventoAEditar.Capacidad = (int)numericUpDown1.Value;
 
                 // Le pasamos el objeto al manager para que lo guarde (agrega o modifica)

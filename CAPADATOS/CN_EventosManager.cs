@@ -32,7 +32,7 @@ namespace CAPA_DE_NEGOCIOS
                 evento.Id = Convert.ToInt32(fila["Id"]);
                 evento.Nombre = fila["Nombre"].ToString() ?? "";
                 evento.Lugar = fila["Lugar"].ToString() ?? "";
-                evento.Tipo = fila["Categoria"].ToString() ?? "";
+                evento.Categoria = fila["Categoria"].ToString() ?? "";
                 evento.Capacidad = Convert.ToInt32(fila["Capacidad"]);
                 evento.FechaHora = Convert.ToDateTime(fila["FechaHora"]);
                 evento.Estatus = fila["Estatus"].ToString() ?? "Planificado";
@@ -56,11 +56,11 @@ namespace CAPA_DE_NEGOCIOS
 
             if (evento.Id == 0)
             {
-                _crud.Agregar(evento.Nombre, evento.Lugar, evento.FechaHora, evento.Tipo, evento.Capacidad, evento.Estatus);
+                _crud.Agregar(evento.Nombre, evento.Lugar, evento.FechaHora, evento.Categoria, evento.Capacidad, evento.Estatus);
             }
             else
             {
-                _crud.Modificar(evento.Id, evento.Nombre, evento.Lugar, evento.FechaHora, evento.Tipo, evento.Capacidad, evento.Estatus);
+                _crud.Modificar(evento.Id, evento.Nombre, evento.Lugar, evento.FechaHora, evento.Categoria, evento.Capacidad, evento.Estatus);
             }
         }
 

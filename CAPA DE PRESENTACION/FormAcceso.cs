@@ -87,7 +87,7 @@ namespace CAPA_DE_PRESENTACION
         }
         private void btnEstatus_Click(object sender, EventArgs e)
         {
-            var frmEstatus = new FormularioEstatusYReportes();
+            var frmEstatus = new FormEstatus();
             // También le pasamos el "control remoto" a este formulario
             frmEstatus.AbrirFormularioHijo = this.OpenPanelHerencia;
             OpenPanelHerencia(frmEstatus);

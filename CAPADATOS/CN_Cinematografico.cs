@@ -11,7 +11,7 @@ namespace CAPA_DE_NEGOCIOS
         //TODO Requisito: constructor implementado (en cada herencia)
         public Cinematografico()
         {
-            Tipo = "Cinematografico";
+            Categoria = "Cinematografico";
         }
 
         //TODO Requisito: Implementacion del metodo abstracto

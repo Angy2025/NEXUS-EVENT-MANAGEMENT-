@@ -33,8 +33,8 @@
             lblNombreEvento = new Label();
             pdfViewerControl = new PdfiumViewer.PdfViewer();
             panel1 = new Panel();
-            btnCloseVisor = new Button();
             btnSave = new Button();
+            btnCloseVisor = new Button();
             PanelEncabezado.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -46,7 +46,7 @@
             PanelEncabezado.Controls.Add(lblNombreEvento);
             PanelEncabezado.Dock = DockStyle.Top;
             PanelEncabezado.Font = new Font("Century", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            PanelEncabezado.ForeColor = Color.White;
+            PanelEncabezado.ForeColor = Color.Black;
             PanelEncabezado.Location = new Point(0, 0);
             PanelEncabezado.Name = "PanelEncabezado";
             PanelEncabezado.Size = new Size(988, 136);
@@ -94,18 +94,6 @@
             panel1.Size = new Size(988, 125);
             panel1.TabIndex = 4;
             // 
-            // btnCloseVisor
-            // 
-            btnCloseVisor.Anchor = AnchorStyles.None;
-            btnCloseVisor.Font = new Font("Century", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCloseVisor.Location = new Point(649, 41);
-            btnCloseVisor.Name = "btnCloseVisor";
-            btnCloseVisor.Size = new Size(196, 59);
-            btnCloseVisor.TabIndex = 0;
-            btnCloseVisor.Text = "Cerrar Visor";
-            btnCloseVisor.UseVisualStyleBackColor = true;
-            btnCloseVisor.Click += btnCloseVisor_Click;
-            // 
             // btnSave
             // 
             btnSave.Anchor = AnchorStyles.None;
@@ -118,11 +106,22 @@
             btnSave.UseVisualStyleBackColor = true;
             btnSave.Click += btnSave_Click;
             // 
+            // btnCloseVisor
+            // 
+            btnCloseVisor.Anchor = AnchorStyles.None;
+            btnCloseVisor.Font = new Font("Century", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCloseVisor.Location = new Point(649, 41);
+            btnCloseVisor.Name = "btnCloseVisor";
+            btnCloseVisor.Size = new Size(196, 59);
+            btnCloseVisor.TabIndex = 0;
+            btnCloseVisor.Text = "Cerrar Visor";
+            btnCloseVisor.UseVisualStyleBackColor = true;
+            btnCloseVisor.Click += btnCloseVisor_Click;
+            // 
             // FormVisorPDF
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.This_stunning_image__crafted_with_AI_precision__showcasing_its_visual_artistry_;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(988, 753);
             Controls.Add(panel1);
@@ -132,6 +131,7 @@
             MinimumSize = new Size(1006, 800);
             Name = "FormVisorPDF";
             WindowState = FormWindowState.Maximized;
+//            Load += FormVisorPDF_Load_1;
             PanelEncabezado.ResumeLayout(false);
             PanelEncabezado.PerformLayout();
             panel1.ResumeLayout(false);

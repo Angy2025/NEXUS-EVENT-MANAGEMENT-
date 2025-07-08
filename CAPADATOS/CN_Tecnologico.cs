@@ -11,7 +11,7 @@ namespace CAPA_DE_NEGOCIOS
     {
         public Tecnologico()
         {
-            Tipo = "Tecnologico";
+            Categoria = "Tecnologico";
         }
         public override string MiPatrocinadorFav()
         {

@@ -11,7 +11,7 @@ namespace CAPA_DE_NEGOCIOS
     {
         public Deportivo()
         {
-             Tipo = "Deportivo";
+             Categoria = "Deportivo";
         }
 
         public override string MiPatrocinadorFav()
