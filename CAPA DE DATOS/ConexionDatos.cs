@@ -26,7 +26,7 @@ namespace CapaDatos
 
 
 
-//OPCION #1 Cadena de conexion a SQL Server (conectando a una base de datos llamada Nexus)
+//OPCION #1 Cadena de conexion a SQL Server 
 /*private SqlConnection CadenaConexion = new SqlConnection("Server=.;Database=Nexus;Integrated Security=true" + " ;TrustServerCertificate=True;");
 
 public SqlConnection AbrirConexion()

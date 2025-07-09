@@ -93,7 +93,6 @@
             lbllll.Size = new Size(364, 33);
             lbllll.TabIndex = 0;
             lbllll.Text = "ESTATUS Y REPORTES";
-//            lbllll.Click += lbllll_Click;
             // 
             // tabControl1
             // 
@@ -109,7 +108,7 @@
             // 
             // tabEstatus
             // 
-            tabEstatus.BackColor = Color.FromArgb(214, 168, 116);
+            tabEstatus.BackColor = Color.Black;
             tabEstatus.Controls.Add(dgvActivos);
             tabEstatus.Font = new Font("Century", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             tabEstatus.Location = new Point(4, 30);
@@ -121,7 +120,7 @@
             // 
             // dgvActivos
             // 
-            dgvActivos.BackgroundColor = Color.FromArgb(220, 230, 229);
+            dgvActivos.BackgroundColor = Color.FromArgb(233, 221, 207);
             dgvActivos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvActivos.Dock = DockStyle.Fill;
             dgvActivos.Location = new Point(3, 3);
@@ -132,7 +131,7 @@
             // 
             // tabHistorial
             // 
-            tabHistorial.BackColor = Color.FromArgb(214, 168, 116);
+            tabHistorial.BackColor = Color.Black;
             tabHistorial.Controls.Add(dgvHistorial);
             tabHistorial.Font = new Font("Century", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             tabHistorial.Location = new Point(4, 30);
@@ -144,7 +143,7 @@
             // 
             // dgvHistorial
             // 
-            dgvHistorial.BackgroundColor = Color.FromArgb(220, 230, 229);
+            dgvHistorial.BackgroundColor = Color.FromArgb(233, 221, 207);
             dgvHistorial.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvHistorial.Dock = DockStyle.Fill;
             dgvHistorial.Location = new Point(3, 3);

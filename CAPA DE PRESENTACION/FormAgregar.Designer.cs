@@ -132,7 +132,7 @@
             lblTitle.BackColor = Color.White;
             lblTitle.Font = new Font("Century", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitle.ForeColor = Color.Black;
-            lblTitle.Location = new Point(385, 141);
+            lblTitle.Location = new Point(350, 72);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(394, 40);
             lblTitle.TabIndex = 13;

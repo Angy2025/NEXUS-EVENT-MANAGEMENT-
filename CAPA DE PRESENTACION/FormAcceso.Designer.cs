@@ -30,7 +30,6 @@
         {
             Button btnGestionEventos;
             Button btnEstatus;
-            Button btnReportes;
             PanelMenuLateral = new Panel();
             btnExit = new Button();
             PanelLogo = new Panel();
@@ -47,7 +46,6 @@
             pictureBox1 = new PictureBox();
             btnGestionEventos = new Button();
             btnEstatus = new Button();
-            btnReportes = new Button();
             PanelMenuLateral.SuspendLayout();
             PanelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PBuser).BeginInit();
@@ -88,26 +86,10 @@
             btnEstatus.UseVisualStyleBackColor = false;
             btnEstatus.Click += btnEstatus_Click;
             // 
-            // btnReportes
-            // 
-            btnReportes.BackColor = Color.Black;
-            btnReportes.Dock = DockStyle.Top;
-            btnReportes.Font = new Font("Century", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnReportes.ForeColor = Color.White;
-            btnReportes.Image = Properties.Resources.icons8_stadium_64;
-            btnReportes.ImageAlign = ContentAlignment.MiddleLeft;
-            btnReportes.Location = new Point(0, 354);
-            btnReportes.Name = "btnReportes";
-            btnReportes.Size = new Size(345, 85);
-            btnReportes.TabIndex = 8;
-            btnReportes.Text = "Reportar Eventos";
-            btnReportes.UseVisualStyleBackColor = false;
-            // 
             // PanelMenuLateral
             // 
             PanelMenuLateral.AutoScroll = true;
-            PanelMenuLateral.BackColor = Color.FromArgb(255, 154, 0);
-            PanelMenuLateral.Controls.Add(btnReportes);
+            PanelMenuLateral.BackColor = Color.Black;
             PanelMenuLateral.Controls.Add(btnEstatus);
             PanelMenuLateral.Controls.Add(btnGestionEventos);
             PanelMenuLateral.Controls.Add(btnExit);
@@ -122,20 +104,19 @@
             // 
             // btnExit
             // 
-            btnExit.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnExit.BackColor = Color.White;
-            btnExit.BackgroundImage = Properties.Resources.icons8_cerrar_sesión_30;
+            btnExit.BackColor = Color.Black;
             btnExit.BackgroundImageLayout = ImageLayout.None;
+            btnExit.Dock = DockStyle.Bottom;
             btnExit.FlatAppearance.BorderSize = 0;
             btnExit.FlatStyle = FlatStyle.Flat;
-            btnExit.Font = new Font("Century", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnExit.ForeColor = Color.Black;
+            btnExit.Font = new Font("Century", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnExit.ForeColor = Color.White;
             btnExit.ImageAlign = ContentAlignment.MiddleLeft;
-            btnExit.Location = new Point(4, 759);
+            btnExit.Location = new Point(0, 762);
             btnExit.Margin = new Padding(4, 3, 4, 3);
             btnExit.Name = "btnExit";
             btnExit.Padding = new Padding(11, 0, 0, 0);
-            btnExit.Size = new Size(340, 38);
+            btnExit.Size = new Size(345, 38);
             btnExit.TabIndex = 5;
             btnExit.Text = "Cerrar Sesion";
             btnExit.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -144,7 +125,7 @@
             // 
             // PanelLogo
             // 
-            PanelLogo.BackColor = Color.FromArgb(255, 154, 0);
+            PanelLogo.BackColor = Color.Black;
             PanelLogo.BackgroundImageLayout = ImageLayout.Stretch;
             PanelLogo.Controls.Add(PBuser);
             PanelLogo.Controls.Add(lblnom);
@@ -177,7 +158,7 @@
             // 
             lblnom.AutoSize = true;
             lblnom.Font = new Font("Century", 9F, FontStyle.Bold);
-            lblnom.ForeColor = Color.Black;
+            lblnom.ForeColor = Color.White;
             lblnom.Location = new Point(127, 56);
             lblnom.Name = "lblnom";
             lblnom.Size = new Size(70, 18);
@@ -188,7 +169,7 @@
             // 
             lblposicion.AutoSize = true;
             lblposicion.Font = new Font("Century", 9F, FontStyle.Bold);
-            lblposicion.ForeColor = Color.Black;
+            lblposicion.ForeColor = Color.White;
             lblposicion.Location = new Point(127, 10);
             lblposicion.Name = "lblposicion";
             lblposicion.Size = new Size(75, 18);
@@ -200,7 +181,7 @@
             // 
             lblEmail.AutoSize = true;
             lblEmail.Font = new Font("Century", 9F, FontStyle.Bold);
-            lblEmail.ForeColor = Color.Black;
+            lblEmail.ForeColor = Color.White;
             lblEmail.Location = new Point(127, 104);
             lblEmail.Name = "lblEmail";
             lblEmail.Size = new Size(55, 18);
@@ -209,7 +190,7 @@
             // 
             // PanelHerencia
             // 
-            PanelHerencia.BackColor = Color.White;
+            PanelHerencia.BackColor = Color.FromArgb(248, 179, 72);
             PanelHerencia.Controls.Add(panelTitulo);
             PanelHerencia.Controls.Add(pictureBox1);
             PanelHerencia.Dock = DockStyle.Fill;
@@ -223,7 +204,7 @@
             // 
             // panelTitulo
             // 
-            panelTitulo.BackColor = Color.FromArgb(255, 154, 0);
+            panelTitulo.BackColor = Color.Black;
             panelTitulo.Controls.Add(btnrestaurar);
             panelTitulo.Controls.Add(buttonMinimizar);
             panelTitulo.Controls.Add(buttonMaximizar);
@@ -300,7 +281,7 @@
             // pictureBox1
             // 
             pictureBox1.Anchor = AnchorStyles.None;
-            pictureBox1.BackColor = Color.WhiteSmoke;
+            pictureBox1.BackColor = Color.FromArgb(248, 179, 72);
             pictureBox1.BackgroundImage = Properties.Resources.unnamed_1__removebg_preview;
             pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBox1.Location = new Point(296, 196);
