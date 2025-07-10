@@ -9,9 +9,10 @@ namespace CAPA_DE_PRESENTACION
         #region de Campos y Propiedades
 
 
-        // Instancia de la capa de negocios para interactuar con la lógica de eventos.
+        // Instancia de la capa de negocios para interactuar con la lógica de eventos
         private readonly CN_EventosManager _eventosManager = new CN_EventosManager();
 
+        private readonly ConfingeventosDetalle _configDetalle = new ConfingeventosDetalle();
 
         // Almacena el evento que se está editando. Si es null, significa que estamos en modo "Agregar"
         private EventoBase _eventoAEditar = null;
@@ -28,7 +29,6 @@ namespace CAPA_DE_PRESENTACION
         }
 
         // Constructor para el modo "Modificar"
-
         public FormularioDetalle(EventoBase eventoParaEditar) : this() //Llama al constructor base primero
         {
             this.Text = "Modificar Evento";
@@ -64,12 +64,8 @@ namespace CAPA_DE_PRESENTACION
         }
         private void ConfigurarComboBox()
         {
-            CBType.Items.Clear();
-            CBType.Items.Add("Deportivo");
-            CBType.Items.Add("Cultural");
-            CBType.Items.Add("Tecnológico");
-            CBType.Items.Add("Cinematográfico");
-            CBType.Items.Add("Profesional");
+            // El formulario no conoce la lista de categorías, solo se la pide a la capa de negocios.
+            CBType.DataSource = _configDetalle.ObtenerCategoriasDisponibles();
         }
         #endregion
 
@@ -86,8 +82,8 @@ namespace CAPA_DE_PRESENTACION
         {
             try
             {
-                //TODO Requisito: Validación de Datos 
-                if (string.IsNullOrWhiteSpace(textName.Text))
+                //TODO Requisito: Validación de Datos/campos
+                if (string.IsNullOrWhiteSpace(textName.Text)) 
                 {
                     MessageBox.Show("El nombre y el tipo del evento son obligatorios.", "Datos Requeridos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
@@ -97,20 +93,10 @@ namespace CAPA_DE_PRESENTACION
                 
                 if (_eventoAEditar == null)
                 {
+                    // Si estamos en modo "Agregar", le pedimos a la capa de negocios que cree el objeto por nosotros
+
                     string tipoSeleccionado = CBType.SelectedItem.ToString();
-                    switch (tipoSeleccionado)
-                    {
-                        case "Deportivo": _eventoAEditar = new Deportivo();
-                            break;
-                        case "Cultural": _eventoAEditar = new Cultural();
-                            break;
-                        case "Tecnológico": _eventoAEditar = new Tecnologico(); 
-                            break;
-                        case "Cinematográfico": _eventoAEditar = new Cinematografico();
-                            break;
-                        case "Profesional": _eventoAEditar = new Profesional();
-                            break;
-                    }
+                    _eventoAEditar = _configDetalle.CrearEventoPorTipo(tipoSeleccionado);
                 }
                 //Recolección de Datos del Formulario 
                 _eventoAEditar.Nombre = textName.Text;

@@ -13,6 +13,7 @@ namespace CAPA_DE_PRESENTACION
 
         public Action<Form> AbrirFormularioHijo { get; set; }
         private readonly CN_EventosManager _eventosManager = new CN_EventosManager();
+        private readonly EstadisticaGestion _gestionarestadistica = new EstadisticaGestion();
         private List<EventoBase> _listaCompletaDeEventos;
 
         #endregion
@@ -99,11 +100,14 @@ namespace CAPA_DE_PRESENTACION
         private void ActualizarEstadisticas()
         {
             if (_listaCompletaDeEventos == null) return;
+
+            // El formulario no calcula, solo pide los datos del metodo de la capa de negocios
             lblTotalEventos.Text = $"Total de Eventos: {_listaCompletaDeEventos.Count}";
-            var proximoEvento = _listaCompletaDeEventos
-                                .Where(e => e.FechaHora >= DateTime.Now)
-                                .OrderBy(e => e.FechaHora)
-                                .FirstOrDefault();
+
+            // Llamamos a nuestro nuevo método en la capa de negocios
+            var proximoEvento = _gestionarestadistica.ObtenerProximoEvento(_listaCompletaDeEventos);
+
+            // El formulario solo se encarga de mostrar el resultado
             lblProximoEvento.Text = proximoEvento != null
                 ? $"Próximo Evento: {proximoEvento.Nombre} ({proximoEvento.FechaHora.ToShortDateString()})"
                 : "Próximo Evento: No hay eventos futuros";
@@ -118,11 +122,8 @@ namespace CAPA_DE_PRESENTACION
         //Permite modificar un evento al hacer doble clic
 
         private void dgv2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-
         {
-
             if (e.RowIndex >= 0) btndeModificar_Click(sender, e);
-
         }
 
         private void btndeAgregar_Click(object sender, EventArgs e)
@@ -164,7 +165,6 @@ namespace CAPA_DE_PRESENTACION
                 };
 
                 AbrirFormularioHijo(frmDetalle);
-
             }
 
             else if (dgv2.SelectedRows.Count == 0)
@@ -178,15 +178,10 @@ namespace CAPA_DE_PRESENTACION
             //Verificar que hay una fila seleccionada.
 
             if (dgv2.SelectedRows.Count == 0)
-
             {
-
                 MessageBox.Show("Por favor, seleccione el evento que desea eliminar.", "Selección Requerida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
-
             }
-
-
 
             //Obtener el objeto completo de la fila seleccionada
 
@@ -201,27 +196,18 @@ namespace CAPA_DE_PRESENTACION
             {
 
                 try
-
                 {
-
                     //Llamar al método de la capa de negocios con el ID del objeto
 
                     _eventosManager.EliminarEvento(eventoAEliminar.Id);
 
                     CargarEventos();
-
                 }
-
                 catch (Exception ex)
-
                 {
-
                     MessageBox.Show($"Error al eliminar el evento: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
                 }
-
             }
-
         }
 
         #endregion

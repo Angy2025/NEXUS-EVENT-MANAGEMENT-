@@ -921,5 +921,25 @@ namespace CAPA_DE_PRESENTACION.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Wooden_table_with_chairs_and_bokhe_background___Premium_AI_generated_image {
+            get {
+                object obj = ResourceManager.GetObject("Wooden table with chairs and bokhe background _ Premium AI-generated image", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Wooden_table_with_chairs_and_bokhe_background___Premium_AI_generated_image1 {
+            get {
+                object obj = ResourceManager.GetObject("Wooden table with chairs and bokhe background _ Premium AI-generated image1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

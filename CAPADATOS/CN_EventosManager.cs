@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using CapaDatos;
 using CAPA_DE_ENTIDADES.CACHE;
 
@@ -38,6 +39,7 @@ namespace CAPA_DE_NEGOCIOS
                 evento.Estatus = fila["Estatus"].ToString() ?? "Planificado";
                 lista.Add(evento);
             }
+
             return lista;
         }
 

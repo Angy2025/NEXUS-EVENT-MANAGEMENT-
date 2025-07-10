@@ -41,7 +41,7 @@
             // 
             // PanelEncabezado
             // 
-            PanelEncabezado.BackColor = Color.Transparent;
+            PanelEncabezado.BackColor = Color.White;
             PanelEncabezado.Controls.Add(lblTitulo1);
             PanelEncabezado.Controls.Add(lblNombreEvento);
             PanelEncabezado.Dock = DockStyle.Top;
@@ -68,7 +68,7 @@
             lblNombreEvento.Anchor = AnchorStyles.None;
             lblNombreEvento.AutoSize = true;
             lblNombreEvento.Font = new Font("Century", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblNombreEvento.Location = new Point(57, 91);
+            lblNombreEvento.Location = new Point(12, 88);
             lblNombreEvento.Name = "lblNombreEvento";
             lblNombreEvento.Size = new Size(342, 23);
             lblNombreEvento.TabIndex = 1;
@@ -77,6 +77,8 @@
             // pdfViewerControl
             // 
             pdfViewerControl.BackColor = Color.Transparent;
+            pdfViewerControl.BackgroundImage = Properties.Resources.Wooden_table_with_chairs_and_bokhe_background___Premium_AI_generated_image;
+            pdfViewerControl.BackgroundImageLayout = ImageLayout.Stretch;
             pdfViewerControl.Dock = DockStyle.Fill;
             pdfViewerControl.Location = new Point(0, 136);
             pdfViewerControl.Margin = new Padding(4, 5, 4, 5);
@@ -122,6 +124,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.Wooden_table_with_chairs_and_bokhe_background___Premium_AI_generated_image1;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(988, 753);
             Controls.Add(panel1);
@@ -131,7 +134,6 @@
             MinimumSize = new Size(1006, 800);
             Name = "FormVisorPDF";
             WindowState = FormWindowState.Maximized;
-//            Load += FormVisorPDF_Load_1;
             PanelEncabezado.ResumeLayout(false);
             PanelEncabezado.PerformLayout();
             panel1.ResumeLayout(false);

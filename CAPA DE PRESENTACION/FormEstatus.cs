@@ -1,26 +1,23 @@
 ﻿using System;
-using System.Data;
-using Microsoft.Data.SqlClient;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using CAPA_DE_NEGOCIOS;
-using CapaDatos;
 using System.Drawing;
 
 namespace CAPA_DE_PRESENTACION
 {
     public partial class FormEstatus : Form
     {
+        #region Campos y Propiedades
+
         public Action<Form> AbrirFormularioHijo { get; set; }
+        // El formulario ahora solo necesita conocer a su manager de lógica específico.
+        private readonly ObtencionDatosEstatus _estatusdedatos = new ObtencionDatosEstatus();
+
+        #endregion
 
 
-        #region Campos y Carga de Datos
-
-        private class EventosData : ConnectionToSql
-        {
-            public SqlConnection ObtenerConexion() => GetConnection();
-        }
-
-        private readonly string _connectionString = new EventosData().ObtenerConexion().ConnectionString;
+        #region Constructor y Carga
 
         public FormEstatus()
         {
@@ -29,16 +26,36 @@ namespace CAPA_DE_PRESENTACION
 
         private void FormEstatus_Load(object sender, EventArgs e)
         {
-            // Llamamos al método de estilo para ambas tablas
-            ConfigurarEstiloDGV(dgvActivos);
-            ConfigurarEstiloDGV(dgvHistorial);
+            try
+            {
+                // Configura el estilo y permite la autogeneración de columnas
+                ConfigurarEstiloDGV(dgvActivos);
+                ConfigurarEstiloDGV(dgvHistorial);
 
-            CargarEstatusEventos();
-            CargarHistorialEventos();
+                // Conecta el evento que se ejecutará DESPUÉS de que los datos se carguen para ocultar columnas
+                dgvActivos.DataBindingComplete += Dgv_DataBindingComplete;
+                dgvHistorial.DataBindingComplete += Dgv_DataBindingComplete;
+
+                // Carga los datos usando los métodos de la capa de negocios
+                CargarEstatusEventos();
+                CargarHistorialEventos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar el formulario: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+        #endregion
+
+
+        #region Configuración de UI y Carga de Datos
 
         private void ConfigurarEstiloDGV(DataGridView dgv)
         {
+            // La clave es decirle a la tabla que cree las columnas por sí misma.
+            dgv.AutoGenerateColumns = true;
+
             // Estilos de comportamiento y apariencia general
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -46,72 +63,62 @@ namespace CAPA_DE_PRESENTACION
             dgv.RowHeadersVisible = false;
             dgv.BorderStyle = BorderStyle.None;
             dgv.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-
-            // Estilos para el texto y las filas
-            dgv.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            dgv.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dgv.BackgroundColor = Color.White;
-            dgv.DefaultCellStyle.ForeColor = Color.Black;
-            dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.WhiteSmoke;
-
-            // Estilo para la selección
-            dgv.DefaultCellStyle.SelectionBackColor = Color.FromArgb(214, 168, 116);
-            dgv.DefaultCellStyle.SelectionForeColor = Color.White;
         }
 
         private void CargarEstatusEventos()
         {
-            string query = "SELECT Id, Nombre, Estatus FROM Evento WHERE Estatus IN ('Planificado', 'Confirmado') ORDER BY FechaHora ASC;";
-            CargarDatos(dgvActivos, query);
+            // El formulario ya no sabe de SQL. Solo le pide los eventos activos al manager.
+            dgvActivos.DataSource = _estatusdedatos.ObtenerEventosActivos();
         }
 
         private void CargarHistorialEventos()
         {
-            string query = "SELECT Id, Nombre, Estatus FROM Evento WHERE Estatus IN ('Realizado', 'Cancelado') ORDER BY FechaHora DESC;";
-            CargarDatos(dgvHistorial, query);
+            // El formulario solo le pide el historial de eventos al manager.
+            dgvHistorial.DataSource = _estatusdedatos.ObtenerEventosDeHistorial();
         }
 
-        private void CargarDatos(DataGridView dgv, string query)
+        // Este evento se ejecuta cuando los datos terminan de cargarse.
+        // Aquí ocultamos las columnas que no queremos ver.
+        private void Dgv_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(_connectionString))
-                {
-                    SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
-                    dgv.DataSource = dt;
+            var dgv = sender as DataGridView;
+            if (dgv == null || dgv.Columns.Count == 0) return;
 
-                    if (dgv.Columns.Contains("Id") && dgv.Columns["Id"] != null)
-                    {
-                        dgv.Columns["Id"].Visible = false;
-                    }
+            // Lista de las propiedades que SÍ queremos ver
+            var columnasVisibles = new List<string> { "Nombre", "Estatus" };
+
+            foreach (DataGridViewColumn columna in dgv.Columns)
+            {
+                // Si el nombre de la columna (que es el nombre de la propiedad del objeto)
+                // NO está en nuestra lista de columnas visibles, la ocultamos.
+                if (!columnasVisibles.Contains(columna.Name))
+                {
+                    columna.Visible = false;
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al cargar los datos: {ex.Message}", "Error de Conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
+
         #endregion
 
 
-
-
-        #region Generación de Reporte 
+        #region Generación de Reporte
 
         private void btnGenerarReporte_Click(object sender, EventArgs e)
         {
-            DataGridView dgvActivo = (tabControl1.SelectedTab == tabEstatus) ? dgvActivos : dgvHistorial;
+            // Este código determina qué tabla está viendo el usuario actualmente.
+            DataGridView dgvSeleccionado = (tabControl1.SelectedTab == tabEstatus) ? dgvActivos : dgvHistorial;
 
-            if (dgvActivo?.CurrentRow == null)
+            if (dgvSeleccionado?.CurrentRow == null)
             {
                 MessageBox.Show("Por favor, seleccione un evento de la lista para generar el reporte.", "Selección Requerida", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            int eventoId = Convert.ToInt32(dgvActivo.CurrentRow.Cells["Id"].Value);
-            EventoBase eventoCompleto = ObtenerEventoCompletoPorId(eventoId);
+            // La columna "Id" existe en memoria (pero está oculta), así que podemos acceder a su valor.
+            int eventoId = Convert.ToInt32(dgvSeleccionado.CurrentRow.Cells["Id"].Value);
+
+            // El formulario ahora le pide el evento completo a su manager específico.
+            EventoBase eventoCompleto = _estatusdedatos.ObtenerEventoPorId(eventoId);
 
             if (eventoCompleto != null)
             {
@@ -128,41 +135,10 @@ namespace CAPA_DE_PRESENTACION
                     frmVisor.ShowDialog();
                 }
             }
-        }
-
-        private EventoBase ObtenerEventoCompletoPorId(int id)
-        {
-            EventoBase evento = null;
-            string query = "SELECT * FROM Evento WHERE Id = @Id;";
-
-            try
+            else
             {
-                using (SqlConnection conn = new SqlConnection(_connectionString))
-                {
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@Id", id);
-                    conn.Open();
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    if (reader.Read())
-                    {
-                        evento = new Tecnologico // O la clase que corresponda
-                        {
-                            Id = Convert.ToInt32(reader["Id"]),
-                            Nombre = reader["Nombre"].ToString(),
-                            Lugar = reader["Lugar"].ToString(),
-                            FechaHora = Convert.ToDateTime(reader["FechaHora"]),
-                            Categoria = reader["Categoria"].ToString(),
-                            Capacidad = Convert.ToInt32(reader["Capacidad"]),
-                            Estatus = reader["Estatus"].ToString()
-                        };
-                    }
-                }
+                MessageBox.Show("No se pudieron encontrar los detalles del evento seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al obtener los detalles del evento: {ex.Message}", "Error de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            return evento;
         }
         #endregion
     }

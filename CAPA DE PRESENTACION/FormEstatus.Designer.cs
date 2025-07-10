@@ -120,7 +120,7 @@
             // 
             // dgvActivos
             // 
-            dgvActivos.BackgroundColor = Color.FromArgb(233, 221, 207);
+            dgvActivos.BackgroundColor = Color.FromArgb(153, 156, 166);
             dgvActivos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvActivos.Dock = DockStyle.Fill;
             dgvActivos.Location = new Point(3, 3);
