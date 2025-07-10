@@ -1,4 +1,4 @@
-﻿// Se asegura de tener las directivas 'using' necesarias para QuestPDF.
+﻿    // Se asegura de tener las directivas 'using' necesarias para QuestPDF.
 using CAPA_DE_NEGOCIOS;
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
@@ -54,7 +54,7 @@ namespace CAPA_DE_NEGOCIOS
                         page.Size(PageSizes.A4); // Define el tamaño del papel como A4.
                         page.Margin(2, Unit.Centimetre); // Establece un margen de 2 cm en todos los lados.
                         page.PageColor(Colors.White); // El color de fondo de la página.
-                        page.DefaultTextStyle(x => x.FontSize(12).FontFamily("Times New Roman")); // Estilo de texto por defecto.
+                        page.DefaultTextStyle(x => x.FontSize(12));// Estilo de texto por defecto
 
                         // --- 2. Encabezado del Reporte ---
                         // Se repetirá en la parte superior de cada página.

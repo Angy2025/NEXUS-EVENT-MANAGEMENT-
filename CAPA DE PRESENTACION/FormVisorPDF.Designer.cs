@@ -41,10 +41,10 @@
             // 
             // PanelEncabezado
             // 
+            PanelEncabezado.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             PanelEncabezado.BackColor = Color.White;
             PanelEncabezado.Controls.Add(lblTitulo1);
             PanelEncabezado.Controls.Add(lblNombreEvento);
-            PanelEncabezado.Dock = DockStyle.Top;
             PanelEncabezado.Font = new Font("Century", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             PanelEncabezado.ForeColor = Color.Black;
             PanelEncabezado.Location = new Point(0, 0);
@@ -79,7 +79,6 @@
             pdfViewerControl.BackColor = Color.Transparent;
             pdfViewerControl.BackgroundImage = Properties.Resources.Wooden_table_with_chairs_and_bokhe_background___Premium_AI_generated_image;
             pdfViewerControl.BackgroundImageLayout = ImageLayout.Stretch;
-            pdfViewerControl.Dock = DockStyle.Fill;
             pdfViewerControl.Location = new Point(0, 136);
             pdfViewerControl.Margin = new Padding(4, 5, 4, 5);
             pdfViewerControl.Name = "pdfViewerControl";
@@ -88,6 +87,7 @@
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = Color.Transparent;
             panel1.Controls.Add(btnSave);
             panel1.Controls.Add(btnCloseVisor);
