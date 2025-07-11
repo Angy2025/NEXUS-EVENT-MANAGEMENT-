@@ -41,25 +41,26 @@
             // 
             // PanelEncabezado
             // 
-            PanelEncabezado.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            PanelEncabezado.BackColor = Color.White;
+            PanelEncabezado.BackColor = Color.Transparent;
             PanelEncabezado.Controls.Add(lblTitulo1);
             PanelEncabezado.Controls.Add(lblNombreEvento);
+            PanelEncabezado.Dock = DockStyle.Top;
             PanelEncabezado.Font = new Font("Century", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             PanelEncabezado.ForeColor = Color.Black;
             PanelEncabezado.Location = new Point(0, 0);
             PanelEncabezado.Name = "PanelEncabezado";
-            PanelEncabezado.Size = new Size(988, 136);
+            PanelEncabezado.Size = new Size(988, 204);
             PanelEncabezado.TabIndex = 0;
             // 
             // lblTitulo1
             // 
             lblTitulo1.Anchor = AnchorStyles.None;
             lblTitulo1.AutoSize = true;
-            lblTitulo1.Font = new Font("Century", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitulo1.Location = new Point(198, 39);
+            lblTitulo1.Font = new Font("Century", 13.8F, FontStyle.Bold);
+            lblTitulo1.ForeColor = Color.Black;
+            lblTitulo1.Location = new Point(198, 73);
             lblTitulo1.Name = "lblTitulo1";
-            lblTitulo1.Size = new Size(616, 23);
+            lblTitulo1.Size = new Size(709, 28);
             lblTitulo1.TabIndex = 0;
             lblTitulo1.Text = "VISOR DE REPORTES --- NEXUS EVENT MANAGEMENT";
             // 
@@ -67,30 +68,32 @@
             // 
             lblNombreEvento.Anchor = AnchorStyles.None;
             lblNombreEvento.AutoSize = true;
-            lblNombreEvento.Font = new Font("Century", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblNombreEvento.Location = new Point(12, 88);
+            lblNombreEvento.Font = new Font("Century", 13.8F, FontStyle.Bold);
+            lblNombreEvento.ForeColor = Color.Black;
+            lblNombreEvento.Location = new Point(12, 122);
             lblNombreEvento.Name = "lblNombreEvento";
-            lblNombreEvento.Size = new Size(342, 23);
+            lblNombreEvento.Size = new Size(391, 28);
             lblNombreEvento.TabIndex = 1;
             lblNombreEvento.Text = "Reporte Para: Torneo de Ajedrez";
             // 
             // pdfViewerControl
             // 
-            pdfViewerControl.BackColor = Color.Transparent;
-            pdfViewerControl.BackgroundImage = Properties.Resources.Wooden_table_with_chairs_and_bokhe_background___Premium_AI_generated_image;
+            pdfViewerControl.BackColor = Color.FromArgb(255, 250, 255);
             pdfViewerControl.BackgroundImageLayout = ImageLayout.Stretch;
-            pdfViewerControl.Location = new Point(0, 136);
+            pdfViewerControl.Dock = DockStyle.Fill;
+            pdfViewerControl.Location = new Point(0, 204);
             pdfViewerControl.Margin = new Padding(4, 5, 4, 5);
             pdfViewerControl.Name = "pdfViewerControl";
-            pdfViewerControl.Size = new Size(988, 617);
+            pdfViewerControl.Size = new Size(988, 549);
             pdfViewerControl.TabIndex = 3;
+            pdfViewerControl.Load += FormVisorPDF_Load;
             // 
             // panel1
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.BackColor = Color.Transparent;
+            panel1.BackColor = Color.FromArgb(128, 0, 0, 0);
             panel1.Controls.Add(btnSave);
             panel1.Controls.Add(btnCloseVisor);
+            panel1.Dock = DockStyle.Bottom;
             panel1.Location = new Point(0, 628);
             panel1.Name = "panel1";
             panel1.Size = new Size(988, 125);
@@ -124,7 +127,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.Wooden_table_with_chairs_and_bokhe_background___Premium_AI_generated_image1;
+            BackgroundImage = Properties.Resources.The_Diplomat_of_the_Year_Award1;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(988, 753);
             Controls.Add(panel1);

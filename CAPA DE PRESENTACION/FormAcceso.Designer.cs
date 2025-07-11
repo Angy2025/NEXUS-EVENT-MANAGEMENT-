@@ -38,25 +38,27 @@
             lblposicion = new Label();
             lblEmail = new Label();
             PanelHerencia = new Panel();
+            panel1 = new Panel();
+            pictureBox1 = new PictureBox();
             panelTitulo = new Panel();
             btnrestaurar = new Button();
             buttonMinimizar = new Button();
             buttonMaximizar = new Button();
             buttonCerrar = new Button();
-            pictureBox1 = new PictureBox();
             btnGestionEventos = new Button();
             btnEstatus = new Button();
             PanelMenuLateral.SuspendLayout();
             PanelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PBuser).BeginInit();
             PanelHerencia.SuspendLayout();
-            panelTitulo.SuspendLayout();
+            panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panelTitulo.SuspendLayout();
             SuspendLayout();
             // 
             // btnGestionEventos
             // 
-            btnGestionEventos.BackColor = Color.Black;
+            btnGestionEventos.BackColor = Color.FromArgb(38, 24, 14);
             btnGestionEventos.Dock = DockStyle.Top;
             btnGestionEventos.Font = new Font("Century", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnGestionEventos.ForeColor = Color.White;
@@ -72,7 +74,7 @@
             // 
             // btnEstatus
             // 
-            btnEstatus.BackColor = Color.Black;
+            btnEstatus.BackColor = Color.FromArgb(38, 24, 14);
             btnEstatus.Dock = DockStyle.Top;
             btnEstatus.Font = new Font("Century", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEstatus.ForeColor = Color.White;
@@ -89,7 +91,8 @@
             // PanelMenuLateral
             // 
             PanelMenuLateral.AutoScroll = true;
-            PanelMenuLateral.BackColor = Color.Black;
+            PanelMenuLateral.BackColor = Color.FromArgb(38, 24, 14);
+            PanelMenuLateral.BackgroundImageLayout = ImageLayout.Stretch;
             PanelMenuLateral.Controls.Add(btnEstatus);
             PanelMenuLateral.Controls.Add(btnGestionEventos);
             PanelMenuLateral.Controls.Add(btnExit);
@@ -104,7 +107,7 @@
             // 
             // btnExit
             // 
-            btnExit.BackColor = Color.Black;
+            btnExit.BackColor = Color.FromArgb(38, 24, 14);
             btnExit.BackgroundImageLayout = ImageLayout.None;
             btnExit.Dock = DockStyle.Bottom;
             btnExit.FlatAppearance.BorderSize = 0;
@@ -125,7 +128,7 @@
             // 
             // PanelLogo
             // 
-            PanelLogo.BackColor = Color.Black;
+            PanelLogo.BackColor = Color.Transparent;
             PanelLogo.BackgroundImageLayout = ImageLayout.Stretch;
             PanelLogo.Controls.Add(PBuser);
             PanelLogo.Controls.Add(lblnom);
@@ -143,7 +146,7 @@
             // 
             // PBuser
             // 
-            PBuser.BackColor = Color.Black;
+            PBuser.BackColor = Color.FromArgb(38, 24, 14);
             PBuser.BackgroundImage = Properties.Resources.icons8_usuario_masculino_en_círculo_30;
             PBuser.BackgroundImageLayout = ImageLayout.Zoom;
             PBuser.Location = new Point(0, 0);
@@ -190,9 +193,10 @@
             // 
             // PanelHerencia
             // 
-            PanelHerencia.BackColor = Color.FromArgb(248, 179, 72);
+            PanelHerencia.BackColor = Color.Transparent;
+            PanelHerencia.BackgroundImage = Properties.Resources.download__10_;
+            PanelHerencia.Controls.Add(panel1);
             PanelHerencia.Controls.Add(panelTitulo);
-            PanelHerencia.Controls.Add(pictureBox1);
             PanelHerencia.Dock = DockStyle.Fill;
             PanelHerencia.Location = new Point(345, 0);
             PanelHerencia.MinimumSize = new Size(1006, 800);
@@ -202,9 +206,31 @@
             PanelHerencia.Paint += PanelMenuLateral_Paint;
             PanelHerencia.MouseDown += PanelHerencia_MouseDown;
             // 
+            // panel1
+            // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.BackColor = Color.FromArgb(128, 0, 0, 0);
+            panel1.Controls.Add(pictureBox1);
+            panel1.Location = new Point(286, 228);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(379, 353);
+            panel1.TabIndex = 2;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Anchor = AnchorStyles.None;
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.BackgroundImage = Properties.Resources.unnamed_1__removebg_preview;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox1.Location = new Point(3, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(376, 347);
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            // 
             // panelTitulo
             // 
-            panelTitulo.BackColor = Color.Black;
+            panelTitulo.BackColor = Color.FromArgb(38, 24, 14);
             panelTitulo.Controls.Add(btnrestaurar);
             panelTitulo.Controls.Add(buttonMinimizar);
             panelTitulo.Controls.Add(buttonMaximizar);
@@ -278,18 +304,6 @@
             buttonCerrar.UseVisualStyleBackColor = false;
             buttonCerrar.Click += buttonCerrar_Click;
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Anchor = AnchorStyles.None;
-            pictureBox1.BackColor = Color.FromArgb(248, 179, 72);
-            pictureBox1.BackgroundImage = Properties.Resources.unnamed_1__removebg_preview;
-            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox1.Location = new Point(296, 196);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(398, 374);
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
-            // 
             // FormAcceso
             // 
             AutoScaleDimensions = new SizeF(9F, 17F);
@@ -312,8 +326,9 @@
             PanelLogo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)PBuser).EndInit();
             PanelHerencia.ResumeLayout(false);
-            panelTitulo.ResumeLayout(false);
+            panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panelTitulo.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -339,5 +354,6 @@
         private Label lblposicion;
         private Label lblEmail;
         private PictureBox pictureBox1;
+        private Panel panel1;
     }
 }

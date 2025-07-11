@@ -10,7 +10,7 @@ namespace CAPA_DE_NEGOCIOS
     {
         // Este método proviene del método ConfigurarComboBox del FormAgregar
         // Su responsabilidad es definir la lista oficial de categorías de eventos
-        // Si en el futuro agregas una nueva categoría, solo se cambias aquí
+        // Si en el futuro se agrega una nueva categoría, solo se cambia aquí
         public List<string> ObtenerCategoriasDisponibles()
         {
             return new List<string>
@@ -25,7 +25,7 @@ namespace CAPA_DE_NEGOCIOS
 
         // Este método proviene del bloque 'switch' del botón Guardar en FormAgregar
         // Su responsabilidad es crear la instancia correcta del objeto Evento basado en su categoría
-        // Esto centraliza la lógica de creación de objetos (Patrón Factory)
+        // Esto centraliza la lógica de creación de objetos
 
 
         public EventoBase CrearEventoPorTipo(string categoria)
@@ -38,7 +38,7 @@ namespace CAPA_DE_NEGOCIOS
                 case "Cinematográfico": return new Cinematografico();
                 case "Profesional": return new Profesional();
                 default:
-                    // Si la categoría no es válida, se lanza un error para evitar crear un objeto incorrecto.
+                    // Si la categoría no es válida, se lanza un error para evitar crear un objeto incorrecto
                     throw new ArgumentException("La categoría del evento no es válida.", nameof(categoria));
             }
         }

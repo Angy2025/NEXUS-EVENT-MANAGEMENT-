@@ -14,10 +14,16 @@ namespace CAPA_DE_NEGOCIOS
             Categoria = "Cinematografico";
         }
 
-        //TODO Requisito: Implementacion del metodo abstracto
+        //TODO Sobrescribimos el método para los eventos de cine
+        public override string ObtenerLema()
+        {
+            return "Luces, cámara, ¡acción y emoción!";
+        }
+
+        //TODO Implementación del método abstracto.
         public override string MiPatrocinadorFav()
         {
-            return "Fundación Carlos Slim";
+            return "Caribbean Cinemas y Fundacion de Carlos Slim";
         }
     }
 }

@@ -64,7 +64,7 @@ namespace CAPA_DE_PRESENTACION
         }
         private void ConfigurarComboBox()
         {
-            // El formulario no conoce la lista de categorías, solo se la pide a la capa de negocios.
+            // El formulario no conoce la lista de categorías, solo se la pide a la capa de negocios
             CBType.DataSource = _configDetalle.ObtenerCategoriasDisponibles();
         }
         #endregion

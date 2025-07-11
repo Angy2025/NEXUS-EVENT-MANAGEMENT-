@@ -14,9 +14,15 @@ namespace CAPA_DE_NEGOCIOS
              Categoria = "Deportivo";
         }
 
+        public override string ObtenerLema()
+        {
+            return "¡La competencia nos une, la victoria nos inspira!";
+        }
+
+        // Implementación del método abstracto obligatorio
         public override string MiPatrocinadorFav()
         {
-            return "Fundación Carlos Slim";
+            return "Gatorade"; 
         }
     }
     

@@ -48,20 +48,20 @@
             // 
             // panelBotones
             // 
-            panelBotones.BackColor = Color.Transparent;
+            panelBotones.BackColor = Color.FromArgb(128, 0, 0, 0);
             panelBotones.BackgroundImageLayout = ImageLayout.Stretch;
             panelBotones.Controls.Add(btnGenerarReporte);
             panelBotones.Dock = DockStyle.Bottom;
             panelBotones.Font = new Font("Century", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            panelBotones.Location = new Point(0, 632);
+            panelBotones.Location = new Point(0, 679);
             panelBotones.Name = "panelBotones";
-            panelBotones.Size = new Size(988, 121);
+            panelBotones.Size = new Size(1006, 121);
             panelBotones.TabIndex = 0;
             // 
             // btnGenerarReporte
             // 
             btnGenerarReporte.Anchor = AnchorStyles.None;
-            btnGenerarReporte.Location = new Point(341, 25);
+            btnGenerarReporte.Location = new Point(350, 25);
             btnGenerarReporte.Name = "btnGenerarReporte";
             btnGenerarReporte.Size = new Size(242, 65);
             btnGenerarReporte.TabIndex = 0;
@@ -78,7 +78,7 @@
             panelTitulo.Font = new Font("Century", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             panelTitulo.Location = new Point(0, 0);
             panelTitulo.Name = "panelTitulo";
-            panelTitulo.Size = new Size(988, 180);
+            panelTitulo.Size = new Size(1006, 180);
             panelTitulo.TabIndex = 1;
             // 
             // lbllll
@@ -88,7 +88,7 @@
             lbllll.BackColor = Color.White;
             lbllll.Font = new Font("Century", 16.2F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
             lbllll.ForeColor = Color.Black;
-            lbllll.Location = new Point(308, 68);
+            lbllll.Location = new Point(317, 68);
             lbllll.Name = "lbllll";
             lbllll.Size = new Size(364, 33);
             lbllll.TabIndex = 0;
@@ -103,7 +103,7 @@
             tabControl1.Location = new Point(0, 180);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(988, 452);
+            tabControl1.Size = new Size(1006, 499);
             tabControl1.TabIndex = 2;
             // 
             // tabEstatus
@@ -114,19 +114,19 @@
             tabEstatus.Location = new Point(4, 30);
             tabEstatus.Name = "tabEstatus";
             tabEstatus.Padding = new Padding(3);
-            tabEstatus.Size = new Size(980, 418);
+            tabEstatus.Size = new Size(998, 465);
             tabEstatus.TabIndex = 0;
             tabEstatus.Text = "Estatus de Eventos";
             // 
             // dgvActivos
             // 
-            dgvActivos.BackgroundColor = Color.FromArgb(153, 156, 166);
+            dgvActivos.BackgroundColor = Color.FromArgb(145, 111, 86);
             dgvActivos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvActivos.Dock = DockStyle.Fill;
             dgvActivos.Location = new Point(3, 3);
             dgvActivos.Name = "dgvActivos";
             dgvActivos.RowHeadersWidth = 51;
-            dgvActivos.Size = new Size(974, 412);
+            dgvActivos.Size = new Size(992, 459);
             dgvActivos.TabIndex = 0;
             // 
             // tabHistorial
@@ -137,7 +137,7 @@
             tabHistorial.Location = new Point(4, 30);
             tabHistorial.Name = "tabHistorial";
             tabHistorial.Padding = new Padding(3);
-            tabHistorial.Size = new Size(980, 418);
+            tabHistorial.Size = new Size(998, 465);
             tabHistorial.TabIndex = 1;
             tabHistorial.Text = "Historial de Eventos";
             // 
@@ -149,18 +149,19 @@
             dgvHistorial.Location = new Point(3, 3);
             dgvHistorial.Name = "dgvHistorial";
             dgvHistorial.RowHeadersWidth = 51;
-            dgvHistorial.Size = new Size(974, 412);
+            dgvHistorial.Size = new Size(992, 459);
             dgvHistorial.TabIndex = 0;
             // 
             // FormEstatus
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.download__9_;
-            ClientSize = new Size(988, 753);
+            BackgroundImage = Properties.Resources.download__12_1;
+            ClientSize = new Size(1006, 800);
             Controls.Add(tabControl1);
             Controls.Add(panelTitulo);
             Controls.Add(panelBotones);
+            FormBorderStyle = FormBorderStyle.None;
             MaximumSize = new Size(1006, 800);
             MinimumSize = new Size(1006, 800);
             Name = "FormEstatus";
@@ -186,8 +187,8 @@
         private TabControl tabControl1;
         private TabPage tabEstatus;
         private TabPage tabHistorial;
-        private DataGridView dgvActivos;
         private DataGridView dgvHistorial;
         private Label lbllll;
+        private DataGridView dgvActivos;
     }
 }

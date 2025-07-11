@@ -11,8 +11,8 @@ namespace CAPA_DE_NEGOCIOS
             // Este manager usa el CN_EventosManager principal para obtener la lista completa de eventos.
             private readonly CN_EventosManager _eventosManager = new CN_EventosManager();
 
-            // Este método proviene del FormularioEstatus.
-            // Su responsabilidad es obtener solo los eventos activos para la primera pestaña.
+            // Estos métodos provienen del FormularioEstatus
+            //La responsabilidad de este es obtener solo los eventos activos para la primera pestaña
             public List<EventoBase> ObtenerEventosActivos()
             {
                 var todosLosEventos = _eventosManager.ObtainAllEvents();
@@ -22,8 +22,7 @@ namespace CAPA_DE_NEGOCIOS
                     .ToList();
             }
 
-            // Este método también proviene del FormularioEstatus.
-            // Su responsabilidad es obtener solo el historial para la segunda pestaña.
+            // Su responsabilidad es obtener solo el historial para la segunda pestaña
             public List<EventoBase> ObtenerEventosDeHistorial()
             {
                 var todosLosEventos = _eventosManager.ObtainAllEvents();
@@ -33,8 +32,7 @@ namespace CAPA_DE_NEGOCIOS
                     .ToList();
             }
 
-            // Este método reemplaza al "ObtenerEventoCompletoPorId" que estaba en el formulario.
-            // Se usa para obtener todos los detalles de un evento para generar el reporte.
+            // Se usa para obtener todos los detalles de un evento para generar el reporte
             public EventoBase? ObtenerEventoPorId(int id)
             {
                 var todosLosEventos = _eventosManager.ObtainAllEvents();

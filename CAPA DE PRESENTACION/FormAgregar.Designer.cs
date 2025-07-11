@@ -117,7 +117,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.White;
+            panel1.BackColor = Color.WhiteSmoke;
             panel1.BackgroundImage = Properties.Resources.unnamed_1__removebg_preview;
             panel1.BackgroundImageLayout = ImageLayout.Zoom;
             panel1.Location = new Point(0, 12);

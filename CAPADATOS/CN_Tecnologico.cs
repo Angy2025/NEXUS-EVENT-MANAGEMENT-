@@ -13,9 +13,16 @@ namespace CAPA_DE_NEGOCIOS
         {
             Categoria = "Tecnologico";
         }
+        // Sobrescribimos el método para los eventos de tecnología.
+        public override string ObtenerLema()
+        {
+            return "Innovando hoy, construyendo el mañana.";
+        }
+
+        // Implementación del método abstracto.
         public override string MiPatrocinadorFav()
         {
-            return "Fundación Carlos Slim";
+            return "Nexus Tech"; 
         }
     }
 }

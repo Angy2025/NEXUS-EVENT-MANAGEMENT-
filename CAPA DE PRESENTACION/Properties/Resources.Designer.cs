@@ -113,6 +113,26 @@ namespace CAPA_DE_PRESENTACION.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Cómo_el_diseño_floral_eleva_los_eventos_corporativos___1_ {
+            get {
+                object obj = ResourceManager.GetObject("Cómo el diseño floral eleva los eventos corporativos_ (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Cómo_el_diseño_floral_eleva_los_eventos_corporativos___1_1 {
+            get {
+                object obj = ResourceManager.GetObject("Cómo el diseño floral eleva los eventos corporativos_ (1)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Cómo_el_diseño_floral_eleva_los_eventos_corporativos_1 {
             get {
                 object obj = ResourceManager.GetObject("Cómo el diseño floral eleva los eventos corporativos_1", resourceCulture);
@@ -223,6 +243,36 @@ namespace CAPA_DE_PRESENTACION.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap design_stand_design_ideas {
+            get {
+                object obj = ResourceManager.GetObject("design stand design ideas", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap design_stand_design_ideas__1_ {
+            get {
+                object obj = ResourceManager.GetObject("design stand design ideas (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap design_stand_design_ideas1 {
+            get {
+                object obj = ResourceManager.GetObject("design stand design ideas1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap download {
             get {
                 object obj = ResourceManager.GetObject("download", resourceCulture);
@@ -236,6 +286,136 @@ namespace CAPA_DE_PRESENTACION.Properties {
         internal static System.Drawing.Bitmap download__1_ {
             get {
                 object obj = ResourceManager.GetObject("download (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap download__10_ {
+            get {
+                object obj = ResourceManager.GetObject("download (10)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap download__10_1 {
+            get {
+                object obj = ResourceManager.GetObject("download (10)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap download__10_2 {
+            get {
+                object obj = ResourceManager.GetObject("download (10)2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap download__10_3 {
+            get {
+                object obj = ResourceManager.GetObject("download (10)3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap download__11_ {
+            get {
+                object obj = ResourceManager.GetObject("download (11)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap download__11_1 {
+            get {
+                object obj = ResourceManager.GetObject("download (11)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap download__11_2 {
+            get {
+                object obj = ResourceManager.GetObject("download (11)2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap download__11_3 {
+            get {
+                object obj = ResourceManager.GetObject("download (11)3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap download__11_4 {
+            get {
+                object obj = ResourceManager.GetObject("download (11)4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap download__11_5 {
+            get {
+                object obj = ResourceManager.GetObject("download (11)5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap download__12_ {
+            get {
+                object obj = ResourceManager.GetObject("download (12)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap download__12_1 {
+            get {
+                object obj = ResourceManager.GetObject("download (12)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap download__12_2 {
+            get {
+                object obj = ResourceManager.GetObject("download (12)2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -825,6 +1005,66 @@ namespace CAPA_DE_PRESENTACION.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Moody_Modern_Accent_Wall__Wood_Panels___Chic_Lighting {
+            get {
+                object obj = ResourceManager.GetObject("Moody Modern Accent Wall_ Wood Panels & Chic Lighting", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Moody_Modern_Accent_Wall__Wood_Panels___Chic_Lighting1 {
+            get {
+                object obj = ResourceManager.GetObject("Moody Modern Accent Wall_ Wood Panels & Chic Lighting1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Moody_Modern_Accent_Wall__Wood_Panels___Chic_Lighting2 {
+            get {
+                object obj = ResourceManager.GetObject("Moody Modern Accent Wall_ Wood Panels & Chic Lighting2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Skyscraper_Hanzo_s_Showcase_Ai_Architectural_photorealism {
+            get {
+                object obj = ResourceManager.GetObject("Skyscraper Hanzo\'s Showcase Ai Architectural photorealism", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Skyscraper_Hanzo_s_Showcase_Ai_Architectural_photorealism1 {
+            get {
+                object obj = ResourceManager.GetObject("Skyscraper Hanzo\'s Showcase Ai Architectural photorealism1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Skyscraper_Hanzo_s_Showcase_Ai_Architectural_photorealism2 {
+            get {
+                object obj = ResourceManager.GetObject("Skyscraper Hanzo\'s Showcase Ai Architectural photorealism2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap stadium {
             get {
                 object obj = ResourceManager.GetObject("stadium", resourceCulture);
@@ -938,6 +1178,36 @@ namespace CAPA_DE_PRESENTACION.Properties {
         internal static System.Drawing.Bitmap Wooden_table_with_chairs_and_bokhe_background___Premium_AI_generated_image1 {
             get {
                 object obj = ResourceManager.GetObject("Wooden table with chairs and bokhe background _ Premium AI-generated image1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Wooden_table_with_chairs_and_bokhe_background___Premium_AI_generated_image2 {
+            get {
+                object obj = ResourceManager.GetObject("Wooden table with chairs and bokhe background _ Premium AI-generated image2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Деревянный_подиум_в_кофейне {
+            get {
+                object obj = ResourceManager.GetObject("Деревянный подиум в кофейне", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Деревянный_подиум_в_кофейне1 {
+            get {
+                object obj = ResourceManager.GetObject("Деревянный подиум в кофейне1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

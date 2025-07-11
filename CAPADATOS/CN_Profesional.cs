@@ -13,9 +13,16 @@ namespace CAPA_DE_NEGOCIOS
             Categoria = "Profesional";
         }
 
+        // Sobrescribimos el método para los eventos profesionales.
+        public override string ObtenerLema()
+        {
+            return "Conectando mentes, impulsando carreras.";
+        }
+
+        // Implementación del método abstracto.
         public override string MiPatrocinadorFav()
         {
-            return "Fundación Carlos Slim";
+            return "LinkedIn"; 
         }
     }
 }
