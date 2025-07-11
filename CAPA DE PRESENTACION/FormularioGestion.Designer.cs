@@ -67,12 +67,12 @@
             dgv2.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgv2.BackgroundColor = Color.FromArgb(220, 230, 229);
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle1.BackColor = Color.White;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(220, 230, 229);
             dataGridViewCellStyle1.Font = new Font("Century", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle1.ForeColor = Color.Black;
             dataGridViewCellStyle1.Format = "d";
             dataGridViewCellStyle1.NullValue = null;
-            dataGridViewCellStyle1.SelectionBackColor = Color.DarkOrange;
+            dataGridViewCellStyle1.SelectionBackColor = Color.Orange;
             dataGridViewCellStyle1.SelectionForeColor = Color.Black;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgv2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;

@@ -221,9 +221,11 @@
             dateTimePicker.Font = new Font("Century", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dateTimePicker.Format = DateTimePickerFormat.Custom;
             dateTimePicker.Location = new Point(298, 401);
+            dateTimePicker.MinDate = new DateTime(2025, 7, 11, 0, 0, 0, 0);
             dateTimePicker.Name = "dateTimePicker";
             dateTimePicker.Size = new Size(658, 28);
             dateTimePicker.TabIndex = 7;
+            dateTimePicker.Value = new DateTime(2025, 7, 11, 0, 0, 0, 0);
             // 
             // textPlace
             // 

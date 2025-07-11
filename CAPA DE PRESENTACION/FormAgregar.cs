@@ -37,6 +37,10 @@ namespace CAPA_DE_PRESENTACION
 
         private void FormularioDetalle_Load(object sender, EventArgs e)
         {
+            // Establece la fecha mínima seleccionable en el calendario al día de hoy, cada vez que el formulario se carga
+            dateTimePicker.MinDate = DateTime.Today;
+
+
             ConfigurarComboBox();
 
             // Si estamos en modo "Modificar", llena los campos con los datos del evento

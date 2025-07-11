@@ -209,11 +209,11 @@
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.BackColor = Color.FromArgb(128, 0, 0, 0);
+            panel1.BackColor = Color.FromArgb(128, 1, 1, 1);
             panel1.Controls.Add(pictureBox1);
-            panel1.Location = new Point(286, 228);
+            panel1.Location = new Point(314, 228);
             panel1.Name = "panel1";
-            panel1.Size = new Size(379, 353);
+            panel1.Size = new Size(351, 332);
             panel1.TabIndex = 2;
             // 
             // pictureBox1
@@ -222,9 +222,9 @@
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.BackgroundImage = Properties.Resources.unnamed_1__removebg_preview;
             pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox1.Location = new Point(3, 3);
+            pictureBox1.Location = new Point(0, -7);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(376, 347);
+            pictureBox1.Size = new Size(348, 339);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 

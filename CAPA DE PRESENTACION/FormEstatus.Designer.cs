@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panelBotones = new Panel();
             btnGenerarReporte = new Button();
             panelTitulo = new Panel();
@@ -121,11 +124,29 @@
             // dgvActivos
             // 
             dgvActivos.BackgroundColor = Color.FromArgb(145, 111, 86);
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(145, 111, 86);
+            dataGridViewCellStyle1.Font = new Font("Century", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = Color.Black;
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvActivos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvActivos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(145, 111, 86);
+            dataGridViewCellStyle2.Font = new Font("Century", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = Color.Black;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvActivos.DefaultCellStyle = dataGridViewCellStyle2;
             dgvActivos.Dock = DockStyle.Fill;
+            dgvActivos.GridColor = Color.Black;
             dgvActivos.Location = new Point(3, 3);
             dgvActivos.Name = "dgvActivos";
             dgvActivos.RowHeadersWidth = 51;
+            dgvActivos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvActivos.Size = new Size(992, 459);
             dgvActivos.TabIndex = 0;
             // 
@@ -144,11 +165,21 @@
             // dgvHistorial
             // 
             dgvHistorial.BackgroundColor = Color.FromArgb(233, 221, 207);
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(233, 221, 207);
+            dataGridViewCellStyle3.Font = new Font("Century", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = Color.Black;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvHistorial.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvHistorial.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvHistorial.Dock = DockStyle.Fill;
+            dgvHistorial.GridColor = Color.Black;
             dgvHistorial.Location = new Point(3, 3);
             dgvHistorial.Name = "dgvHistorial";
             dgvHistorial.RowHeadersWidth = 51;
+            dgvHistorial.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvHistorial.Size = new Size(992, 459);
             dgvHistorial.TabIndex = 0;
             // 

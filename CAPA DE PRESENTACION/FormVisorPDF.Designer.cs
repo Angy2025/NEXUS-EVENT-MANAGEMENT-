@@ -37,7 +37,7 @@
             // 
             // pdfViewerControl
             // 
-            pdfViewerControl.BackColor = Color.FromArgb(95, 83, 60);
+            pdfViewerControl.BackColor = Color.FromArgb(122, 105, 89);
             pdfViewerControl.BackgroundImageLayout = ImageLayout.Stretch;
             pdfViewerControl.Dock = DockStyle.Fill;
             pdfViewerControl.Location = new Point(0, 0);
@@ -86,7 +86,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.download__11_6;
+            BackgroundImage = Properties.Resources.download__13_;
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(988, 753);
             Controls.Add(panel1);
             Controls.Add(pdfViewerControl);
