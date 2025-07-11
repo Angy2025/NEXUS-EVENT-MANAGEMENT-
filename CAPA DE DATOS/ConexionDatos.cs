@@ -14,7 +14,7 @@ namespace CapaDatos
         public ConnectionToSql()
         {
             // Define la cadena de conexión que usarán todas las clases que hereden de esta
-            connectionString = "Server=ANGELICA;Database=Nexus;Integrated Security=true;TrustServerCertificate=True;";
+            connectionString = "Server=.;Database=Nexus;Integrated Security=true;TrustServerCertificate=True;";
         }
 
         // El método 'protected' significa que solo esta clase y las clases que hereden de ella (como UserKey y CRUD) pueden usarlo
