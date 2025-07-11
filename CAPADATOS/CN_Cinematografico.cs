@@ -20,7 +20,7 @@ namespace CAPA_DE_NEGOCIOS
             return "Luces, cámara, ¡acción y emoción!";
         }
 
-        //TODO Implementación del método abstracto.
+        //TODO Implementación del método abstracto
         public override string MiPatrocinadorFav()
         {
             return "Caribbean Cinemas y Fundacion de Carlos Slim";

@@ -37,45 +37,45 @@ namespace CAPA_DE_PRESENTACION
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
 
-        // Este evento se dispara una sola vez, justo cuando el formulario está listo para mostrarse.
+        
         private void FormAcceso_Load(object sender, EventArgs e)
         {
-            // Llama al método para cargar la información del perfil del usuario en la interfaz.
+            // Llama al método para cargar la información del perfil del usuario en la interfaz
             LoadUserData();
         }
 
-        // Carga los datos del usuario (que fueron guardados en la caché durante el login) en los controles del formulario.
+        // Carga los datos del usuario (que fueron guardados en la caché durante el login) en los controles del formulario
         private void LoadUserData()
         {
-            // Asigna el nombre, posición y email a las etiquetas correspondientes.
+            // Asigna el nombre, posición y email a los labels correspondientes
             lblnom.Text = NewLoginUser.Nombre + " " + NewLoginUser.Apellido;
             lblposicion.Text = NewLoginUser.Posicion;
             lblEmail.Text = NewLoginUser.Email;
 
-            // Bloque try-catch para manejar de forma segura posibles errores al cargar la imagen.
+            // Bloque try-catch para manejar de forma segura posibles errores al cargar la imagen
             try
             {
-                // Obtiene la ruta relativa de la imagen desde la clase estática de caché (ej: "USUARIOS\ramon.png").
+                // Obtiene la ruta relativa de la imagen desde la clase estática de caché (USUARIOS\ramon.png)
                 string fotoPath = NewLoginUser.FotoPath;
 
                 // Se asegura de que la ruta de la foto no esté vacía antes de intentar cargarla.
                 if (!string.IsNullOrEmpty(fotoPath))
                 {
-                    // Combina la ruta de inicio de la aplicación (la carpeta bin\Debug) con la ruta relativa de la foto
-                    // para obtener la ubicación completa y exacta del archivo de imagen.
+                    // Combina la ruta de inicio de la aplicación con la ruta relativa de la foto
+                    // para obtener la ubicación completa y exacta del archivo de imagen
                     string rutaCompleta = System.IO.Path.Combine(Application.StartupPath, fotoPath);
 
-                    // Verifica que el archivo de imagen realmente existe en la ruta calculada antes de intentar cargarlo.
+                    // Verifica que el archivo de imagen realmente existe en la ruta calculada antes de intentar cargarlo
                     if (System.IO.File.Exists(rutaCompleta))
                     {
-                        // Carga la imagen desde el archivo y la asigna al control PictureBox.
+                        // Carga la imagen desde el archivo y la asigna al control PictureBox
                         PBuser.Image = Image.FromFile(rutaCompleta);
                     }
                 }
             }
             catch (Exception ex)
             {
-                // Si ocurre cualquier error (ej: el archivo está dañado), muestra un mensaje al usuario.
+                // Si ocurre cualquier error (el archivo está dañado), muestra un mensaje al usuario
                 MessageBox.Show("No se pudo cargar la imagen de perfil: " + ex.Message);
             }
         }
@@ -117,9 +117,9 @@ namespace CAPA_DE_PRESENTACION
         #endregion
 
 
-        #region Metodo para abrir Formularios hijos en el panel principal
+        #region Metodo normal para abrir Formularios hijos en el panel principal
 
-        // Este es el método central para la navegación. Recibe cualquier formulario que deba ser mostrado
+        // Este es el método central para la navegación, recibe cualquier formulario que deba ser mostrado
         private void OpenPanelHerencia(Form herenciaForm)
         {
             // Comprueba si ya hay un formulario abierto en el panel
@@ -131,7 +131,7 @@ namespace CAPA_DE_PRESENTACION
             activeForm = herenciaForm;
 
             //Configura el formulario hijo para que se comporte como un control dentro del panel 
-            herenciaForm.TopLevel = false; // Le quita la categoría de "ventana principal"
+            herenciaForm.TopLevel = false; 
             herenciaForm.FormBorderStyle = FormBorderStyle.None; // Le quita los bordes y la barra de título
             herenciaForm.Dock = DockStyle.Fill; // Hace que ocupe todo el espacio del panel
 

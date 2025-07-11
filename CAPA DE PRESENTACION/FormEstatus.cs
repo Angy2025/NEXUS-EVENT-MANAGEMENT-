@@ -53,7 +53,7 @@ namespace CAPA_DE_PRESENTACION
 
         private void ConfigurarEstiloDGV(DataGridView dgv)
         {
-            // La clave es decirle a la tabla que cree las columnas por sí misma.
+            // La clave es decirle a la tabla que cree las columnas por sí misma
             dgv.AutoGenerateColumns = true;
 
             // Estilos de comportamiento y apariencia general
@@ -63,22 +63,25 @@ namespace CAPA_DE_PRESENTACION
             dgv.RowHeadersVisible = false;
             dgv.BorderStyle = BorderStyle.None;
             dgv.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+
+            // Esta propiedad pone toda la tabla en modo de solo lectura
+            dgv.ReadOnly = true;
         }
 
         private void CargarEstatusEventos()
         {
-            // El formulario ya no sabe de SQL. Solo le pide los eventos activos al manager.
+            // El formulario no sabe de SQL. Solo le pide los eventos activos al manager
             dgvActivos.DataSource = _estatusdedatos.ObtenerEventosActivos();
         }
 
         private void CargarHistorialEventos()
         {
-            // El formulario solo le pide el historial de eventos al manager.
+            // El formulario solo le pide el historial de eventos al manager
             dgvHistorial.DataSource = _estatusdedatos.ObtenerEventosDeHistorial();
         }
 
-        // Este evento se ejecuta cuando los datos terminan de cargarse.
-        // Aquí ocultamos las columnas que no queremos ver.
+        // Este evento se ejecuta cuando los datos terminan de cargarse
+        // Aquí ocultamos las columnas que no queremos ver
         private void Dgv_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             var dgv = sender as DataGridView;

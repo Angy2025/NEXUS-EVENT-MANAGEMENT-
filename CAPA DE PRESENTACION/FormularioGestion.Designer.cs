@@ -128,7 +128,7 @@
             lblProximoEvento.AutoSize = true;
             lblProximoEvento.FlatStyle = FlatStyle.Flat;
             lblProximoEvento.Font = new Font("Century", 10.2F, FontStyle.Bold);
-            lblProximoEvento.Location = new Point(448, 54);
+            lblProximoEvento.Location = new Point(323, 54);
             lblProximoEvento.Name = "lblProximoEvento";
             lblProximoEvento.Size = new Size(197, 21);
             lblProximoEvento.TabIndex = 23;

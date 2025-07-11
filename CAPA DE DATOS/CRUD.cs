@@ -62,6 +62,7 @@ namespace CapaDatos
 
         #endregion
 
+
         #region READ (Listar)
 
         // Este método obtiene todos los registros de la tabla Evento

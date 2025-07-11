@@ -27,7 +27,7 @@ namespace CAPA_DE_NEGOCIOS
                     "Tecnológico" => new Tecnologico(),
                     "Cinematográfico" => new Cinematografico(),
                     "Profesional" => new Profesional(),
-                    _ => new Cultural() // Un valor por defecto seguro
+                    _ => new Cultural() 
                 };
 
                 evento.Id = Convert.ToInt32(fila["Id"]);

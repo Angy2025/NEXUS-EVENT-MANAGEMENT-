@@ -1,5 +1,6 @@
 ﻿using CAPA_DE_NEGOCIOS;
 using System;
+using System.Linq; 
 using System.Windows.Forms;
 
 namespace CAPA_DE_PRESENTACION
@@ -16,6 +17,8 @@ namespace CAPA_DE_PRESENTACION
 
         // Almacena el evento que se está editando. Si es null, significa que estamos en modo "Agregar"
         private EventoBase _eventoAEditar = null;
+
+        private bool esModoModificar = false;
 
         #endregion
 
@@ -37,6 +40,22 @@ namespace CAPA_DE_PRESENTACION
 
         private void FormularioDetalle_Load(object sender, EventArgs e)
         {
+            // Establece la fecha mínima seleccionable en el calendario al día de hoy
+            dateTimePicker.MinDate = DateTime.Today;
+
+            // Establece el límite de caracteres para los campos de texto
+            textName.MaxLength = 60;
+            textPlace.MaxLength = 60;
+
+            // Establece el valor mínimo para la capacidad, evitando que sea 0
+            numericUpDown1.Minimum = 1;
+
+            // Suscribe los eventos KeyPress para validar los caracteres en tiempo real
+            textName.KeyPress += TextBox_KeyPress_NoNumeros;
+            textPlace.KeyPress += TextBox_KeyPress_NoNumeros;
+
+
+
 
             // Primero, configuramos los controles que no dependen de los datos, como el ComboBox
             ConfigurarComboBox();
@@ -46,6 +65,8 @@ namespace CAPA_DE_PRESENTACION
             {
                 CargarDatos();
             }
+
+
 
             // Finalmente, establecemos la fecha mínima permitida para la selección del usuario
             // Esto se hace al final para no entrar en conflicto con la carga de fechas pasadas
@@ -80,6 +101,18 @@ namespace CAPA_DE_PRESENTACION
             // El formulario no conoce la lista de categorías, solo se la pide a la capa de negocios
             CBType.DataSource = _configDetalle.ObtenerCategoriasDisponibles();
         }
+
+        // Este evento se dispara cada vez que el usuario presiona una tecla en los TextBox de Nombre y Lugar
+        private void TextBox_KeyPress_NoNumeros(object sender, KeyPressEventArgs e)
+        {
+            // Se permite la entrada de letras, espacios, y teclas de control (como borrar o copiar/pegar)
+            // pero se bloquea la entrada de números y la mayoría de los símbolos.
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsSeparator(e.KeyChar))
+            {
+                // Si la tecla presionada no es una de las permitidas, se ignora
+                e.Handled = true;
+            }
+        }
         #endregion
 
 
@@ -95,31 +128,47 @@ namespace CAPA_DE_PRESENTACION
         {
             try
             {
-                //TODO Requisito: Validación de Datos/campos
-                if (string.IsNullOrWhiteSpace(textName.Text)) 
+                // --- INICIO DE VALIDACIONES MEJORADAS ---
+                if (string.IsNullOrWhiteSpace(textName.Text) || string.IsNullOrWhiteSpace(textPlace.Text) || CBType.SelectedItem == null)
                 {
-                    MessageBox.Show("El nombre y el tipo del evento son obligatorios.", "Datos Requeridos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Todos los campos son obligatorios.", "Datos Requeridos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                //Creación o Actualización del Objeto, si estamos en modo "Agregar" (_eventoAEditar es null), creamos un nuevo objeto
-                
+                // Validación para la capacidad, aunque ya está limitada por el control, es una buena práctica
+                if (numericUpDown1.Value == 0)
+                {
+                    MessageBox.Show("La capacidad del evento no puede ser cero.", "Dato Inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+              
+
                 if (_eventoAEditar == null)
                 {
-                    // Si estamos en modo "Agregar", le pedimos a la capa de negocios que cree el objeto por nosotros
-
                     string tipoSeleccionado = CBType.SelectedItem.ToString();
                     _eventoAEditar = _configDetalle.CrearEventoPorTipo(tipoSeleccionado);
                 }
-                //Recolección de Datos del Formulario 
+
                 _eventoAEditar.Nombre = textName.Text;
                 _eventoAEditar.Lugar = textPlace.Text;
-                _eventoAEditar.FechaHora = dateTimePicker.Value; 
+                _eventoAEditar.FechaHora = dateTimePicker.Value;
                 _eventoAEditar.Categoria = CBType.SelectedItem.ToString();
                 _eventoAEditar.Capacidad = (int)numericUpDown1.Value;
 
-                // Le pasamos el objeto al manager para que lo guarde (agrega o modifica)
                 _eventosManager.AddEvent(_eventoAEditar);
+
+                
+                // Muestra un mensaje diferente dependiendo si se agregó o modificó el evento
+                if (esModoModificar)
+                {
+                    MessageBox.Show("Evento modificado con éxito.", "Operación Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Evento guardado con éxito.", "Operación Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+               
+
                 this.Close();
             }
             catch (Exception ex)

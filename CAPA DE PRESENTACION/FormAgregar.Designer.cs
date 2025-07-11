@@ -33,7 +33,6 @@
             lbldate = new Label();
             groupBox1 = new GroupBox();
             panel1 = new Panel();
-            lblTitle = new Label();
             lbldetalle = new Label();
             btnCancelar = new Button();
             btnGuardar = new Button();
@@ -92,7 +91,6 @@
             groupBox1.BackColor = Color.FromArgb(255, 154, 0);
             groupBox1.BackgroundImage = Properties.Resources.The_Diplomat_of_the_Year_Award__1_1;
             groupBox1.Controls.Add(panel1);
-            groupBox1.Controls.Add(lblTitle);
             groupBox1.Controls.Add(lbldetalle);
             groupBox1.Controls.Add(btnCancelar);
             groupBox1.Controls.Add(btnGuardar);
@@ -124,20 +122,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(272, 211);
             panel1.TabIndex = 14;
-            // 
-            // lblTitle
-            // 
-            lblTitle.Anchor = AnchorStyles.None;
-            lblTitle.AutoSize = true;
-            lblTitle.BackColor = Color.White;
-            lblTitle.Font = new Font("Century", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitle.ForeColor = Color.Black;
-            lblTitle.Location = new Point(350, 72);
-            lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(394, 40);
-            lblTitle.TabIndex = 13;
-            lblTitle.Text = "Agregar Nuevo Evento";
-            lblTitle.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lbldetalle
             // 

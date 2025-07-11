@@ -25,7 +25,6 @@ namespace CAPA_DE_NEGOCIOS
 
         // Este método proviene del bloque 'switch' del botón Guardar en FormAgregar
         // Su responsabilidad es crear la instancia correcta del objeto Evento basado en su categoría
-        // Esto centraliza la lógica de creación de objetos
 
 
         public EventoBase CrearEventoPorTipo(string categoria)

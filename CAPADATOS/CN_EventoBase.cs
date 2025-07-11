@@ -17,7 +17,7 @@ namespace CAPA_DE_NEGOCIOS
         public string? Nombre { get; set; }
         public string? Lugar { get; set; }
         public string? Categoria { get; set; }
-        public int Capacidad { get; set; } //Capacidad del evento
+        public int Capacidad { get; set; } 
         public string Estatus { get; set; } = "Planificado";
 
 
