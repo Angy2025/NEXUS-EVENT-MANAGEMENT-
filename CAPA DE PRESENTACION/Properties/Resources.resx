@@ -130,14 +130,20 @@
   <data name="icons8-tear-off-calendar-50" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-tear-off-calendar-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ELIMINAR" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ELIMINAR.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="download (12)2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\download (12)2.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-profile-96-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-profile-96-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="stadium" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\stadium.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="download (12)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\download (12)1.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Wooden table with chairs and bokhe background _ Premium AI-generated image1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Wooden table with chairs and bokhe background _ Premium AI-generated image1.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-menos-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-menos-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ICONO DE AGREGAR" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ICONO DE AGREGAR.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -178,9 +184,6 @@
   <data name="BUSCAR" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BUSCAR.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-restaurar-abajo-161" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-restaurar-abajo-161.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Moody Modern Accent Wall_ Wood Panels &amp; Chic Lighting1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Moody Modern Accent Wall_ Wood Panels &amp; Chic Lighting1.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -208,14 +211,14 @@
   <data name="descargar (5)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\descargar (5).jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="This stunning image, crafted with AI precision, showcasing its visual artistry_" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\This stunning image, crafted with AI precision, showcasing its visual artistry_.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Деревянный подиум в кофейне1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Деревянный подиум в кофейне1.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="download (10)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\download (10)1.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="descargar (12)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\descargar (12).jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="download (5)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\download (5)1.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="download (7)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\download (7)1.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -226,8 +229,8 @@
   <data name="unnamed(1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\unnamed(1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-salida-30" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-salida-30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Captura de pantalla 2025-07-01 112345" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Captura de pantalla 2025-07-01 112345.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-menos-161" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-menos-161.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -256,8 +259,8 @@
   <data name="icons8-menos-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-menos-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Wooden table with chairs and bokhe background _ Premium AI-generated image1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Wooden table with chairs and bokhe background _ Premium AI-generated image1.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="The Diplomat of the Year Award (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\The Diplomat of the Year Award (1).jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CERRAR" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CERRAR.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -268,8 +271,11 @@
   <data name="icons8-error-50" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-error-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Gemini_Generated_Image_6y0fnb6y0fnb6y0f1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Gemini_Generated_Image_6y0fnb6y0fnb6y0f1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="download (12)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\download (12)1.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="download (8)2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\download (8)2.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MODIFICAR" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MODIFICAR.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -277,8 +283,8 @@
   <data name="Cómo el diseño floral eleva los eventos corporativos_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Cómo el diseño floral eleva los eventos corporativos_1.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="download (10)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\download (10).jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="download (11)4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\download (11)4.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="download (8)3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\download (8)3.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -289,20 +295,23 @@
   <data name="download (3)2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\download (3)2.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="download (6)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\download (6).jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="download (10)3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\download (10)3.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="download (11)2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\download (11)2.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="download (6)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\download (6).jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8-salida-30" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-salida-30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Moody Modern Accent Wall_ Wood Panels &amp; Chic Lighting2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Moody Modern Accent Wall_ Wood Panels &amp; Chic Lighting2.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="download (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\download (1).jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Captura de pantalla 2025-07-01 112345" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Captura de pantalla 2025-07-01 112345.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-usuario-masculino-en-círculo-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-usuario-masculino-en-círculo-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -322,20 +331,17 @@
   <data name="design stand design ideas (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\design stand design ideas (1).jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="The Diplomat of the Year Award (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\The Diplomat of the Year Award (1).jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Gemini_Generated_Image_6y0fnb6y0fnb6y0f (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Gemini_Generated_Image_6y0fnb6y0fnb6y0f (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="The Diplomat of the Year Award1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\The Diplomat of the Year Award1.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="elegante cena dourada diagonal brilhando com brilho de efeito de iluminação em fundo preto_ modelo de design de prêmio premium_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\elegante cena dourada diagonal brilhando com brilho de efeito de iluminação em fundo preto_ modelo de design de prêmio premium_1.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ELIMINAR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ELIMINAR.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-profile-96-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-profile-96-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Gemini_Generated_Image_6y0fnb6y0fnb6y0f (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Gemini_Generated_Image_6y0fnb6y0fnb6y0f (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="download (5)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\download (5)1.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="GUARDAR" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GUARDAR.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -352,17 +358,20 @@
   <data name="Moody Modern Accent Wall_ Wood Panels &amp; Chic Lighting" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Moody Modern Accent Wall_ Wood Panels &amp; Chic Lighting.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="download (8)2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\download (8)2.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="This stunning image, crafted with AI precision, showcasing its visual artistry_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\This stunning image, crafted with AI precision, showcasing its visual artistry_.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="download (8)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\download (8)1.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="download (11)5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\download (11)5.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="descargar (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\descargar (2).jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="download (10)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\download (10)1.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8-restaurar-abajo-161" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-restaurar-abajo-161.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="unnamed(1)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\unnamed(1)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -372,6 +381,9 @@
   </data>
   <data name="Gemini_Generated_Image_vcxq9lvcxq9lvcxq" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Gemini_Generated_Image_vcxq9lvcxq9lvcxq.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="download (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\download (2).jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Gemini_Generated_Image_6y0fnb6y0fnb6y0f" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Gemini_Generated_Image_6y0fnb6y0fnb6y0f.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -415,11 +427,11 @@
   <data name="Stage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Stage.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-menos-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-menos-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="download (10)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\download (10).jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Moody Modern Accent Wall_ Wood Panels &amp; Chic Lighting2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Moody Modern Accent Wall_ Wood Panels &amp; Chic Lighting2.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Gemini_Generated_Image_6y0fnb6y0fnb6y0f1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Gemini_Generated_Image_6y0fnb6y0fnb6y0f1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="download (3)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\download (3)1.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -433,9 +445,6 @@
   <data name="ADVERTENCIA" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ADVERTENCIA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Деревянный подиум в кофейне1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Деревянный подиум в кофейне1.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Wooden table with chairs and bokhe background _ Premium AI-generated image2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Wooden table with chairs and bokhe background _ Premium AI-generated image2.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -445,22 +454,19 @@
   <data name="Cómo el diseño floral eleva los eventos corporativos_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Cómo el diseño floral eleva los eventos corporativos_.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="elegante cena dourada diagonal brilhando com brilho de efeito de iluminação em fundo preto_ modelo de design de prêmio premium_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\elegante cena dourada diagonal brilhando com brilho de efeito de iluminação em fundo preto_ modelo de design de prêmio premium_1.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icons8-slider-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-slider-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="download (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\download (2).jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="descargar (11)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\descargar (11).jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="download (12)2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\download (12)2.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="design stand design ideas (1)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\design stand design ideas (1)1.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="download (11)4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\download (11)4.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="download (11)5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\download (11)5.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="download (11)6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\download (11)6.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

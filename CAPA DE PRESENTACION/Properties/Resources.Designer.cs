@@ -263,6 +263,16 @@ namespace CAPA_DE_PRESENTACION.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap design_stand_design_ideas__1_1 {
+            get {
+                object obj = ResourceManager.GetObject("design stand design ideas (1)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap design_stand_design_ideas1 {
             get {
                 object obj = ResourceManager.GetObject("design stand design ideas1", resourceCulture);
@@ -386,6 +396,16 @@ namespace CAPA_DE_PRESENTACION.Properties {
         internal static System.Drawing.Bitmap download__11_5 {
             get {
                 object obj = ResourceManager.GetObject("download (11)5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap download__11_6 {
+            get {
+                object obj = ResourceManager.GetObject("download (11)6", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
