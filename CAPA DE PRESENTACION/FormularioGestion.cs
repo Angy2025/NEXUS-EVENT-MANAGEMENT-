@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace CAPA_DE_PRESENTACION
 {
-    // TODO Requisito: Creación y uso de clases de forma correcta
+    // TODO Requisito: Creación y uso de clases
     public partial class FormularioGestion : Form
     {
         #region Asignar delegacion, propiedades y campos
@@ -18,7 +18,7 @@ namespace CAPA_DE_PRESENTACION
         // Instancia de la capa de negocios para gestionar la lógica de los eventos
         private readonly CN_EventosManager _eventosManager = new CN_EventosManager();
 
-        // Instancia de la clase de servicios para la lógica de estadísticas
+        // Instancia de la clase de estadisticas para la lógica de estadísticas
         private readonly EstadisticaGestion _gestionarestadistica = new EstadisticaGestion();
 
         // TODO Requisito: Uso de listas para almacenamiento temporal
@@ -50,7 +50,6 @@ namespace CAPA_DE_PRESENTACION
 
                 // Finalmente, cargamos los datos desde la base de datos
                 CargarEventos();
-
             }
             catch (Exception ex)
             {
@@ -67,7 +66,7 @@ namespace CAPA_DE_PRESENTACION
         private void DefinirColumnasDGV2()
         {
             dgv2.Columns.Clear();
-            dgv2.AutoGenerateColumns = false; // Le decimos a la tabla que no cree columnas por su cuenta
+            dgv2.AutoGenerateColumns = false; // Le decimos al dgv2 que no cree columnas por su cuenta
 
             // Creamos cada columna que queremos mostrar, enlazándola a una propiedad de la clase EventoBase
             dgv2.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "ID", DataPropertyName = "Id", Name = "Id", FillWeight = 8 });
@@ -141,7 +140,7 @@ namespace CAPA_DE_PRESENTACION
         // Permite modificar un evento al hacer doble clic en una fila
         private void dgv2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Se asegura de que el doble clic fue en una fila válida.
+            // Se asegura de que el doble clic fue en una fila válida
             if (e.RowIndex >= 0) btndeModificar_Click(sender, e);
         }
 
@@ -157,11 +156,8 @@ namespace CAPA_DE_PRESENTACION
                 // Aquí se crea la interacción entre FormularioGestion y FormularioDetalle
                 var frmDetalle = new FormularioDetalle();
 
-                // El evento FormClosed se dispara DESPUÉS de que frmDetalle se cierra
-                frmDetalle.FormClosed += (s, args) =>
-                {
-                    CargarEventos(); // Refresca la tabla para mostrar el nuevo evento
-                };
+                // Se suscribe el método 'FrmDetalle_FormClosed' al evento 'FormClosed' del formulario de detalle
+                frmDetalle.FormClosed += FrmDetalle_FormClosed;
 
                 // Usa el delegado para abrir el formulario de detalle en el panel principal
                 AbrirFormularioHijo(frmDetalle);
@@ -180,10 +176,8 @@ namespace CAPA_DE_PRESENTACION
                 var frmDetalle = new FormularioDetalle(eventoSeleccionado);
 
                 // Abrimos el mismo formulario, pero esta vez le pasamos el evento para que se cargue en modo Modificar
-                frmDetalle.FormClosed += (s, args) =>
-                {
-                    CargarEventos(); // Refresca los datos
-                };
+                // También suscribimos el mismo método para refrescar los datos al cerrar
+                frmDetalle.FormClosed += FrmDetalle_FormClosed;
 
                 AbrirFormularioHijo(frmDetalle);
             }
@@ -216,7 +210,6 @@ namespace CAPA_DE_PRESENTACION
                     _eventosManager.EliminarEvento(eventoAEliminar.Id);
                     // Refrescar la tabla para que el evento eliminado desaparezca
                     CargarEventos();
-                    // Habilitar el botón de notificar porque se realizó un cambio
                 }
                 catch (Exception ex)
                 {
@@ -224,6 +217,15 @@ namespace CAPA_DE_PRESENTACION
                 }
             }
         }
+
+        // Este es un método normal que maneja el evento 'FormClosed' del formulario de detalle
+        // Se llama cuando el usuario guarda o cancela una modificación
+        private void FrmDetalle_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // Su única responsabilidad es recargar los eventos para que la tabla se actualice
+            CargarEventos();
+        }
+
         #endregion
     }
 }

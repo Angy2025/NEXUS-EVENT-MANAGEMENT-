@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Runtime.InteropServices; // Necesario para poder arrastrar el formulario sin bordes
+using System.Runtime.InteropServices; 
 using CAPA_DE_ENTIDADES.CACHE; // Para acceder a los datos del usuario que inició sesión
 
 namespace CAPA_DE_PRESENTACION
@@ -119,61 +119,61 @@ namespace CAPA_DE_PRESENTACION
 
         #region Metodo para abrir Formularios hijos en el panel principal
 
-        // Este es el método central para la navegación. Recibe cualquier formulario que deba ser mostrado.
+        // Este es el método central para la navegación. Recibe cualquier formulario que deba ser mostrado
         private void OpenPanelHerencia(Form herenciaForm)
         {
-            // Comprueba si ya hay un formulario abierto en el panel.
+            // Comprueba si ya hay un formulario abierto en el panel
             if (activeForm != null)
-                // Si lo hay, lo cierra para limpiar el panel antes de abrir el nuevo.
+                // Si lo hay, lo cierra para limpiar el panel antes de abrir el nuevo
                 activeForm.Close();
 
-            // Guarda una referencia al nuevo formulario que se va a abrir.
+            // Guarda una referencia al nuevo formulario que se va a abrir
             activeForm = herenciaForm;
 
-            // --- Configura el formulario hijo para que se comporte como un control dentro del panel ---
-            herenciaForm.TopLevel = false; // Le quita la categoría de "ventana principal".
-            herenciaForm.FormBorderStyle = FormBorderStyle.None; // Le quita los bordes y la barra de título.
-            herenciaForm.Dock = DockStyle.Fill; // Hace que ocupe todo el espacio del panel.
+            //Configura el formulario hijo para que se comporte como un control dentro del panel 
+            herenciaForm.TopLevel = false; // Le quita la categoría de "ventana principal"
+            herenciaForm.FormBorderStyle = FormBorderStyle.None; // Le quita los bordes y la barra de título
+            herenciaForm.Dock = DockStyle.Fill; // Hace que ocupe todo el espacio del panel
 
-            // --- Agrega y muestra el formulario en el panel ---
-            PanelHerencia.Controls.Add(herenciaForm); // Lo añade a la colección de controles del panel.
-            PanelHerencia.Tag = herenciaForm; // Guarda una referencia en la propiedad Tag del panel (opcional pero útil).
-            herenciaForm.BringToFront(); // Se asegura de que se muestre por encima de cualquier otro control en el panel.
-            herenciaForm.Show(); // Muestra el formulario.
+            //Agrega y muestra el formulario en el panel
+            PanelHerencia.Controls.Add(herenciaForm); // Lo añade a la colección de controles del panel
+            PanelHerencia.Tag = herenciaForm; // Guarda una referencia en la propiedad
+            herenciaForm.BringToFront(); // Se asegura de que se muestre por encima de cualquier otro control en el panel
+            herenciaForm.Show(); // Muestra el formulario
         }
         #endregion
 
 
         #region Controles de la ventana (cerrar, restaurar, Maximizar, Minimizar)
 
-        // Botón personalizado para cerrar toda la aplicación.
+        // Botón para cerrar toda la aplicación
         private void buttonCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        // Botón personalizado para minimizar la ventana principal.
+        // Botón para minimizar la ventana principal
         private void buttonMinimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
 
-        // Botón personalizado para maximizar la ventana.
+        // Botón personalizado para maximizar la ventana
         private void button9_Click(object sender, EventArgs e) //Maximizar
         {
-            // Cambia el estado de la ventana a maximizado.
+            // Cambia el estado de la ventana a maximizado
             this.WindowState = FormWindowState.Maximized;
-            // Oculta el botón de maximizar y muestra el de restaurar para una mejor experiencia de usuario.
+            // Oculta el botón de maximizar y muestra el de restaurar para una mejor experiencia de usuario
             btnrestaurar.Visible = true;
             buttonMaximizar.Visible = false;
         }
 
-        // Botón personalizado para restaurar la ventana a su tamaño normal.
+        // Botón personalizado para restaurar la ventana a su tamaño normal
         private void btnrestaurar_Click(object sender, EventArgs e)
         {
             // Devuelve la ventana a su estado normal.
             this.WindowState = FormWindowState.Normal;
-            // Oculta el botón de restaurar y vuelve a mostrar el de maximizar.
+            // Oculta el botón de restaurar y vuelve a mostrar el de maximizar
             btnrestaurar.Visible = false;
             buttonMaximizar.Visible = true;
         }
@@ -182,26 +182,26 @@ namespace CAPA_DE_PRESENTACION
 
         #region Arrastrar el Formulario desde el panel
 
-        // --- Lógica para permitir que el usuario mueva la ventana haciendo clic y arrastrando ---
-        // Se usa porque quitamos la barra de título por defecto de Windows.
+        //Lógica para permitir que el usuario mueva la ventana haciendo clic y arrastrando
+        // Se usa porque quitamos la barra de título por defecto de Windows
 
-        // Importa una función de la API de Windows que libera la captura del mouse.
+        // Importa una función de la API de Windows que libera la captura del mouse
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private static extern void ReleaseCapture();
 
-        // Importa una función que envía un mensaje a la ventana, en este caso, para decirle que se mueva.
+        // Importa una función que envía un mensaje a la ventana, en este caso, para decirle que se mueva
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private static extern void SendMessage(IntPtr hWnd, int wMsg, int wParam, int lParam);
 
-        // Se ejecuta cuando el usuario presiona el botón del mouse sobre el panel del título.
+        // Se ejecuta cuando el usuario presiona el botón del mouse sobre el panel del título
         private void panelTitulo_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture(); // Libera el mouse.
-            // Envía un mensaje a Windows para que empiece a mover la ventana.
+            // Envía un mensaje a Windows para que empiece a mover la ventana
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        // También permite arrastrar desde el panel principal donde se muestran los formularios.
+        // También permite arrastrar desde el panel principal donde se muestran los formularios
         private void PanelHerencia_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
@@ -213,7 +213,7 @@ namespace CAPA_DE_PRESENTACION
         #region Eventos vacios, xd
 
         // Estos métodos son generados por el diseñador al hacer doble clic en un control,
-        // pero no tienen ninguna lógica asignada. Se pueden dejar así o eliminar si no se usan.
+        // pero no tienen ninguna lógica asignada. Se pueden dejar así o eliminar si no se usan
         private void label1_Click(object sender, EventArgs e) { }
         private void PanelMenuLateral_Paint(object sender, PaintEventArgs e) { }
         private void PBuser_Click(object sender, EventArgs e) { }
