@@ -37,17 +37,19 @@ namespace CAPA_DE_PRESENTACION
 
         private void FormularioDetalle_Load(object sender, EventArgs e)
         {
-            // Establece la fecha mínima seleccionable en el calendario al día de hoy, cada vez que el formulario se carga
-            dateTimePicker.MinDate = DateTime.Today;
 
-
+            // Primero, configuramos los controles que no dependen de los datos, como el ComboBox
             ConfigurarComboBox();
 
-            // Si estamos en modo "Modificar", llena los campos con los datos del evento
+            // Si estamos en modo "Modificar", cargamos los datos del evento
             if (_eventoAEditar != null)
             {
                 CargarDatos();
             }
+
+            // Finalmente, establecemos la fecha mínima permitida para la selección del usuario
+            // Esto se hace al final para no entrar en conflicto con la carga de fechas pasadas
+            dateTimePicker.MinDate = DateTime.Today;
         }
         #endregion
 
@@ -59,10 +61,17 @@ namespace CAPA_DE_PRESENTACION
         #region Metodos de Configuración
         private void CargarDatos()
         {
-            // Asignamos los datos del objeto a los controles del formulario
             textName.Text = _eventoAEditar.Nombre;
             textPlace.Text = _eventoAEditar.Lugar;
-            dateTimePicker.Value = _eventoAEditar.FechaHora; // Combinamos la fecha y la hora para establecer correctamente el DateTimePicker
+
+            // Primero, verificamos si la fecha del evento a editar es anterior a la fecha mínima actual del control
+            if (_eventoAEditar.FechaHora < dateTimePicker.MinDate)
+            {
+                // Si lo es, temporalmente ajustamos la fecha mínima del control para permitir que se asigne el valor antiguo
+                dateTimePicker.MinDate = _eventoAEditar.FechaHora;
+            }
+            // Ahora que es seguro hacerlo, asignamos el valor
+            dateTimePicker.Value = _eventoAEditar.FechaHora;
             CBType.SelectedItem = _eventoAEditar.Categoria;
             numericUpDown1.Value = _eventoAEditar.Capacidad;
         }
